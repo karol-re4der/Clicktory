@@ -10,6 +10,9 @@ public class CameraHandler : MonoBehaviour
 
     private Vector3 dragPivot;
 
+    public float maxCameraSize;
+    public float minCameraSize;
+
     void Start()
     {
         
@@ -40,6 +43,14 @@ public class CameraHandler : MonoBehaviour
                             float b = Vector2.Distance(Input.touches[0].position + Input.touches[0].deltaPosition, Input.touches[1].position + Input.touches[1].deltaPosition);
                             float delta = a / b;
                             Camera.main.orthographicSize *= delta;
+                            if (Camera.main.orthographicSize > maxCameraSize)
+                            {
+                                Camera.main.orthographicSize = maxCameraSize;
+                            }
+                            else if(Camera.main.orthographicSize < minCameraSize)
+                            {
+                                Camera.main.orthographicSize = minCameraSize;
+                            }
                         }
                     }
                     else if (Input.touches.Length == 1)
@@ -54,11 +65,12 @@ public class CameraHandler : MonoBehaviour
                         }
                     }
                 }
+                FixBounds();
             }
         }
         else
         {
-            transform.Translate(Vector3.right*Input.GetAxis("Horizontal")*10*Time.deltaTime + Vector3.up*Input.GetAxis("Vertical")*10*Time.deltaTime);
+            transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * 10 * Time.deltaTime + Vector3.up * Input.GetAxis("Vertical") * 10 * Time.deltaTime);
             if (Input.GetKeyDown(KeyCode.KeypadMinus))
             {
                 Camera.main.orthographicSize *= 1.05f;
@@ -74,6 +86,7 @@ public class CameraHandler : MonoBehaviour
                     Camera.main.orthographicSize -= Input.mouseScrollDelta.y;
                 }
             }
+            FixBounds();
         }
     }
 
@@ -88,5 +101,29 @@ public class CameraHandler : MonoBehaviour
         currentPos = Camera.main.ScreenToWorldPoint(currentPos);
         Vector3 offset = dragPivot - currentPos;
         transform.position = transform.position + offset;
+    }
+    private void FixBounds()
+    {
+        float xMaxBound = Globals.GetSave().GetGrid()[Globals.GetSave().GetGrid().GetLength(0)-1, 2].transform.position.x;
+        float xMinBound = Globals.GetSave().GetGrid()[0, 2].transform.position.x;
+        float yMaxBound = Globals.GetSave().GetGrid()[0, Globals.GetSave().GetGrid().GetLength(1) - 1].transform.position.y;
+        float yMinBound = Globals.GetSave().GetGrid()[0, 1].transform.position.y;
+
+        if (transform.position.x < xMinBound)
+        {
+            transform.position = new Vector3(xMinBound, transform.position.y, transform.position.z);
+        }
+        else if(transform.position.x > xMaxBound)
+        {
+            transform.position = new Vector3(xMaxBound, transform.position.y, transform.position.z);
+        }
+        if (transform.position.y < yMinBound)
+        {
+            transform.position = new Vector3(transform.position.x, yMinBound, transform.position.z);
+        }
+        else if (transform.position.y > yMaxBound)
+        {
+            transform.position = new Vector3(transform.position.x, yMaxBound, transform.position.z);
+        }
     }
 }

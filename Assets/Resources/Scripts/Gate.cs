@@ -24,8 +24,13 @@ public class Gate : MonoBehaviour
         {
             if (GetComponent<MachinePart>().tile.links[(direction + owner.rotation) % 4].machine != null)
             {
+                List<Gate> candidates;
+
                 //omg so many things are wrong with this one line of code 
-                gate = GetComponent<MachinePart>().tile.links[(direction + owner.rotation) % 4].machine.GetComponent<Machine>().GetGates().Where((x) => x.outputing != outputing).Where((x) => (x.direction+x.owner.rotation)%4 == (direction +owner.rotation + 2) % 4).ElementAt(0);
+                //gate = GetComponent<MachinePart>().tile.links[(direction + owner.rotation) % 4].machine.GetComponent<Machine>().GetGates().Where((x) => x.outputing != outputing).Where((x) => (x.direction+x.owner.rotation)%4 == (direction +owner.rotation + 2) % 4).ElementAt(0);
+
+                candidates = GetComponent<MachinePart>().tile.links[DirectionRotated()].machine.GetComponent<Machine>().parts.Find((x) => x.GetComponent<MachinePart>().tile == GetComponent<MachinePart>().tile.links[DirectionRotated()]).GetComponents<Gate>().ToList();
+                gate = candidates.Find((x) => x.outputing != outputing && ((x.direction + x.owner.rotation) % 4) == ((direction + owner.rotation + 2) % 4));
             }
         }
 

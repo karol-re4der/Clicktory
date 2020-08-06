@@ -14,7 +14,10 @@ public class Logic : MonoBehaviour
         //Load starting world state
         save = new SaveFile();
         GetComponent<Builder>().SetStartingState();
-        save.Load();
+        if (!save.Load())
+        {
+            GetComponent<Builder>().GenerateDeposits();
+        }
         if (save.saveData!=null && save.saveData.Count()>0)
         {
             save.Restore();

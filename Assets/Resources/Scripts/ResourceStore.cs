@@ -1,10 +1,14 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 
+[System.Serializable]
 public class ResourceStore
 {
+    [System.Serializable]
     public class Res
     {
         public string type;
@@ -16,7 +20,7 @@ public class ResourceStore
             amount = 0;
         }
     }
-
+    [SerializeField]
     public List<Res> res;
 
     public ResourceStore()
@@ -41,6 +45,14 @@ public class ResourceStore
         NewRes(type);
         res.Find((x) => x.type.Equals(type)).amount -= amount;
 
+    }
+    public void Reset()
+    {
+        foreach(Transform trans in GameObject.Find("Canvas/Top Bar/Resources/").transform)
+        {
+            GameObject.Destroy(trans.gameObject);
+        }
+        res.Clear();
     }
     public int GetRes(string type)
     {

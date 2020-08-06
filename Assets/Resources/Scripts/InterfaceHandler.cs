@@ -174,6 +174,7 @@ public class InterfaceHandler : MonoBehaviour
         if(frame.transform.Find("Final Text").gameObject.activeSelf)
         {
             Globals.GetLogic().GetComponent<Builder>().Reset();
+            Globals.GetLogic().GetComponent<Builder>().GenerateDeposits();
             Button_Menu();
         }
         else if (frame.transform.Find("Confirmation Text").gameObject.activeSelf)

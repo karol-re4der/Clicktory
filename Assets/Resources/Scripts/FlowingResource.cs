@@ -29,10 +29,10 @@ public class FlowingResource : MonoBehaviour
         switch (type)
         {
 
-            case "coal":
+            case "Coal":
                 i = 1;
                 break;
-            case "iron":
+            case "Iron":
                 i = 2;
                 break;
         }
@@ -87,7 +87,7 @@ public class FlowingResource : MonoBehaviour
             CancelInvoke();
             if (isFinal)
             {
-                Store();
+                Dispose();
             }
         }
     }

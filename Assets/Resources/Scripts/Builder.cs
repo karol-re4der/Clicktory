@@ -11,8 +11,9 @@ public class Builder : MonoBehaviour
     public int worldSize = 100;
     public float gridShiftX = 78f / 79f;
     public float gridShiftY = 19f / 79f;
-    public int deposits = 10;
     public int depositSize = 4;
+    public int deposits_coal = 3;
+    public int deposits_ore = 7;
 
     public void BuildFromSelection(Tile tile)
     {
@@ -22,6 +23,14 @@ public class Builder : MonoBehaviour
             {
                 tile.NewMachine(selection.GetComponent<ToggleGroup>().ActiveToggles().ElementAt(0).gameObject.name, Globals.GetInterface().rotation);
             }
+        }
+    }
+
+    public void OverlayFromSelection(Tile tile)
+    {
+        if (selection.GetComponent<ToggleGroup>().ActiveToggles().Count() > 0)
+        {
+            tile.Highlight(selection.GetComponent<ToggleGroup>().ActiveToggles().ElementAt(0).gameObject.name, Globals.GetInterface().rotation);
         }
     }
 
@@ -46,7 +55,7 @@ public class Builder : MonoBehaviour
     {
         foreach(GameObject o in GameObject.FindGameObjectsWithTag("Resource"))
         {
-            o.GetComponent<FlowingResource>().Store();
+            o.GetComponent<FlowingResource>().Dispose();
         }
         for(int x = 0; x< Globals.GetSave().GetGrid().GetLength(0); x++)
         {
@@ -56,6 +65,7 @@ public class Builder : MonoBehaviour
             }
         }
         Globals.GetSave().GetGrid() = null;
+        Globals.GetSave().GetResources().Reset();
         SetStartingState();
     }
 
@@ -82,23 +92,6 @@ public class Builder : MonoBehaviour
             }
         }
 
-        //Globals.GetLogic().grid[5, 10].GetComponent<Tile>().NewMachine("Output", Globals.GetLogic().grid[5, 10], 1);
-        //grid[5, 9].GetComponent<Tile>().NewMachine("Conveyor", grid[5, 9], 1);
-        //grid[6, 8].GetComponent<Tile>().NewMachine("Spliter", grid[6, 8], 0);
-
-        //grid[5, 7].GetComponent<Tile>().NewMachine("Clockwise Corner", grid[5, 7], 1);
-        //grid[6, 9].GetComponent<Tile>().NewMachine("Counterclockwise Corner", grid[6, 9], 1);
-
-        //grid[7, 8].GetComponent<Tile>().NewMachine("Conveyor", grid[7, 8], 1);
-        //grid[6, 6].GetComponent<Tile>().NewMachine("Upgrader", grid[6, 6], 1);
-
-        //grid[6, 5].GetComponent<Tile>().NewMachine("Clockwise Corner", grid[6, 5], 0);
-        //grid[7, 7].GetComponent<Tile>().NewMachine("Counterclockwise Corner", grid[7, 7], 2);
-
-        //grid[7, 6].GetComponent<Tile>().NewMachine("Merger", grid[7, 6], 1);
-        //grid[7, 5].GetComponent<Tile>().NewMachine("Conveyor", grid[7, 5], 1);
-        //Globals.GetLogic().grid[8, 4].GetComponent<Tile>().NewMachine("Input", Globals.GetLogic().grid[8, 4], 1);
-
         //link tiles
         for (int x = 0; x < Globals.GetSave().GetGrid().GetLength(0); x++)
         {
@@ -111,23 +104,36 @@ public class Builder : MonoBehaviour
             }
         }
 
-        GenerateDeposits();
     }
 
     public void GenerateDeposits()
     {
+        int deposits = deposits_coal + deposits_ore;
+        int ores = 0;
+        int coals = 0;
         for (int i = 0; i < deposits; i++) {
             int x = (int)(Random.Range(0, 1f) * (Globals.GetSave().GetGrid().GetLength(0) - 2) + 1);
             int y = (int)(Random.Range(0, 1f) * (Globals.GetSave().GetGrid().GetLength(1) - 2) + 1);
 
-            for(int xx = 0; xx<depositSize; xx++)
+            string newDeposit = "";
+            if (ores < deposits_ore)
+            {
+                newDeposit = "Ore";
+                ores++;
+            }
+            else
+            {
+                newDeposit = "Coal";
+                coals++;
+            }
+
+            for (int xx = 0; xx<depositSize; xx++)
             {
                 for(int yy = 0; yy<depositSize; yy++)
                 {
                     if (x + xx < Globals.GetSave().GetGrid().GetLength(0) && y + yy < Globals.GetSave().GetGrid().GetLength(1) && Globals.GetSave().GetGrid()[x + xx, y + yy].GetComponent<Tile>())
                     {
-                        Globals.GetSave().GetGrid()[x + xx, y + yy].GetComponent<Tile>().type = "Stone";
-                        Globals.GetSave().GetGrid()[x + xx, y + yy].GetComponent<Tile>().RefreshSprite();
+                        Globals.GetSave().GetGrid()[x + xx, y + yy].GetComponent<Tile>().NewDeposit(newDeposit);
                     }
                 }
             }

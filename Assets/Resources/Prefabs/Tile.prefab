@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   machine: {fileID: 0}
   type: Grass
+  deposit: 
   x: 0
   y: 0
   links: []

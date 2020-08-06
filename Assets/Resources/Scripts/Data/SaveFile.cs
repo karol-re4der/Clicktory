@@ -16,12 +16,14 @@ public class SaveFile
         public int posX;
         public int posY;
         public int rotation;
-        public string content;
+        public string content = "";
+        public string deposit = "";
     }
 
     private GameObject[,] grid;
-    private ResourceStore res;
 
+    [SerializeField]
+    private ResourceStore res;
     [SerializeField]
     public List<TileData> saveData;
 
@@ -33,9 +35,9 @@ public class SaveFile
     {
         return ref grid;
     }
-    public ResourceStore GetResources()
+    public ref ResourceStore GetResources()
     {
-        return res;
+        return ref res;
     }
 
     public SaveFile()
@@ -47,21 +49,33 @@ public class SaveFile
     public void PrepareForSaving()
     {
         saveData = new List<TileData>();
-        for(int x = 0; x<grid.GetLength(0); x++)
+        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Machine"))
         {
-            for(int y = 0; y<grid.GetLength(1); y++)
+            TileData newTile = new TileData();
+            newTile.posX = obj.GetComponent<Machine>().parts[0].GetComponent<MachinePart>().tile.x;
+            newTile.posY = obj.GetComponent<Machine>().parts[0].GetComponent<MachinePart>().tile.y;
+            newTile.rotation = obj.GetComponent<Machine>().rotation;
+            newTile.content = obj.GetComponent<Machine>().type;
+            saveData.Add(newTile);
+        }
+
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Deposit"))
+        {
+            TileData tile = saveData.Find((x) => x.posX == obj.GetComponent<Tile>().x && x.posY == obj.GetComponent<Tile>().y);
+            if (tile != null)
             {
-                if (grid[x, y].GetComponent<Tile>() && grid[x, y].GetComponent<Tile>().machine)
-                {
-                    TileData newTile = new TileData();
-                    newTile.posX = x;
-                    newTile.posY = y;
-                    newTile.rotation = grid[x, y].GetComponent<Tile>().machine.GetComponent<Machine>().rotation;
-                    newTile.content = grid[x, y].GetComponent<Tile>().machine.GetComponent<Machine>().type;
-                    saveData.Add(newTile);
-                }
+                tile.deposit = obj.GetComponent<Tile>().deposit;
+            }
+            else
+            {
+                TileData newTile = new TileData();
+                newTile.posX = obj.GetComponent<Tile>().x;
+                newTile.posY = obj.GetComponent<Tile>().y;
+                newTile.deposit = obj.GetComponent<Tile>().deposit;
+                saveData.Add(newTile);
             }
         }
+
     }
 
     public void Restore()
@@ -70,7 +84,15 @@ public class SaveFile
         {
             foreach (TileData td in saveData)
             {
-                grid[td.posX, td.posY].GetComponent<Tile>().NewMachine(td.content, td.rotation);
+                if (td.deposit.Length>0)
+                {
+                    grid[td.posX, td.posY].GetComponent<Tile>().NewDeposit(td.deposit);
+
+                }
+                if (td.content.Length > 0)
+                {
+                    grid[td.posX, td.posY].GetComponent<Tile>().NewMachine(td.content, td.rotation);
+                }
             }
         }
         saveData = null;
@@ -82,14 +104,12 @@ public class SaveFile
         try
         {
             Directory.CreateDirectory(locationPath);
-            //MapTools.GetSave().Prepare();
             string saveAsJson = JsonUtility.ToJson(this);
             if (saveAsJson.Length == 0)
             {
                 return;
             }
 
-            //Debug.Log(saveAsJson);
             FileStream file;
 
             file = File.Create(locationPath + saveName + saveExtension);
@@ -106,7 +126,7 @@ public class SaveFile
         }
     }
 
-    public void Load()
+    public bool Load()
     {
         if (File.Exists(locationPath+saveName+saveExtension))
         {
@@ -116,16 +136,19 @@ public class SaveFile
                 SaveFile save = JsonUtility.FromJson<SaveFile>(reader.ReadToEnd());
                 reader.Close();
                 saveData = save.saveData;
+                res = save.res;
             }
             catch (Exception e)
             {
                 Debug.Log(e.Message);
+                return false;
             }
             finally
             {
                 reader.Close();
             }
+            return true;
         }
-        else return;
+        else return false;
     }
 }

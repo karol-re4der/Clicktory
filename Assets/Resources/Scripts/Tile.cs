@@ -8,10 +8,14 @@ public class Tile : MonoBehaviour
     public GameObject machine;
     private GameObject trinket;
     public string type = "Grass";
+    public string deposit = "";
     public int x = 0;
     public int y = 0;
 
     public Tile[] links;
+
+    private Vector2 touchPosition;
+    private float highlight = 0;
 
     void Update()
     {
@@ -41,7 +45,22 @@ public class Tile : MonoBehaviour
             if (Random.Range(0, 1f) > 0.33f)
             {
                 trinket = Instantiate(Resources.Load("Prefabs/Trinket") as GameObject, transform);
-                Sprite[] sprites = Resources.LoadAll<Sprite>("Textures/Tiles/Trinkets_"+type+"_Spritesheet");
+                Sprite[] sprites;
+                if (type.Equals("Stone"))
+                {
+                    if (deposit.Equals("Coal"))
+                    {
+                        sprites = Resources.LoadAll<Sprite>("Textures/Tiles/Trinkets_Coal_Spritesheet");
+                    }
+                    else
+                    {
+                        sprites = Resources.LoadAll<Sprite>("Textures/Tiles/Trinkets_Stone_Spritesheet");
+                    }
+                }
+                else
+                {
+                    sprites = Resources.LoadAll<Sprite>("Textures/Tiles/Trinkets_" + type + "_Spritesheet");
+                }
                 trinket.GetComponent<SpriteRenderer>().sprite = sprites[(int)(Random.Range(0, 1f) * sprites.Length)];
 
                 trinket.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
@@ -91,6 +110,14 @@ public class Tile : MonoBehaviour
         return true;
     }
 
+    public void NewDeposit(string depoType)
+    {
+        tag = "Deposit";
+        type = "Stone";
+        deposit = depoType;
+        RefreshSprite();
+    }
+
     public void NewMachine(string type, int rotation)
     {
         GameObject template = Resources.Load("Prefabs/Machines/" + type) as GameObject;
@@ -125,7 +152,7 @@ public class Tile : MonoBehaviour
     {
         if (machine && machine.GetComponent<Machine>().removable)
         {
-            foreach (Gate gate in machine.GetComponents<Gate>())
+            foreach (Gate gate in machine.GetComponent<Machine>().GetGates())
             {
                 if (gate.res)
                 {
@@ -182,19 +209,128 @@ public class Tile : MonoBehaviour
             {
                 if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
                 {
-                    GameObject.Find("Map").GetComponent<Builder>().BuildFromSelection(this);
+                    if (touchPosition == Input.touches[0].position)
+                    {
+                        GameObject.Find("Map").GetComponent<Builder>().BuildFromSelection(this);
+                    }
                 }
                 else if (Application.isEditor)
                 {
-                    GameObject.Find("Map").GetComponent<Builder>().BuildFromSelection(this);
+                    if (touchPosition == (Vector2)Input.mousePosition)
+                    {
+                        GameObject.Find("Map").GetComponent<Builder>().BuildFromSelection(this);
+                    }
+                }
+            }
+        }
+
+        ClearTrinket();
+    }
+
+    public void OnMouseDown()
+    {
+        bool foo = false;
+
+        if (!Application.isEditor)
+        {
+            foo = !EventSystem.current.IsPointerOverGameObject(0);
+        }
+        else
+        {
+            foo = !EventSystem.current.IsPointerOverGameObject();
+        }
+
+        if (foo)
+        {
+            if (Application.isEditor)
+            {
+                touchPosition = Input.mousePosition;
+            }
+            else
+            {
+                touchPosition = Input.touches[0].position;
+
+            }
+            if (Globals.GetInterface().IsDemolishing())
+            {
+                //if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
+                //{
+                //    GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(this);
+                //}
+                //else if (Application.isEditor)
+                //{
+                //    GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(this);
+                //}
+            }
+            else
+            {
+                if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
+                {
+                    GameObject.Find("Map").GetComponent<Builder>().OverlayFromSelection(this);
+                }
+                else if (Application.isEditor)
+                {
+                    GameObject.Find("Map").GetComponent<Builder>().OverlayFromSelection(this);
                 }
             }
         }
     }
 
-    public void OnMouseDown()
+    private void HighlightInvokeFunction()
     {
-        ClearTrinket();
+        GetComponent<SpriteRenderer>().color = Color.white;
+        if (machine)
+        {
+            machine.GetComponent<Machine>().parts.Find((x) => x.GetComponent<MachinePart>().tile == this).GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        if (trinket)
+        {
+            trinket.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+    }
+    public void Highlight(Color color)
+    {
+        GetComponent<SpriteRenderer>().color = color;
+        if (machine)
+        {
+            machine.GetComponent<Machine>().parts.Find((x) => x.GetComponent<MachinePart>().tile == this).GetComponent<SpriteRenderer>().color = color;
+        }
+        if (trinket)
+        {
+            trinket.GetComponent<SpriteRenderer>().color = color;
+        }
+        CancelInvoke();
+        InvokeRepeating("HighlightInvokeFunction", 1f, 1f);
+    }
+    public void Highlight(string type, int rotation)
+    {
+        GameObject template = Resources.Load("Prefabs/Machines/" + type) as GameObject;
+        for (int x = 0; x < template.GetComponent<Machine>().sizeX; x++)
+        {
+            for (int y = 0; y < template.GetComponent<Machine>().sizeY; y++)
+            {
+                Tile newTile = this;
+                for (int xx = 0; xx < x; xx++)
+                {
+                    newTile = newTile.links[rotation];
+                }
+                for (int yy = 0; yy < y; yy++)
+                {
+                    newTile = newTile.links[(rotation + 1) % 4];
+                }
+                if (newTile)
+                {
+                    if (newTile.IsSpaceAvailable())
+                    {
+                        newTile.Highlight(Color.green);
+                    }
+                    else
+                    {
+                        newTile.Highlight(Color.red);
+                    }
+                }
+            }
+        }
     }
 
     public void LinkUp()
