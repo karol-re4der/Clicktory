@@ -980,7 +980,7 @@ PrefabInstance:
     - target: {fileID: 1146757638991544893, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1146757638991544893, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
@@ -1000,12 +1000,12 @@ PrefabInstance:
     - target: {fileID: 1146757638991544893, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
       propertyPath: m_text
-      value: Upgrader
+      value: Furnace
       objectReference: {fileID: 0}
     - target: {fileID: 1146757638991544893, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
       propertyPath: m_fontSize
-      value: 45.35
+      value: 51.5
       objectReference: {fileID: 0}
     - target: {fileID: 1146757639026522386, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
@@ -1016,7 +1016,7 @@ PrefabInstance:
     - target: {fileID: 1146757639141411733, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
       propertyPath: m_Name
-      value: Upgrader
+      value: Furnace
       objectReference: {fileID: 0}
     - target: {fileID: 1146757639544534756, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
@@ -3481,8 +3481,9 @@ MonoBehaviour:
   worldSize: 25
   gridShiftX: 0.98734176
   gridShiftY: 0.24050634
-  deposits: 10
   depositSize: 4
+  deposits_coal: 3
+  deposits_ore: 7
 --- !u!1001 &1199053224
 PrefabInstance:
   m_ObjectHideFlags: 0

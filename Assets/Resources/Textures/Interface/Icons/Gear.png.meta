@@ -1,19 +1,7 @@
 fileFormatVersion: 2
-guid: dbe512e31435b074c9fcb998ef72b6f7
+guid: d150e649de7057d4baa3dcc4bcd9a63b
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -593723578480911985
-    second: Excavator_Icon_Spritesheet_0
-  - first:
-      213: 3854192485140834039
-    second: Excavator_Icon_Spritesheet_1
-  - first:
-      213: -6900742595382199662
-    second: Excavator_Icon_Spritesheet_2
-  - first:
-      213: -6282264969151032488
-    second: Excavator_Icon_Spritesheet_3
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -52,12 +40,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 0
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 157
+  spritePixelsToUnits: 79
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -120,91 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Excavator_Icon_Spritesheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 157
-        width: 157
-        height: 157
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f891fd11d8ba2c7f0800000000000000
-      internalID: -593723578480911985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Excavator_Icon_Spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 157
-        width: 157
-        height: 157
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f6acc415a7dc7530800000000000000
-      internalID: 3854192485140834039
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Excavator_Icon_Spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 157
-        height: 157
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29a36d3db23ab30a0800000000000000
-      internalID: -6900742595382199662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Excavator_Icon_Spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 0
-        width: 157
-        height: 157
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8535fd0ab49e0d8a0800000000000000
-      internalID: -6282264969151032488
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []

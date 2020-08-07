@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: dbe512e31435b074c9fcb998ef72b6f7
+guid: f7d8e26b6d03ae545a5d103700202fdd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -593723578480911985
-    second: Excavator_Icon_Spritesheet_0
+      213: -8154025248841763650
+    second: Furnace_Icon_Spritesheet_0
   - first:
-      213: 3854192485140834039
-    second: Excavator_Icon_Spritesheet_1
+      213: -8553984140462794236
+    second: Furnace_Icon_Spritesheet_1
   - first:
-      213: -6900742595382199662
-    second: Excavator_Icon_Spritesheet_2
+      213: -7807125471387570571
+    second: Furnace_Icon_Spritesheet_2
   - first:
-      213: -6282264969151032488
-    second: Excavator_Icon_Spritesheet_3
+      213: -3576479908887676209
+    second: Furnace_Icon_Spritesheet_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Excavator_Icon_Spritesheet_0
+      name: Furnace_Icon_Spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -136,14 +136,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f891fd11d8ba2c7f0800000000000000
-      internalID: -593723578480911985
+      spriteID: eb47831fc3517de80800000000000000
+      internalID: -8154025248841763650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Excavator_Icon_Spritesheet_1
+      name: Furnace_Icon_Spritesheet_1
       rect:
         serializedVersion: 2
         x: 157
@@ -157,14 +157,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f6acc415a7dc7530800000000000000
-      internalID: 3854192485140834039
+      spriteID: 40ad365ceb42a4980800000000000000
+      internalID: -8553984140462794236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Excavator_Icon_Spritesheet_2
+      name: Furnace_Icon_Spritesheet_2
       rect:
         serializedVersion: 2
         x: 0
@@ -178,14 +178,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29a36d3db23ab30a0800000000000000
-      internalID: -6900742595382199662
+      spriteID: 57e2a096fb487a390800000000000000
+      internalID: -7807125471387570571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Excavator_Icon_Spritesheet_3
+      name: Furnace_Icon_Spritesheet_3
       rect:
         serializedVersion: 2
         x: 157
@@ -199,8 +199,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8535fd0ab49e0d8a0800000000000000
-      internalID: -6282264969151032488
+      spriteID: fcabd6cc87acd5ec0800000000000000
+      internalID: -3576479908887676209
       vertices: []
       indices: 
       edges: []

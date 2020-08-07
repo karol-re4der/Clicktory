@@ -33,6 +33,17 @@ public class InterfaceHandler : MonoBehaviour
             {
                 GameObject newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, frame);
                 newRes.name = res.type;
+                int spriteNumber = 0;
+                switch (res.type)
+                {
+                    case "Coal":
+                        spriteNumber = 1;
+                        break;
+                    case "Iron":
+                        spriteNumber = 2;
+                        break;
+                }
+                newRes.transform.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Textures/Resources/Resource_Spritesheet/")[spriteNumber];
             }
         }
     }
