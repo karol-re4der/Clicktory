@@ -198,6 +198,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc968b2349b8c8d428827803bd1e8f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  editor_buildingCostKey: []
+  editor_buildingCostValue: 
+  buildingLimit: 10
   owners: []
   store: {fileID: 0}
   rotation: 0
@@ -212,6 +215,7 @@ MonoBehaviour:
   - {fileID: 5313558998562880457}
   - {fileID: 164481589090289635}
   turnedOff: 0
+  deposit: []
 --- !u!1 &5313558998562880457
 GameObject:
   m_ObjectHideFlags: 0

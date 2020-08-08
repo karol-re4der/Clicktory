@@ -118,34 +118,45 @@ public class Tile : MonoBehaviour
         RefreshSprite();
     }
 
-    public void NewMachine(string type, int rotation)
+    public void NewMachine(string type, int rotation, bool restoring = false)
     {
         GameObject template = Resources.Load("Prefabs/Machines/" + type) as GameObject;
 
         if (IsSpaceAvailable(template, rotation))
         {
-            machine = GameObject.Instantiate(template, GameObject.Find("Map/Machines").transform);
-            machine.transform.position = transform.position;
-
-            List<Tile> newOwners = new List<Tile>();
-            for(int x = 0; x<machine.GetComponent<Machine>().sizeX; x++)
+            if (restoring || Globals.GetSave().GetResources().CanAfford(template.GetComponent<Machine>().GetBuildingCost()))
             {
-                for(int y = 0; y<machine.GetComponent<Machine>().sizeY; y++)
-                {
-                    Tile newTile = this;
-                    for (int xx = 0; xx < x; xx++)
+                if (restoring || template.GetComponent<Machine>().GetRemainingBuildingLimit()>0)
+                { 
+                    if (!restoring)
                     {
-                        newTile = newTile.links[rotation];
+                        Globals.GetSave().GetResources().RemoveRes(template.GetComponent<Machine>().GetBuildingCost());
                     }
-                    for (int yy = 0; yy < y; yy++)
+
+                    machine = GameObject.Instantiate(template, GameObject.Find("Map/Machines").transform);
+                    machine.transform.position = transform.position;
+
+                    List<Tile> newOwners = new List<Tile>();
+                    for (int x = 0; x < machine.GetComponent<Machine>().sizeX; x++)
                     {
-                        newTile = newTile.links[(rotation+1)%4];
+                        for (int y = 0; y < machine.GetComponent<Machine>().sizeY; y++)
+                        {
+                            Tile newTile = this;
+                            for (int xx = 0; xx < x; xx++)
+                            {
+                                newTile = newTile.links[rotation];
+                            }
+                            for (int yy = 0; yy < y; yy++)
+                            {
+                                newTile = newTile.links[(rotation + 1) % 4];
+                            }
+                            newOwners.Add(newTile);
+                        }
                     }
-                    newOwners.Add(newTile);
+
+                    machine.GetComponent<Machine>().Initiate(newOwners, rotation);
                 }
             }
-
-            machine.GetComponent<Machine>().Initiate(newOwners, rotation);
         }
     }
     public void RemoveMachine()
@@ -182,6 +193,7 @@ public class Tile : MonoBehaviour
     public void OnMouseUp()
     {
         bool foo = false;
+        Globals.GetInterface().activeMachine = null;
 
         if (!Application.isEditor)
         {
@@ -223,8 +235,6 @@ public class Tile : MonoBehaviour
                 }
             }
         }
-
-        ClearTrinket();
     }
 
     public void OnMouseDown()
@@ -253,24 +263,27 @@ public class Tile : MonoBehaviour
             }
             if (Globals.GetInterface().IsDemolishing())
             {
-                //if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
-                //{
-                //    GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(this);
-                //}
-                //else if (Application.isEditor)
-                //{
-                //    GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(this);
-                //}
+
             }
             else
             {
-                if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
+                if (GameObject.Find("Canvas/Bottom Bar/Tapbar"))
                 {
-                    GameObject.Find("Map").GetComponent<Builder>().OverlayFromSelection(this);
+                    if (deposit.Length > 0)
+                    {
+                        GameObject.Instantiate(Resources.Load("UI/Floater") as GameObject, GameObject.Find("Canvas/Floaters").transform).GetComponent<Floater>().Launch(transform.position, deposit, 1);
+                    }
                 }
-                else if (Application.isEditor)
+                else
                 {
-                    GameObject.Find("Map").GetComponent<Builder>().OverlayFromSelection(this);
+                    if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
+                    {
+                        GameObject.Find("Map").GetComponent<Builder>().OverlayFromSelection(this);
+                    }
+                    else if (Application.isEditor)
+                    {
+                        GameObject.Find("Map").GetComponent<Builder>().OverlayFromSelection(this);
+                    }
                 }
             }
         }

@@ -28,6 +28,26 @@ public class ResourceStore
         res = new List<Res>();
     }
 
+    public bool CanAfford(List<KeyValuePair<string, int>> cost)
+    {
+        foreach (KeyValuePair<string, int> pair in cost)
+        {
+            if (!CanAfford(pair.Key, pair.Value))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public bool CanAfford(string costType, int costValue)
+    {
+        if (PlayerPrefs.GetInt("Godmode", 0) == 1)
+        {
+            return true;
+        }
+        return costValue < GetRes(costType);
+    }
+
     public void NewRes(string type)
     {
         if (res.Where((x) => x.type.Equals(type)).Count()==0)
@@ -43,8 +63,18 @@ public class ResourceStore
     public void RemoveRes(string type, int amount)
     {
         NewRes(type);
-        res.Find((x) => x.type.Equals(type)).amount -= amount;
 
+        if (PlayerPrefs.GetInt("Godmode", 0) == 0)
+        {
+            res.Find((x) => x.type.Equals(type)).amount -= amount;
+        }
+    }
+    public void RemoveRes(List<KeyValuePair<string, int>> toRemove)
+    {
+        foreach (KeyValuePair<string, int> pair in toRemove)
+        {
+            RemoveRes(pair.Key, pair.Value);
+        }
     }
     public void Reset()
     {

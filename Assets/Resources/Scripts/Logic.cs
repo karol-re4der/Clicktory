@@ -22,6 +22,15 @@ public class Logic : MonoBehaviour
         {
             save.Restore();
         }
+
+        if (GameObject.FindGameObjectsWithTag("Machine").ToList().Find((x)=>x.GetComponent<Machine>().type.Equals("Storage")))
+        {
+            Camera.main.GetComponent<CameraHandler>().CenterCamera(GameObject.FindGameObjectsWithTag("Machine").ToList().Find((x) => x.GetComponent<Machine>().type.Equals("Storage")).GetComponent<Machine>().GetCenterPoint());
+        }
+        else
+        {
+            Camera.main.GetComponent<CameraHandler>().CenterCamera(save.GetGrid()[save.GetGrid().GetLength(0) / 2, save.GetGrid().GetLength(1) / 2].transform.position);
+        }
     }
 
     // Update is called once per frame

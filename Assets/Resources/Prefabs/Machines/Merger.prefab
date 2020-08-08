@@ -196,6 +196,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3743f85aa1be5314da0aa3b671574e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  editor_buildingCostKey:
+  - Ore
+  - Iron
+  editor_buildingCostValue: 0a00000003000000
+  buildingLimit: -1
   owners: []
   store: {fileID: 0}
   rotation: 0

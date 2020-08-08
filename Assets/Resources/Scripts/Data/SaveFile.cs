@@ -91,7 +91,7 @@ public class SaveFile
                 }
                 if (td.content.Length > 0)
                 {
-                    grid[td.posX, td.posY].GetComponent<Tile>().NewMachine(td.content, td.rotation);
+                    grid[td.posX, td.posY].GetComponent<Tile>().NewMachine(td.content, td.rotation, restoring: true);
                 }
             }
         }

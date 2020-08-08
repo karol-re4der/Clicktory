@@ -11,6 +11,7 @@ public class InterfaceHandler : MonoBehaviour
     public float progressPerClick = 0.1f;
     public int rotation = 0;
 
+    public Machine activeMachine;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +19,24 @@ public class InterfaceHandler : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        //Update machine view
+        if (activeMachine)
+        {
+            if(!transform.Find("Machine Bar").gameObject.activeSelf)
+            {
+                transform.Find("Machine Bar").gameObject.SetActive(true);
+
+                transform.Find("Machine Bar/Scroll View/Viewport/Content/Turnoff").GetComponent<ToggleWithIndicator>().isOn = !activeMachine.turnedOff;
+            }
+
+        }
+        else
+        {
+            transform.Find("Machine Bar").gameObject.SetActive(false);
+        }
+
         //Update res display
         Transform frame = GameObject.Find("Canvas/Top Bar/Resources/").transform;
         foreach (ResourceStore.Res res in Globals.GetResources().res)
@@ -210,5 +227,19 @@ public class InterfaceHandler : MonoBehaviour
     public void Button_Godmode(Toggle toggle)
     {
         PlayerPrefs.SetInt("Godmode", toggle.isOn ? 1 : 0);
+    }
+
+    public void Button_Machine_Turnoff(Toggle toggle)
+    {
+        activeMachine.turnedOff = !activeMachine.turnedOff;
+        toggle.isOn = !toggle.isOn;
+    }
+    public void Button_Machine_Demolish(Toggle toggle)
+    {
+        GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(activeMachine.parts[0].GetComponent<MachinePart>().tile);
+    }
+    public void Button_Machine_Upgrade(Toggle toggle)
+    {
+
     }
 }

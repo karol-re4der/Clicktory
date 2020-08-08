@@ -163,6 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8a72452a1dcb974692689eccc373c6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  editor_buildingCostKey:
+  - Ore
+  editor_buildingCostValue: 19000000
+  buildingLimit: 10
   owners: []
   store: {fileID: 0}
   rotation: 0
@@ -175,6 +179,8 @@ MonoBehaviour:
   - {fileID: 2901918442964023663}
   - {fileID: 6688718275549238540}
   turnedOff: 0
+  oreStore: {fileID: 0}
+  coalStore: {fileID: 0}
 --- !u!1 &6688718275549238540
 GameObject:
   m_ObjectHideFlags: 0

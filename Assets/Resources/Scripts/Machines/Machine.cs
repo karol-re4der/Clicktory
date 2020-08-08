@@ -6,6 +6,11 @@ using UnityEngine.EventSystems;
 
 public class Machine : MonoBehaviour
 {
+    private List<KeyValuePair<string, int>> buildingCost;
+    public List<string> editor_buildingCostKey;
+    public List<int> editor_buildingCostValue;
+    public int buildingLimit;
+
     public List<Tile> owners;
     public FlowingResource store;
     public int rotation;
@@ -20,6 +25,35 @@ public class Machine : MonoBehaviour
 
     private List<Gate> gates;
 
+    private float lastTap;
+    private float doubleTapSpeed = 0.25f;
+
+    public int GetRemainingBuildingLimit()
+    {
+        if (buildingLimit < 0)
+        {
+            return 1;
+        }
+        return buildingLimit - GameObject.FindGameObjectsWithTag("Machine").Where((x) => x.GetComponent<Machine>().type.Equals(type)).ToList().Count;
+    }
+    public List<KeyValuePair<string, int>> GetBuildingCost()
+    {
+        if (buildingCost!=null)
+        {
+            return buildingCost;
+        }
+        else
+        {
+            buildingCost = new List<KeyValuePair<string, int>>();
+            for(int i = 0; i<editor_buildingCostKey.Count; i++)
+            {
+                buildingCost.Add(new KeyValuePair<string, int>(editor_buildingCostKey[i], editor_buildingCostValue[i]));
+            }
+            editor_buildingCostKey.Clear();
+            editor_buildingCostValue.Clear();
+            return buildingCost;
+        }
+    }
     public List<Gate> GetGates()
     {
         if (gates==null)
@@ -36,8 +70,36 @@ public class Machine : MonoBehaviour
         return gates;
     }
 
+    public Vector3 GetCenterPoint()
+    {
+        Vector2 centerPoint = parts[0].transform.position;
+        if (sizeX * sizeY < 4)
+        {
+            for (int i = 1; i < parts.Count; i++)
+            {
+                centerPoint = Vector2.Lerp(centerPoint, parts[i].transform.position, 0.5f);
+            }
+        }
+        else if (sizeX * sizeY == 4)
+        {
+            centerPoint = Vector2.Lerp(Vector2.Lerp(parts[0].transform.position, parts[1].transform.position, 0.5f), Vector2.Lerp(parts[2].transform.position, parts[3].transform.position, 0.5f), 0.5f);
+        }
+        else if(sizeX*sizeY == 6)
+        {
+            centerPoint = Vector2.Lerp(Vector2.Lerp(parts[0].transform.position, parts[1].transform.position, 0.5f), Vector2.Lerp(parts[4].transform.position, parts[5].transform.position, 0.5f), 0.5f);
+        }
+        else if (sizeX * sizeY == 9)
+        {
+            centerPoint = parts[5].transform.position;
+        }
+
+        return centerPoint;
+    }
+
     public void Initiate(List<Tile> owners, int rotation)
     {
+        lastTap = Time.time;
+
         this.owners = owners;
         this.rotation = rotation;
         RefreshSprite();
@@ -121,6 +183,12 @@ public class Machine : MonoBehaviour
                     GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(owners.First());
                 }
             }
+            else if(Time.time - lastTap <= doubleTapSpeed)
+            {
+                Camera.main.GetComponent<CameraHandler>().CenterCamera(GetCenterPoint(), instant: false);
+                Globals.GetInterface().activeMachine = this;
+            }
+            lastTap = Time.time;
         }
     }
 

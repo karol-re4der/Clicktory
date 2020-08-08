@@ -19,7 +19,7 @@ public class Builder : MonoBehaviour
     {
         if (tile.machine == null)
         {
-            if (selection.GetComponent<ToggleGroup>().ActiveToggles().Count()>0)
+            if (selection.GetComponent<ToggleGroup>().ActiveToggles().Count() > 0)
             {
                 tile.NewMachine(selection.GetComponent<ToggleGroup>().ActiveToggles().ElementAt(0).gameObject.name, Globals.GetInterface().rotation);
             }
@@ -36,6 +36,7 @@ public class Builder : MonoBehaviour
 
     public void DemolishOnTile(Tile tile)
     {
+        Globals.GetInterface().activeMachine = null;
         tile.RemoveMachine();
     }
 
@@ -67,6 +68,7 @@ public class Builder : MonoBehaviour
         Globals.GetSave().GetGrid() = null;
         Globals.GetSave().GetResources().Reset();
         SetStartingState();
+        Camera.main.GetComponent<CameraHandler>().CenterCamera(Globals.GetSave().GetGrid()[Globals.GetSave().GetGrid().GetLength(0) / 2, Globals.GetSave().GetGrid().GetLength(1) / 2].transform.position);
     }
 
     public void SetStartingState()

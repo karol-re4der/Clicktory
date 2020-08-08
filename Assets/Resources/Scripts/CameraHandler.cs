@@ -9,6 +9,9 @@ public class CameraHandler : MonoBehaviour
 {
 
     private Vector3 dragPivot;
+    private Vector3 targetPos;
+    private float targetZoom;
+    private float transitionRate = 0.01f;
 
     public float maxCameraSize;
     public float minCameraSize;
@@ -125,5 +128,34 @@ public class CameraHandler : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, yMaxBound, transform.position.z);
         }
+    }
+
+    public void CenterCamera(Vector3 newPos, float targetZoom = 3, bool instant = true)
+    {
+        CancelInvoke();
+        if (instant)
+        {
+            transform.position = new Vector3(newPos.x, newPos.y, transform.position.z);
+            Camera.main.orthographicSize = targetZoom;
+        }
+        else
+        {
+            targetPos = newPos;
+            this.targetZoom = targetZoom;
+            InvokeRepeating("Transition", 0, transitionRate);
+        }
+    }
+    private void Transition()
+    {
+        float z = transform.position.z;
+        transform.position = Vector2.Lerp(transform.position, targetPos, transitionRate*10);
+        transform.position = new Vector3(transform.position.x, transform.position.y, z);
+        Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetZoom, transitionRate);
+
+        if (Vector2.Distance(transform.position, targetPos) <= transitionRate)
+        {
+            CancelInvoke();
+        }
+
     }
 }
