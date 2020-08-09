@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.U2D;
+using UnityEngine.EventSystems;
 using TMPro;
 
 public class InterfaceHandler : MonoBehaviour
@@ -50,19 +51,25 @@ public class InterfaceHandler : MonoBehaviour
             {
                 GameObject newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, frame);
                 newRes.name = res.type;
-                int spriteNumber = 0;
-                switch (res.type)
-                {
-                    case "Coal":
-                        spriteNumber = 1;
-                        break;
-                    case "Iron":
-                        spriteNumber = 2;
-                        break;
-                }
-                newRes.transform.GetChild(0).GetComponent<Image>().sprite = Resources.LoadAll<Sprite>("Textures/Resources/Resource_Spritesheet/")[spriteNumber];
+                
+                newRes.transform.GetChild(0).GetComponent<Image>().sprite = FindResSprite(res.type);
             }
         }
+    }
+
+    public Sprite FindResSprite(string type)
+    {
+        int spriteNumber = 0;
+        switch (type)
+        {
+            case "Coal":
+                spriteNumber = 1;
+                break;
+            case "Iron":
+                spriteNumber = 2;
+                break;
+        }
+        return Resources.LoadAll<Sprite>("Textures/Resources/Resource_Spritesheet/")[spriteNumber];
     }
 
     public bool IsDemolishing()
@@ -229,17 +236,82 @@ public class InterfaceHandler : MonoBehaviour
         PlayerPrefs.SetInt("Godmode", toggle.isOn ? 1 : 0);
     }
 
-    public void Button_Machine_Turnoff(Toggle toggle)
+    public void Button_Machine_Turnoff(ToggleWithIndicator toggle)
     {
-        activeMachine.turnedOff = !activeMachine.turnedOff;
-        toggle.isOn = !toggle.isOn;
+        if (toggle.isOn == activeMachine.turnedOff)
+        {
+            activeMachine.turnedOff = !activeMachine.turnedOff;
+            toggle.isOn = !activeMachine.turnedOff;
+        }
     }
-    public void Button_Machine_Demolish(Toggle toggle)
+    public void Button_Machine_Demolish()
     {
         GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(activeMachine.parts[0].GetComponent<MachinePart>().tile);
     }
-    public void Button_Machine_Upgrade(Toggle toggle)
+    public void Button_Machine_Upgrade()
     {
 
+    }
+
+    public void Toggle_Hide_Details(GameObject toggle)
+    {
+        if (!toggle.GetComponent<ToggleWithIndicator>().group.AnyTogglesOn())
+        {
+            Button_Hide_Details();
+        }
+        else if(transform.Find("Details Window/Content").gameObject.activeSelf)
+        {
+            Button_Show_Details(toggle);
+        }
+    }
+    public void Button_Hide_Details()
+    {
+        transform.Find("Details Window/Content/").gameObject.SetActive(false);
+        transform.Find("Details Window/Fade/").GetComponent<Fade>().FadeOut(0);
+    }
+    public void Button_Show_Details(GameObject building)
+    {
+
+        transform.Find("Details Window/Content/").gameObject.SetActive(true);
+        transform.Find("Details Window/Fade/").GetComponent<Fade>().FadeIn(0.4f);
+
+        Machine template = (Resources.Load("Prefabs/Machines/" + building.name) as GameObject).GetComponent<Machine>();
+
+        transform.Find("Details Window/Content/Name").GetComponent<TextMeshProUGUI>().text = template.type;
+        transform.Find("Details Window/Content/Description/Viewport/Content/Text").GetComponent<TextMeshProUGUI>().text = template.description;
+        transform.Find("Details Window/Content/Building Cost/Availability/Current").GetComponent<TextMeshProUGUI>().text = "" + template.GetCurrentlyBuilt();
+        if (template.GetBuildingLimit() < 0)
+        {
+            transform.Find("Details Window/Content/Building Cost/Availability/Max").gameObject.SetActive(false);
+            transform.Find("Details Window/Content/Building Cost/Availability/Out of").gameObject.SetActive(false);
+        }
+        else
+        {
+            transform.Find("Details Window/Content/Building Cost/Availability/Max").gameObject.SetActive(true);
+            transform.Find("Details Window/Content/Building Cost/Availability/Out of").gameObject.SetActive(true);
+            transform.Find("Details Window/Content/Building Cost/Availability/Max").GetComponent<TextMeshProUGUI>().text = "" + template.GetBuildingLimit();
+        }
+
+        int i = 0;
+        foreach (Transform trans in transform.Find("Details Window/Content/Rotations/Viewport/Content/"))
+        {
+            trans.Find("Image").GetComponent<Image>().sprite = template.GetIcon(i);
+            i++;
+        }
+
+        foreach (Transform trans in transform.Find("Details Window/Content/Building Cost/Scroll View/Viewport/Content/"))
+        {
+            Destroy(trans.gameObject);
+        }
+        foreach (KeyValuePair<string, int> cost in template.GetBuildingCost())
+        {
+            GameObject newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, transform.Find("Details Window/Content/Building Cost/Scroll View/Viewport/Content/"));
+            newRes.name = cost.Key;
+            newRes.transform.Find("Icon").GetComponent<Image>().sprite = FindResSprite(cost.Key);
+            newRes.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = cost.Value + "";
+        }
+
+        float newAnchor = transform.Find("Bottom Bar").GetComponent<RectTransform>().anchorMax.y;
+        transform.Find("Details Window").GetComponent<RectTransform>().anchorMin = new Vector2(0, newAnchor);
     }
 }

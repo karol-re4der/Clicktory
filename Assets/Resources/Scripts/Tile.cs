@@ -193,7 +193,6 @@ public class Tile : MonoBehaviour
     public void OnMouseUp()
     {
         bool foo = false;
-        Globals.GetInterface().activeMachine = null;
 
         if (!Application.isEditor)
         {
@@ -206,6 +205,7 @@ public class Tile : MonoBehaviour
 
         if (foo)
         {
+            Globals.GetInterface().activeMachine = null;
             if (Globals.GetInterface().IsDemolishing())
             {
                 if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)

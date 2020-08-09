@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Hidden : MonoBehaviour
 {
+    public bool onlyEditor = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        if (!Application.isEditor)
+        if (!Application.isEditor || !onlyEditor)
         {
             gameObject.SetActive(false);
         }

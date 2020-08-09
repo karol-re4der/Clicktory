@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Floater : MonoBehaviour
 {
@@ -33,6 +34,7 @@ public class Floater : MonoBehaviour
         transform.position = Camera.main.WorldToScreenPoint(startPos);
         this.type = type;
         this.amount = amount;
+        GetComponent<Image>().sprite = Globals.GetInterface().FindResSprite(type);
 
         Globals.GetSave().GetResources().NewRes(type);
         Globals.GetInterface().Update();

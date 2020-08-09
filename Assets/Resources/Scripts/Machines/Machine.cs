@@ -15,6 +15,8 @@ public class Machine : MonoBehaviour
     public FlowingResource store;
     public int rotation;
 
+    public string description = "";
+
     public string type;
     public bool removable;
     public bool obstructing;
@@ -34,8 +36,22 @@ public class Machine : MonoBehaviour
         {
             return 1;
         }
-        return buildingLimit - GameObject.FindGameObjectsWithTag("Machine").Where((x) => x.GetComponent<Machine>().type.Equals(type)).ToList().Count;
+        return GetBuildingLimit() - GetCurrentlyBuilt();
     }
+    public int GetCurrentlyBuilt()
+    {
+        return GameObject.FindGameObjectsWithTag("Machine").Where((x) => x.GetComponent<Machine>().type.Equals(type)).ToList().Count;
+    }
+    public int GetBuildingLimit()
+    {
+        return buildingLimit;
+    }
+
+    public Sprite GetIcon(int rotation = 0)
+    {
+        return Resources.LoadAll<Sprite>("Textures/Interface/Building Icons/"+type+"_Icon_Spritesheet")[rotation];
+    }
+
     public List<KeyValuePair<string, int>> GetBuildingCost()
     {
         if (buildingCost!=null)
