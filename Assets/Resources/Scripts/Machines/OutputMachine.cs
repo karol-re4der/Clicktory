@@ -58,16 +58,12 @@ public class OutputMachine : Machine
             if (GetGate().GetLink())
             {
                 string resType = FindDeposit();
-                if (resType.Length > 0)
-                { 
-                    GetGate().res = Instantiate(Resources.Load("Prefabs/Items/Resource") as GameObject, GameObject.Find("Map/Resources").transform).GetComponent<FlowingResource>();
-                    GetGate().res.transform.position = GetGate().GetComponent<MachinePart>().transform.position;
-                    GetGate().res.GetComponent<SpriteRenderer>().sortingOrder = GetGate().GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((GetGate().DirectionRotated() + 2) % 4, GetGate().DirectionRotated());
-                    GetGate().res.Teleport(GetGate(), GetGate().res.secondsPerTile);
-                    GetGate().res.type = resType;
-                    GetGate().res.amount = 1;
-                    GetGate().res.Refresh();
+                if (resType.Length == 0)
+                {
+                    resType = "Dirt";
                 }
+                GetGate().res = Globals.GetSave().GetResources().CreateFlowing(resType, 1, GetGate().GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((GetGate().DirectionRotated() + 2) % 4, GetGate().DirectionRotated()), GetGate().GetComponent<MachinePart>().transform.position);
+                GetGate().res.Teleport(GetGate(), GetGate().res.secondsPerTile);
             }
         }
     }

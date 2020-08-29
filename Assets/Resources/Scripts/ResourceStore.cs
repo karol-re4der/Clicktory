@@ -89,4 +89,35 @@ public class ResourceStore
         NewRes(type);
         return res.Find((x) => x.type.Equals(type)).amount;
     }
+
+    public Sprite FindResSprite(string type)
+    {
+        int spriteNumber = 3;
+        switch (type)
+        {
+            case "Coal":
+                spriteNumber = 1;
+                break;
+            case "Iron":
+                spriteNumber = 2;
+                break;
+            case "Ore":
+                spriteNumber = 0;
+                break;
+            case "Science":
+                spriteNumber = 4;
+                break;
+        }
+        return Resources.LoadAll<Sprite>("Textures/Resources/Resource_Spritesheet/")[spriteNumber];
+    }
+    public FlowingResource CreateFlowing(string type, int amount, int order, Vector3 position)
+    {
+        FlowingResource newRes = GameObject.Instantiate(Resources.Load("Prefabs/Items/Resource") as GameObject, GameObject.Find("Map/Resources").transform).GetComponent<FlowingResource>();
+        newRes.transform.position = position;
+        newRes.amount = amount;
+        newRes.type = type;
+        newRes.GetComponent<SpriteRenderer>().sortingOrder = order;
+        newRes.Refresh();
+        return newRes;
+    }
 }

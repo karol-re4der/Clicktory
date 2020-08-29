@@ -45,32 +45,19 @@ public class InterfaceHandler : MonoBehaviour
             Transform obj = frame.Find(res.type);
             if (obj != null)
             {
-                obj.Find("Amount").GetComponent<TextMeshProUGUI>().text = ""+res.amount;
+                obj.Find("Amount").GetComponent<TextMeshProUGUI>().text = Globals.ParseNumber(res.amount);
             }
             else
             {
                 GameObject newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, frame);
                 newRes.name = res.type;
                 
-                newRes.transform.GetChild(0).GetComponent<Image>().sprite = FindResSprite(res.type);
+                newRes.transform.GetChild(0).GetComponent<Image>().sprite = Globals.GetSave().GetResources().FindResSprite(res.type);
             }
         }
     }
 
-    public Sprite FindResSprite(string type)
-    {
-        int spriteNumber = 0;
-        switch (type)
-        {
-            case "Coal":
-                spriteNumber = 1;
-                break;
-            case "Iron":
-                spriteNumber = 2;
-                break;
-        }
-        return Resources.LoadAll<Sprite>("Textures/Resources/Resource_Spritesheet/")[spriteNumber];
-    }
+    
 
     public bool IsDemolishing()
     {
@@ -105,6 +92,14 @@ public class InterfaceHandler : MonoBehaviour
 
             frame.transform.Find("Expand").gameObject.SetActive(true);
             frame.transform.Find("Collapse").gameObject.SetActive(false);
+
+            foreach(Transform trans in frame.transform)
+            {
+                if (trans.gameObject.GetComponent<TechUnlockable>())
+                {
+                    trans.gameObject.GetComponent<TechUnlockable>().Update();
+                }
+            }
 
             //Button_Rotate(frame.transform.Find("Scroll View/Viewport/Content").gameObject);
         }
@@ -204,6 +199,92 @@ public class InterfaceHandler : MonoBehaviour
             transform.Find("Menu/Scroll View/Viewport/Content/Button_Reset/Text").gameObject.SetActive(true);
         }
     }
+    public void Button_Research()
+    {
+        transform.Find("Research Window").GetComponent<Submenu>().Enter();
+
+        Transform frame = transform.Find("Research Window/Content/Paths/Industry");
+        int i = Globals.GetSave().industrialTech;
+        if (i < Globals.GetLogic().industrialTech.techTree.Count())
+        {
+            frame.gameObject.SetActive(true);
+            Logic.TechTree.Tech tech = Globals.GetLogic().industrialTech.techTree[i];
+            frame.Find("Top/Name").GetComponent<TextMeshProUGUI>().text = tech.name;
+            frame.Find("Scroll View/Viewport/Content/Desc").GetComponent<TextMeshProUGUI>().text = tech.desc;
+
+            foreach (Transform trans in frame.Find("Cost/Scroll View/Viewport/Content/"))
+            {
+                Destroy(trans.gameObject);
+            }
+            foreach (Logic.TechTree.Tech.Pair cost in tech.cost)
+            {
+                GameObject newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, frame.Find("Cost/Scroll View/Viewport/Content/"));
+                newRes.name = cost.res;
+                newRes.transform.Find("Icon").GetComponent<Image>().sprite = Globals.GetSave().GetResources().FindResSprite(cost.res);
+                newRes.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = Globals.ParseNumber(cost.amount);
+            }
+        }
+        else
+        {
+            frame.gameObject.SetActive(false);
+        }
+
+        frame = transform.Find("Research Window/Content/Paths/Science");
+        i = Globals.GetSave().scientificTech;
+        if (i < Globals.GetLogic().scientificTech.techTree.Count())
+        {
+            frame.gameObject.SetActive(true);
+            Logic.TechTree.Tech tech = Globals.GetLogic().scientificTech.techTree[i];
+            frame.Find("Top/Name").GetComponent<TextMeshProUGUI>().text = tech.name;
+            frame.Find("Scroll View/Viewport/Content/Desc").GetComponent<TextMeshProUGUI>().text = tech.desc;
+
+            foreach (Transform trans in frame.Find("Cost/Scroll View/Viewport/Content/"))
+            {
+                Destroy(trans.gameObject);
+            }
+            foreach (Logic.TechTree.Tech.Pair cost in tech.cost)
+            {
+                GameObject newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, frame.Find("Cost/Scroll View/Viewport/Content/"));
+                newRes.name = cost.res;
+                newRes.transform.Find("Icon").GetComponent<Image>().sprite = Globals.GetSave().GetResources().FindResSprite(cost.res);
+                newRes.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = Globals.ParseNumber(cost.amount);
+            }
+        }
+        else
+        {
+            frame.gameObject.SetActive(false);
+        }
+
+        frame = transform.Find("Research Window/Content/Paths/Logistics");
+        i = Globals.GetSave().logisticTech;
+        if (i < Globals.GetLogic().logisticTech.techTree.Count())
+        {
+            frame.gameObject.SetActive(true);
+            Logic.TechTree.Tech tech = Globals.GetLogic().logisticTech.techTree[i];
+            frame.Find("Top/Name").GetComponent<TextMeshProUGUI>().text = tech.name;
+            frame.Find("Scroll View/Viewport/Content/Desc").GetComponent<TextMeshProUGUI>().text = tech.desc;
+
+            foreach (Transform trans in frame.Find("Cost/Scroll View/Viewport/Content/"))
+            {
+                Destroy(trans.gameObject);
+            }
+            foreach (Logic.TechTree.Tech.Pair cost in tech.cost)
+            {
+                GameObject newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, frame.Find("Cost/Scroll View/Viewport/Content/"));
+                newRes.name = cost.res;
+                newRes.transform.Find("Icon").GetComponent<Image>().sprite = Globals.GetSave().GetResources().FindResSprite(cost.res);
+                newRes.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = Globals.ParseNumber(cost.amount);
+            }
+        }
+        else
+        {
+            frame.gameObject.SetActive(false);
+        }
+    }
+    public void Button_Workshop()
+    {
+
+    }
     public void Button_Reset(GameObject frame)
     {
         if(frame.transform.Find("Final Text").gameObject.activeSelf)
@@ -234,6 +315,10 @@ public class InterfaceHandler : MonoBehaviour
     public void Button_Godmode(Toggle toggle)
     {
         PlayerPrefs.SetInt("Godmode", toggle.isOn ? 1 : 0);
+    }
+    public void Button_Tech(GameObject button)
+    {
+        Globals.GetLogic().TechUp(button.name);
     }
 
     public void Button_Machine_Turnoff(ToggleWithIndicator toggle)
@@ -266,14 +351,14 @@ public class InterfaceHandler : MonoBehaviour
     }
     public void Button_Hide_Details()
     {
-        transform.Find("Details Window/Content/").gameObject.SetActive(false);
-        transform.Find("Details Window/Fade/").GetComponent<Fade>().FadeOut(0);
+        foreach(GameObject obj in GameObject.FindGameObjectsWithTag("Submenu"))
+        {
+            obj.GetComponent<Submenu>().Exit();
+        }
     }
     public void Button_Show_Details(GameObject building)
     {
-
-        transform.Find("Details Window/Content/").gameObject.SetActive(true);
-        transform.Find("Details Window/Fade/").GetComponent<Fade>().FadeIn(0.4f);
+        transform.Find("Details Window").GetComponent<Submenu>().Enter();
 
         Machine template = (Resources.Load("Prefabs/Machines/" + building.name) as GameObject).GetComponent<Machine>();
 
@@ -307,8 +392,8 @@ public class InterfaceHandler : MonoBehaviour
         {
             GameObject newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, transform.Find("Details Window/Content/Building Cost/Scroll View/Viewport/Content/"));
             newRes.name = cost.Key;
-            newRes.transform.Find("Icon").GetComponent<Image>().sprite = FindResSprite(cost.Key);
-            newRes.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = cost.Value + "";
+            newRes.transform.Find("Icon").GetComponent<Image>().sprite = Globals.GetSave().GetResources().FindResSprite(cost.Key);
+            newRes.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = Globals.ParseNumber(cost.Value);
         }
 
         float newAnchor = transform.Find("Bottom Bar").GetComponent<RectTransform>().anchorMax.y;

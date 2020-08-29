@@ -23,6 +23,27 @@ public static class Globals
     public static SaveFile GetSave()
     {
         return GetLogic().save;
+    }
+    public static string ParseNumber(int number)
+    {
+        string parsed = "";
+        if (number >= 1000000000)
+        {
+            parsed = (int)(number / 1000000000) + "M";
+        }
+        else if (number >= 1000000)
+        {
+            parsed = (int)(number / 1000000) + "G";
+        }
+        else if (number >= 1000)
+        {
+            parsed = (int)(number / 1000)+"k";
+        }
+        else
+        {
+            parsed = number+"";
+        }
 
+        return parsed;
     }
 }

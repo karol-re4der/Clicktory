@@ -34,7 +34,7 @@ public class Floater : MonoBehaviour
         transform.position = Camera.main.WorldToScreenPoint(startPos);
         this.type = type;
         this.amount = amount;
-        GetComponent<Image>().sprite = Globals.GetInterface().FindResSprite(type);
+        GetComponent<Image>().sprite = Globals.GetSave().GetResources().FindResSprite(type);
 
         Globals.GetSave().GetResources().NewRes(type);
         Globals.GetInterface().Update();

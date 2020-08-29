@@ -267,7 +267,7 @@ public class Tile : MonoBehaviour
             }
             else
             {
-                if (GameObject.Find("Canvas/Bottom Bar/Tapbar"))
+                if (GameObject.Find("Canvas/Bottom Bar/Tapbar").activeSelf)
                 {
                     if (deposit.Length > 0)
                     {

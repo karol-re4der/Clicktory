@@ -26,6 +26,12 @@ public class SaveFile
     private ResourceStore res;
     [SerializeField]
     public List<TileData> saveData;
+    [SerializeField]
+    public int logisticTech = 0;
+    [SerializeField]
+    public int industrialTech = 0;
+    [SerializeField]
+    public int scientificTech = 0;
 
     private string locationPath;
     private string saveExtension = ".save";
@@ -137,6 +143,9 @@ public class SaveFile
                 reader.Close();
                 saveData = save.saveData;
                 res = save.res;
+                logisticTech = save.logisticTech;
+                industrialTech = save.industrialTech;
+                scientificTech = save.scientificTech;
             }
             catch (Exception e)
             {

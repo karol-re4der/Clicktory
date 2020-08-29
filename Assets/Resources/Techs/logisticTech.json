@@ -1,0 +1,114 @@
+{
+  "techTree": [
+    {
+      "name": "Base Logistics",
+      "desc": "Lorem Ipsum",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "name": "Logistic 1",
+      "desc": "Lorem Ipsum",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "name": "Logistic 2",
+      "desc": "Lorem Ipsum",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "name": "Logistic 3",
+      "desc": "Lorem Ipsum",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "Logistic 4",
+      "desc": "Lorem Ipsum",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 10000
+        }
+      ]
+    },
+    {
+      "name": "Logistic 5",
+      "desc": "Lorem Ipsum",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 100000
+        }
+      ]
+    },
+    {
+      "name": "Logistic 6",
+      "desc": "Lorem Ipsum",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 1000000
+        }
+      ]
+    },
+    {
+      "name": "Logistic 7",
+      "desc": "Lorem Ipsum",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 10000000
+        }
+      ]
+    },
+    {
+      "name": "Logistic 8",
+      "desc": "Lorem Ipsum",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 100000000
+        }
+      ]
+    },
+    {
+      "name": "Logistic 9",
+      "desc": "Lorem Ipsum",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 1000000000
+        }
+      ]
+    },
+    {
+      "name": "Logistic 10",
+      "desc": "Lorem Ipsum",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 10000000000
+        }
+      ]
+    }
+  ]
+}

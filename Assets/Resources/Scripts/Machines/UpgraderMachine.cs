@@ -24,16 +24,24 @@ public class UpgraderMachine : Machine
         FindGates();
         if ((gates_in[0].GetLink() || gates_in[1].GetLink()) && gate_out.GetLink())
         {
+            if(oreStore && coalStore)
+            {
+                gate_out.res = Globals.GetSave().GetResources().CreateFlowing("Iron", oreStore.amount, gate_out.GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((gate_out.DirectionRotated() + 2) % 4, gate_out.DirectionRotated()), gate_out.GetComponent<MachinePart>().transform.position);
+                gate_out.res.Teleport(gate_out, gate_out.res.secondsPerTile);
+                oreStore.Dispose();
+                coalStore.Dispose();
+            }
             foreach (Gate gate in gates_in)
             {
-                if (gate.res) {
+                if (gate.res)
+                {
                     if (!oreStore && gate.res.type.Equals("Ore"))
                     {
                         oreStore = gate.res;
                         oreStore.gameObject.SetActive(false);
                         gate.res = null;
                     }
-                    else if(!coalStore && gate.res.type.Equals("Coal"))
+                    else if (!coalStore && gate.res.type.Equals("Coal"))
                     {
                         coalStore = gate.res;
                         coalStore.gameObject.SetActive(false);
@@ -41,21 +49,6 @@ public class UpgraderMachine : Machine
                     }
                 }
             }
-
-            if(oreStore && coalStore)
-            {
-                gate_out.res = Instantiate(Resources.Load("Prefabs/Items/Resource") as GameObject, GameObject.Find("Map/Resources").transform).GetComponent<FlowingResource>();
-                gate_out.res.transform.position = gate_out.GetComponent<MachinePart>().transform.position;
-                gate_out.res.GetComponent<SpriteRenderer>().sortingOrder = gate_out.GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((gate_out.DirectionRotated() + 2) % 4, gate_out.DirectionRotated());
-                gate_out.res.Teleport(gate_out, gate_out.res.secondsPerTile);
-                gate_out.res.type = "Iron";
-                gate_out.res.amount = oreStore.amount;
-                gate_out.res.Refresh();
-
-                oreStore.Dispose();
-                coalStore.Dispose();
-            }
-
         }
     }
 }

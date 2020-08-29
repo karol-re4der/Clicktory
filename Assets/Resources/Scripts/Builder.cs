@@ -67,6 +67,10 @@ public class Builder : MonoBehaviour
         }
         Globals.GetSave().GetGrid() = null;
         Globals.GetSave().GetResources().Reset();
+        Globals.GetSave().industrialTech = 0;
+        Globals.GetSave().scientificTech = 0;
+        Globals.GetSave().logisticTech = 0;
+
         SetStartingState();
         Camera.main.GetComponent<CameraHandler>().CenterCamera(Globals.GetSave().GetGrid()[Globals.GetSave().GetGrid().GetLength(0) / 2, Globals.GetSave().GetGrid().GetLength(1) / 2].transform.position);
     }

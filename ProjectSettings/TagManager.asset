@@ -8,6 +8,7 @@ TagManager:
   - Trinket
   - Resource
   - Deposit
+  - Submenu
   layers:
   - Default
   - TransparentFX

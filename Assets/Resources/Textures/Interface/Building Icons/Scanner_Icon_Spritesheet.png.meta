@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 471c6255ffbb01f49949c33d660e9bb1
+guid: 07459ae522d1d054d86e677d98077808
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6343952335077816445
-    second: Resource_Spritesheet_0
+      213: -3016434740424837265
+    second: Scanner_Icon_Spritesheet_0
   - first:
-      213: 6808009089535484279
-    second: Resource_Spritesheet_1
+      213: 7421545607919219833
+    second: Scanner_Icon_Spritesheet_1
   - first:
-      213: -6797326845572001650
-    second: Resource_Spritesheet_2
+      213: 1689279915724477978
+    second: Scanner_Icon_Spritesheet_2
   - first:
-      213: -6094294422270714143
-    second: Resource_Spritesheet_3
-  - first:
-      213: -424999371931984620
-    second: Resource_Spritesheet_4
+      213: -8245910389970200796
+    second: Scanner_Icon_Spritesheet_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -60,7 +57,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 79
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -125,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Resource_Spritesheet_0
+      name: Scanner_Icon_Spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
-        width: 20
-        height: 20
+        y: 157
+        width: 157
+        height: 157
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d78b25c790f3a0850800000000000000
-      internalID: 6343952335077816445
+      spriteID: f6774d8d5987326d0800000000000000
+      internalID: -3016434740424837265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resource_Spritesheet_1
+      name: Scanner_Icon_Spritesheet_1
       rect:
         serializedVersion: 2
-        x: 20
-        y: 80
-        width: 20
-        height: 20
+        x: 157
+        y: 157
+        width: 157
+        height: 157
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 771a4615238ea7e50800000000000000
-      internalID: 6808009089535484279
+      spriteID: 974b26cc860aef660800000000000000
+      internalID: 7421545607919219833
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resource_Spritesheet_2
+      name: Scanner_Icon_Spritesheet_2
       rect:
         serializedVersion: 2
-        x: 40
-        y: 80
-        width: 20
-        height: 20
+        x: 0
+        y: 0
+        width: 157
+        height: 157
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e80547b6f3b0ba1a0800000000000000
-      internalID: -6797326845572001650
+      spriteID: a1695f61227817710800000000000000
+      internalID: 1689279915724477978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Resource_Spritesheet_3
+      name: Scanner_Icon_Spritesheet_3
       rect:
         serializedVersion: 2
-        x: 60
-        y: 80
-        width: 20
-        height: 20
+        x: 157
+        y: 0
+        width: 157
+        height: 157
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,29 +199,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1eed8eb0387bc6ba0800000000000000
-      internalID: -6094294422270714143
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Resource_Spritesheet_4
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 80
-        width: 20
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41dda3ea2591a1af0800000000000000
-      internalID: -424999371931984620
+      spriteID: 4279f146034a09d80800000000000000
+      internalID: -8245910389970200796
       vertices: []
       indices: 
       edges: []

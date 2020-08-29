@@ -25,19 +25,7 @@ public class FlowingResource : MonoBehaviour
 
     public void Refresh()
     {
-        int i = 0;
-        switch (type)
-        {
-
-            case "Coal":
-                i = 1;
-                break;
-            case "Iron":
-                i = 2;
-                break;
-        }
-
-        GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Textures/Resources/Resource_Spritesheet")[i];
+        GetComponent<SpriteRenderer>().sprite = Globals.GetSave().GetResources().FindResSprite(type);
     }
  
     public void Move(Gate targetGate, bool final)
