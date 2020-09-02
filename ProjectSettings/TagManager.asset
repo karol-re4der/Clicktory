@@ -9,6 +9,7 @@ TagManager:
   - Resource
   - Deposit
   - Submenu
+  - Floater
   layers:
   - Default
   - TransparentFX

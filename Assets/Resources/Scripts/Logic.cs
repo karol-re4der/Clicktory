@@ -44,13 +44,9 @@ public class Logic : MonoBehaviour
     void Start()
     {
         //Load techtree
-        StreamReader reader = new StreamReader("Assets/Resources/Techs/industrialTech.json");
-        industrialTech = JsonUtility.FromJson<TechTree>(reader.ReadToEnd());
-        reader = new StreamReader("Assets/Resources/Techs/logisticTech.json");
-        logisticTech = JsonUtility.FromJson<TechTree>(reader.ReadToEnd());
-        reader = new StreamReader("Assets/Resources/Techs/scientificTech.json");
-        scientificTech = JsonUtility.FromJson<TechTree>(reader.ReadToEnd());
-        reader.Close();
+        industrialTech = JsonUtility.FromJson<TechTree>(Resources.Load<TextAsset>("Techs/industrialTech").ToString());
+        logisticTech = JsonUtility.FromJson<TechTree>(Resources.Load<TextAsset>("Techs/logisticTech").ToString());
+        scientificTech = JsonUtility.FromJson<TechTree>(Resources.Load<TextAsset>("Techs/scientificTech").ToString());
 
         //Load starting world state
         save = new SaveFile();
@@ -59,12 +55,12 @@ public class Logic : MonoBehaviour
         {
             GetComponent<Builder>().GenerateDeposits();
         }
-        if (save.saveData!=null && save.saveData.Count()>0)
+        if (save.saveData != null && save.saveData.Count() > 0)
         {
             save.Restore();
         }
 
-        if (GameObject.FindGameObjectsWithTag("Machine").ToList().Find((x)=>x.GetComponent<Machine>().type.Equals("Storage")))
+        if (GameObject.FindGameObjectsWithTag("Machine").ToList().Find((x) => x.GetComponent<Machine>().type.Equals("Storage")))
         {
             Camera.main.GetComponent<CameraHandler>().CenterCamera(GameObject.FindGameObjectsWithTag("Machine").ToList().Find((x) => x.GetComponent<Machine>().type.Equals("Storage")).GetComponent<Machine>().GetCenterPoint());
         }

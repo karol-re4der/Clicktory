@@ -54,24 +54,29 @@ public class Builder : MonoBehaviour
 
     public void Reset()
     {
-        foreach(GameObject o in GameObject.FindGameObjectsWithTag("Resource"))
+        foreach (GameObject o in GameObject.FindGameObjectsWithTag("Resource"))
         {
             o.GetComponent<FlowingResource>().Dispose();
         }
-        for(int x = 0; x< Globals.GetSave().GetGrid().GetLength(0); x++)
+
+        for (int x = 0; x < Globals.GetSave().GetGrid().GetLength(0); x++)
         {
-            for(int y = 0; y< Globals.GetSave().GetGrid().GetLength(1); y++)
+            for (int y = 0; y < Globals.GetSave().GetGrid().GetLength(1); y++)
             {
-                DeleteTile(Globals.GetSave().GetGrid()[x,y]);
+                DeleteTile(Globals.GetSave().GetGrid()[x, y]);
             }
         }
+
         Globals.GetSave().GetGrid() = null;
         Globals.GetSave().GetResources().Reset();
+
         Globals.GetSave().industrialTech = 0;
         Globals.GetSave().scientificTech = 0;
         Globals.GetSave().logisticTech = 0;
 
+
         SetStartingState();
+
         Camera.main.GetComponent<CameraHandler>().CenterCamera(Globals.GetSave().GetGrid()[Globals.GetSave().GetGrid().GetLength(0) / 2, Globals.GetSave().GetGrid().GetLength(1) / 2].transform.position);
     }
 
@@ -140,6 +145,8 @@ public class Builder : MonoBehaviour
                     if (x + xx < Globals.GetSave().GetGrid().GetLength(0) && y + yy < Globals.GetSave().GetGrid().GetLength(1) && Globals.GetSave().GetGrid()[x + xx, y + yy].GetComponent<Tile>())
                     {
                         Globals.GetSave().GetGrid()[x + xx, y + yy].GetComponent<Tile>().NewDeposit(newDeposit);
+                        Globals.GetSave().GetGrid()[x + xx, y + yy].GetComponent<Tap_Feel>().feelEnabled = true;
+
                     }
                 }
             }
@@ -154,6 +161,7 @@ public class Builder : MonoBehaviour
         {
             obj.GetComponent<Tile>().x = x;
             obj.GetComponent<Tile>().y = y;
+            obj.GetComponent<Tap_Feel>().feelEnabled = false;
         }
         if (Globals.GetSave().GetGrid()[x, y] != null)
         {

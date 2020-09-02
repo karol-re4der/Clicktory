@@ -74,6 +74,12 @@ public class CameraHandler : MonoBehaviour
         else
         {
             transform.Translate(Vector3.right * Input.GetAxis("Horizontal") * 10 * Time.deltaTime + Vector3.up * Input.GetAxis("Vertical") * 10 * Time.deltaTime);
+
+            foreach (GameObject fl in GameObject.FindGameObjectsWithTag("Floater"))
+            {
+                fl.transform.Translate(Vector3.left * Input.GetAxis("Horizontal") * 10 * Time.deltaTime + Vector3.down * Input.GetAxis("Vertical") * 10 * Time.deltaTime);
+            }
+
             if (Input.GetKeyDown(KeyCode.KeypadMinus))
             {
                 Camera.main.orthographicSize *= 1.05f;
@@ -104,6 +110,11 @@ public class CameraHandler : MonoBehaviour
         currentPos = Camera.main.ScreenToWorldPoint(currentPos);
         Vector3 offset = dragPivot - currentPos;
         transform.position = transform.position + offset;
+
+        foreach(GameObject fl in GameObject.FindGameObjectsWithTag("Floater"))
+        {
+            fl.transform.Translate(-offset);
+        }
     }
     private void FixBounds()
     {

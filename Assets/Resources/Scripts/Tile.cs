@@ -11,11 +11,49 @@ public class Tile : MonoBehaviour
     public string deposit = "";
     public int x = 0;
     public int y = 0;
+    public float crackingProgress = 0;
 
     public Tile[] links;
 
     private Vector2 touchPosition;
     private float highlight = 0;
+
+    public void CrackUp(float power)
+    {
+        if (PlayerPrefs.GetInt("Godmode", 0) == 1){
+            power = 1f;
+        }
+
+        transform.Find("Cracks").GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
+        crackingProgress += power;
+
+        if (crackingProgress >= 1)
+        {
+            GameObject.Instantiate(Resources.Load("UI/Floater") as GameObject, GameObject.Find("Canvas/Floaters").transform).GetComponent<Floater>().Launch(transform.position, deposit, 1);
+            crackingProgress = 0;
+        }
+
+        if (crackingProgress >= 0.75f)
+        {
+            transform.Find("Cracks").GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Textures/Tiles/Cracks_Spritesheet")[3];
+        }
+        else if (crackingProgress >= 0.5f)
+        {
+            transform.Find("Cracks").GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Textures/Tiles/Cracks_Spritesheet")[2];
+        }
+        else if (crackingProgress >= 0.25f)
+        {
+            transform.Find("Cracks").GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Textures/Tiles/Cracks_Spritesheet")[1];
+        }
+        else if (crackingProgress >= 0.1f)
+        {
+            transform.Find("Cracks").GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Textures/Tiles/Cracks_Spritesheet")[0];
+        }
+        else
+        {
+            transform.Find("Cracks").GetComponent<SpriteRenderer>().sprite = null;
+        }
+    }
 
     void Update()
     {
@@ -271,7 +309,8 @@ public class Tile : MonoBehaviour
                 {
                     if (deposit.Length > 0)
                     {
-                        GameObject.Instantiate(Resources.Load("UI/Floater") as GameObject, GameObject.Find("Canvas/Floaters").transform).GetComponent<Floater>().Launch(transform.position, deposit, 1);
+                        CrackUp(0.1f);
+                        
                     }
                 }
                 else

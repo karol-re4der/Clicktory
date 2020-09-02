@@ -6,8 +6,12 @@ using UnityEngine.EventSystems;
 public class Tap_Feel : MonoBehaviour
 {
     public bool feelEnabled = true;
-    public float strenght = 1.5f;
+    public float strengh = 1.5f;
     public float decay = 0.05f;
+
+    private Vector3 orginalPosition;
+    private bool positionSet = false;
+    private float progress = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -15,28 +19,36 @@ public class Tap_Feel : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void Invoke_Return()
     {
-        if (transform.localScale != Vector3.one)
+        if (positionSet && transform.position != orginalPosition)
         {
-            float newScale = transform.localScale.x - decay;
-            if (newScale < 1)
+            progress += decay;
+            if (progress < 1)
             {
-                transform.localScale = Vector3.one;
+                transform.position = new Vector3(transform.position.x, orginalPosition.y + strengh*(1-progress), transform.position.z);
             }
             else
             {
-                transform.localScale = new Vector3(newScale, newScale, 1);
+                transform.position = orginalPosition;
+                CancelInvoke();
             }
         }
     }
 
     void OnMouseDown()
     {
+        if (!positionSet)
+        {
+            orginalPosition = transform.position;
+            positionSet = true;
+        }
         if (feelEnabled)
         {
-            transform.localScale = new Vector3(strenght, strenght, 1);
+            CancelInvoke();
+            progress = 0;
+            transform.position = new Vector3(transform.position.x, orginalPosition.y+strengh, transform.position.z);
+            InvokeRepeating("Invoke_Return", 0, 0.1f);
         }
     }
 }
