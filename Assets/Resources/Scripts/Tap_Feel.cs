@@ -38,17 +38,31 @@ public class Tap_Feel : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (!positionSet)
+        bool foo = false;
+
+        if (!Application.isEditor)
         {
-            orginalPosition = transform.position;
-            positionSet = true;
+            foo = !EventSystem.current.IsPointerOverGameObject(0);
         }
-        if (feelEnabled)
+        else
         {
-            CancelInvoke();
-            progress = 0;
-            transform.position = new Vector3(transform.position.x, orginalPosition.y+strengh, transform.position.z);
-            InvokeRepeating("Invoke_Return", 0, 0.1f);
+            foo = !EventSystem.current.IsPointerOverGameObject();
+        }
+
+        if (foo)
+        {
+            if (!positionSet)
+            {
+                orginalPosition = transform.position;
+                positionSet = true;
+            }
+            if (feelEnabled)
+            {
+                CancelInvoke();
+                progress = 0;
+                transform.position = new Vector3(transform.position.x, orginalPosition.y + strengh, transform.position.z);
+                InvokeRepeating("Invoke_Return", 0, 0.1f);
+            }
         }
     }
 }

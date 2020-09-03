@@ -6,27 +6,31 @@ using UnityEngine.UI;
 public class Floater : MonoBehaviour
 {
     private Vector2 targetPos;
-    private float speed = 2000;
+    private float speed = 1650;
+    private float sideSpeed;
+    private float decay = 0.99f;
+    private Vector2 dir;
 
     private string type;
     private int amount;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, targetPos, speed*Time.deltaTime);
 
+        float newScale = 0.5f + ((transform.localScale.x - 0.5f) * decay);
+        transform.localScale = new Vector2(newScale, newScale);
+
         if (transform.position.Equals(targetPos))
         {
             Globals.GetSave().GetResources().AddRes(type, amount);
             Destroy(gameObject);
         }
+
+        transform.Translate(dir * Time.deltaTime * sideSpeed);
+        sideSpeed *= 0.95f;
+
     }
 
     public void Launch(Vector2 startPos,string type, int amount)
@@ -35,6 +39,9 @@ public class Floater : MonoBehaviour
         this.type = type;
         this.amount = amount;
         GetComponent<Image>().sprite = Globals.GetSave().GetResources().FindResSprite(type);
+
+        dir = new Vector2(-1 + Random.Range(0, 2f), -1 + Random.Range(0, 2f));
+        sideSpeed = speed;
 
         Globals.GetSave().GetResources().NewRes(type);
         Globals.GetInterface().Update();

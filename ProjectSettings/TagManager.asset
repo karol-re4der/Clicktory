@@ -10,6 +10,7 @@ TagManager:
   - Deposit
   - Submenu
   - Floater
+  - Cracked
   layers:
   - Default
   - TransparentFX

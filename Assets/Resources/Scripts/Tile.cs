@@ -20,11 +20,13 @@ public class Tile : MonoBehaviour
 
     public void CrackUp(float power)
     {
+        CancelInvoke();
+        Invoke("Invoke_CrackBack", 0.5f);
         if (PlayerPrefs.GetInt("Godmode", 0) == 1){
             power = 1f;
         }
 
-        transform.Find("Cracks").GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
+        transform.Find("Cracks").GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder;
         crackingProgress += power;
 
         if (crackingProgress >= 1)
@@ -36,22 +38,40 @@ public class Tile : MonoBehaviour
         if (crackingProgress >= 0.75f)
         {
             transform.Find("Cracks").GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Textures/Tiles/Cracks_Spritesheet")[3];
+            transform.Find("Cracks").GetComponent<SpriteMask>().sprite = Resources.LoadAll<Sprite>("Textures/Tiles/Cracks_Spritesheet")[3];
+
         }
         else if (crackingProgress >= 0.5f)
         {
             transform.Find("Cracks").GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Textures/Tiles/Cracks_Spritesheet")[2];
+            transform.Find("Cracks").GetComponent<SpriteMask>().sprite = Resources.LoadAll<Sprite>("Textures/Tiles/Cracks_Spritesheet")[2];
         }
         else if (crackingProgress >= 0.25f)
         {
             transform.Find("Cracks").GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Textures/Tiles/Cracks_Spritesheet")[1];
+            transform.Find("Cracks").GetComponent<SpriteMask>().sprite = Resources.LoadAll<Sprite>("Textures/Tiles/Cracks_Spritesheet")[1];
         }
         else if (crackingProgress >= 0.1f)
         {
             transform.Find("Cracks").GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Textures/Tiles/Cracks_Spritesheet")[0];
+            transform.Find("Cracks").GetComponent<SpriteMask>().sprite = Resources.LoadAll<Sprite>("Textures/Tiles/Cracks_Spritesheet")[0];
         }
         else
         {
             transform.Find("Cracks").GetComponent<SpriteRenderer>().sprite = null;
+            transform.Find("Cracks").GetComponent<SpriteMask>().sprite = null;
+        }
+    }
+    private void Invoke_CrackBack()
+    {
+        crackingProgress -= 0.1f;
+        if (crackingProgress < 0)
+        {
+            crackingProgress = 0;
+        }
+        else
+        {
+            CrackUp(0f);
         }
     }
 
