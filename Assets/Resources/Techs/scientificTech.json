@@ -1,28 +1,32 @@
 {
   "techTree": [
     {
-      "name": "Base Science",
-      "desc": "Lorem Ipsum",
+      "name": "Automation",
+      "desc": "Manual labor can only take us this far. It all starts here!",
       "cost": [
         {
-          "res": "Science",
-          "amount": 1
-        }
-      ]
-    },
-    {
-      "name": "Scientific 1",
-      "desc": "Lorem Ipsum",
-      "cost": [
-        {
-          "res": "Science",
+          "res": "Dirt",
           "amount": 10
         }
       ]
     },
     {
-      "name": "Scientific 2",
-      "desc": "Lorem Ipsum",
+      "name": "Scanning the World",
+      "desc": "To discover more advanced means of production, first we must discover more advanced ways of discovering them. It's much simplier then it sounds tho.",
+      "cost": [
+        {
+          "res": "Ore",
+          "amount": 100
+        },
+        {
+          "res": "Coal",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "name": "Workshop",
+      "desc": "Little changes in our machine's construction can have great impact on their work. Workshop is a place to test and introduce new upgrades",
       "cost": [
         {
           "res": "Science",
@@ -31,12 +35,12 @@
       ]
     },
     {
-      "name": "Scientific 3",
-      "desc": "Lorem Ipsum",
+      "name": "Path of Progress",
+      "desc": "Our research is about to hit a dead end. Worry not, tho. By completely rehauling our primitive research system we will be able to progress further.",
       "cost": [
         {
           "res": "Science",
-          "amount": 1000
+          "amount": 350
         }
       ]
     },

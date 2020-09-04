@@ -6,7 +6,13 @@ public class TechUnlockable : MonoBehaviour
 {
     public string tech;
     public int required;
-    public void Update()
+
+    void Start()
+    {
+        Globals.GetInterface().unlockable.Add(gameObject);
+    }
+
+    public void Check()
     {
         if (GetLevel() < required)
         {

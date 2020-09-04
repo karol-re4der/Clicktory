@@ -45,7 +45,7 @@ public class ResourceStore
         {
             return true;
         }
-        return costValue < GetRes(costType);
+        return costValue <= GetRes(costType);
     }
 
     public void NewRes(string type)

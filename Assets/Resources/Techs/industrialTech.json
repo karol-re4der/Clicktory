@@ -1,42 +1,46 @@
 {
   "techTree": [
     {
-      "name": "Base Industry",
-      "desc": "Lorem Ipsum",
+      "name": "Extraction",
+      "desc": "The resources are in the ground. How do we get them out? The resulting means of extraction may be slow, but they are automated and will only get more effective from now on",
       "cost": [
         {
-          "res": "Science",
-          "amount": 1
-        }
-      ]
-    },
-    {
-      "name": "Industrial 1",
-      "desc": "Lorem Ipsum",
-      "cost": [
-        {
-          "res": "Science",
+          "res": "Dirt",
           "amount": 10
         }
       ]
     },
     {
-      "name": "Industrial 2",
-      "desc": "Lorem Ipsum",
+      "name": "Processing",
+      "desc": "By combining extracted resources a more valuable resources can be created",
       "cost": [
         {
           "res": "Science",
-          "amount": 100
+          "amount": 50
         }
       ]
     },
     {
-      "name": "Industrial 3",
+      "name": "Placeholder tech",
       "desc": "Lorem Ipsum",
       "cost": [
         {
           "res": "Science",
-          "amount": 1000
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "name": "Manufactoring",
+      "desc": "New resources, new opportunities",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 200
+        },
+        {
+          "res": "Science 2",
+          "amount": 50
         }
       ]
     },

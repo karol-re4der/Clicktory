@@ -145,8 +145,6 @@ public class Builder : MonoBehaviour
                     if (x + xx < Globals.GetSave().GetGrid().GetLength(0) && y + yy < Globals.GetSave().GetGrid().GetLength(1) && Globals.GetSave().GetGrid()[x + xx, y + yy].GetComponent<Tile>())
                     {
                         Globals.GetSave().GetGrid()[x + xx, y + yy].GetComponent<Tile>().NewDeposit(newDeposit);
-                        Globals.GetSave().GetGrid()[x + xx, y + yy].GetComponent<Tap_Feel>().feelEnabled = true;
-
                     }
                 }
             }
@@ -161,7 +159,6 @@ public class Builder : MonoBehaviour
         {
             obj.GetComponent<Tile>().x = x;
             obj.GetComponent<Tile>().y = y;
-            obj.GetComponent<Tap_Feel>().feelEnabled = false;
         }
         if (Globals.GetSave().GetGrid()[x, y] != null)
         {

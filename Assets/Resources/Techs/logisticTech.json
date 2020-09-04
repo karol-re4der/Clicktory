@@ -1,42 +1,46 @@
 {
   "techTree": [
     {
-      "name": "Base Logistics",
-      "desc": "Lorem Ipsum",
+      "name": "Conveyor Lines",
+      "desc": "Extraction is not everything. Storing and transportation is just as important.",
       "cost": [
         {
-          "res": "Science",
-          "amount": 1
-        }
-      ]
-    },
-    {
-      "name": "Logistic 1",
-      "desc": "Lorem Ipsum",
-      "cost": [
-        {
-          "res": "Science",
+          "res": "Dirt",
           "amount": 10
         }
       ]
     },
     {
-      "name": "Logistic 2",
-      "desc": "Lorem Ipsum",
+      "name": "Interconnected Production Lines",
+      "desc": "An effective factory consists of multiple interconnected production lines. To allow smooth flow of resources a way to split and merge them is required.",
       "cost": [
         {
           "res": "Science",
-          "amount": 100
+          "amount": 50
         }
       ]
     },
     {
-      "name": "Logistic 3",
-      "desc": "Lorem Ipsum",
+      "name": "Manual Management",
+      "desc": "Sometimes a human input is required, even in a most automated system. Whether it is to turne off a part of factory for maintanance, or to avert a disaster.",
       "cost": [
         {
           "res": "Science",
-          "amount": 1000
+          "amount": 150
+        }
+      ]
+    },
+    {
+      "name": "High Velocity Transportation",
+      "desc": "By using the new, more wear resistant materials we now produce, we can make our conveyor lines work faster.",
+      "cost": [
+        {
+          "res": "Science",
+          "amount": 200
+        },
+        {
+          "res": "Science 2",
+          "amount": 50
         }
       ]
     },

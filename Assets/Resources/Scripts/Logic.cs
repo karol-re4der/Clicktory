@@ -68,12 +68,13 @@ public class Logic : MonoBehaviour
         {
             Camera.main.GetComponent<CameraHandler>().CenterCamera(save.GetGrid()[save.GetGrid().GetLength(0) / 2, save.GetGrid().GetLength(1) / 2].transform.position);
         }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Globals.GetInterface().CheckUnlocks();
     }
 
     public void Tick()

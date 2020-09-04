@@ -11,6 +11,7 @@ TagManager:
   - Submenu
   - Floater
   - Cracked
+  - TechUnlock
   layers:
   - Default
   - TransparentFX

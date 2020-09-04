@@ -9,6 +9,8 @@ using TMPro;
 
 public class InterfaceHandler : MonoBehaviour
 {
+    public List<GameObject> unlockable = new List<GameObject>();
+
     public float progressPerClick = 0.1f;
     public int rotation = 0;
 
@@ -57,7 +59,13 @@ public class InterfaceHandler : MonoBehaviour
         }
     }
 
-    
+    public void CheckUnlocks()
+    {
+        foreach (GameObject obj in unlockable)
+        {
+            obj.GetComponent<TechUnlockable>().Check();
+        }
+    }
 
     public bool IsDemolishing()
     {
@@ -92,16 +100,6 @@ public class InterfaceHandler : MonoBehaviour
 
             frame.transform.Find("Expand").gameObject.SetActive(true);
             frame.transform.Find("Collapse").gameObject.SetActive(false);
-
-            foreach(Transform trans in frame.transform)
-            {
-                if (trans.gameObject.GetComponent<TechUnlockable>())
-                {
-                    trans.gameObject.GetComponent<TechUnlockable>().Update();
-                }
-            }
-
-            //Button_Rotate(frame.transform.Find("Scroll View/Viewport/Content").gameObject);
         }
     }
 
@@ -321,6 +319,7 @@ public class InterfaceHandler : MonoBehaviour
     public void Button_Tech(GameObject button)
     {
         Globals.GetLogic().TechUp(button.name);
+        CheckUnlocks();
     }
 
     public void Button_Machine_Turnoff(ToggleWithIndicator toggle)

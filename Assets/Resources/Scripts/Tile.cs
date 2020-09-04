@@ -31,7 +31,7 @@ public class Tile : MonoBehaviour
 
         if (crackingProgress >= 1)
         {
-            GameObject.Instantiate(Resources.Load("UI/Floater") as GameObject, GameObject.Find("Canvas/Floaters").transform).GetComponent<Floater>().Launch(transform.position, deposit, 1);
+            GameObject.Instantiate(Resources.Load("UI/Floater") as GameObject, GameObject.Find("Canvas/Floaters").transform).GetComponent<Floater>().Launch(transform.position, deposit.Length>0?deposit:"Dirt", 1);
             crackingProgress = 0;
         }
 
@@ -327,11 +327,7 @@ public class Tile : MonoBehaviour
             {
                 if (GameObject.Find("Canvas/Bottom Bar/Tapbar").activeSelf)
                 {
-                    if (deposit.Length > 0)
-                    {
-                        CrackUp(0.1f);
-                        
-                    }
+                    CrackUp(0.1f);
                 }
                 else
                 {
