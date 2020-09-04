@@ -169,6 +169,12 @@ public class InterfaceHandler : MonoBehaviour
 
     public void Button_Menu()
     {
+        if (Globals.IsBuilding())
+        {
+            Button_Expand(GameObject.Find("Canvas").transform.Find("Bottom Bar").gameObject);
+
+        }
+
         if (GameObject.Find("Canvas/Menu"))
         {
             transform.Find("Fade").GetComponent<Fade>().FadeOut(0);
@@ -199,6 +205,12 @@ public class InterfaceHandler : MonoBehaviour
     }
     public void Button_Research()
     {
+        if (Globals.IsBuilding())
+        {
+            Button_Expand(GameObject.Find("Canvas").transform.Find("Bottom Bar").gameObject);
+
+        }
+
         transform.Find("Research Window").GetComponent<Submenu>().Enter();
 
         Transform frame = transform.Find("Research Window/Content/Paths/Industry");
@@ -281,7 +293,10 @@ public class InterfaceHandler : MonoBehaviour
     }
     public void Button_Workshop()
     {
-
+        if (Globals.IsBuilding())
+        {
+            Button_Expand(GameObject.Find("Canvas").transform.Find("Bottom Bar").gameObject);
+        }
     }
     public void Button_Reset(GameObject frame)
     {

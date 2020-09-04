@@ -250,18 +250,7 @@ public class Tile : MonoBehaviour
 
     public void OnMouseUp()
     {
-        bool foo = false;
-
-        if (!Application.isEditor)
-        {
-            foo = !EventSystem.current.IsPointerOverGameObject(0);
-        }
-        else
-        {
-            foo = !EventSystem.current.IsPointerOverGameObject();
-        }
-
-        if (foo)
+        if (Globals.IsPointerInGame())
         {
             Globals.GetInterface().activeMachine = null;
             if (Globals.GetInterface().IsDemolishing())
@@ -297,18 +286,7 @@ public class Tile : MonoBehaviour
 
     public void OnMouseDown()
     {
-        bool foo = false;
-
-        if (!Application.isEditor)
-        {
-            foo = !EventSystem.current.IsPointerOverGameObject(0);
-        }
-        else
-        {
-            foo = !EventSystem.current.IsPointerOverGameObject();
-        }
-
-        if (foo)
+        if (Globals.IsPointerInGame())
         {
             if (Application.isEditor)
             {

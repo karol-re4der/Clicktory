@@ -1,9 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public static class Globals
 {
+    public static bool IsBuilding()
+    {
+        return GameObject.Find("Canvas").transform.Find("Bottom Bar/Scroll View").gameObject.activeSelf;
+    }
+    public static bool IsPointerInGame()
+    {
+        if (Application.isEditor)
+        {
+            if (EventSystem.current.IsPointerOverGameObject()) {
+                return false;
+            }
+        }
+        else
+        {
+            //foreach (Touch touch in Input.touches)
+            //{
+            //    if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+            //    {
+            //        return false;
+            //    }
+            //}
+            PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+            eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+            return results.Count == 0;
+        }
+        return true;
+    }
     public static Logic GetLogic()
     {
         return GameObject.Find("Map").GetComponent<Logic>();

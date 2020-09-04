@@ -1970,6 +1970,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Merger
       objectReference: {fileID: 0}
+    - target: {fileID: 1146757639141411733, guid: 1b9918b051f8e924bba217a03c458123,
+        type: 3}
+      propertyPath: m_TagString
+      value: TechUnlock
+      objectReference: {fileID: 0}
     - target: {fileID: 1146757639544534756, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2329,6 +2334,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1146757639878714657}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &318456909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318456904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5837b30815a2547812cf5c59a557bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tech: Logistics
+  required: 1
 --- !u!1 &318739331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,6 +2559,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Furnace
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146757639141411733, guid: 1b9918b051f8e924bba217a03c458123,
+        type: 3}
+      propertyPath: m_TagString
+      value: TechUnlock
       objectReference: {fileID: 0}
     - target: {fileID: 1146757639544534756, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
@@ -3649,9 +3673,10 @@ GameObject:
   - component: {fileID: 431092402}
   - component: {fileID: 431092401}
   - component: {fileID: 431092400}
+  - component: {fileID: 431092404}
   m_Layer: 5
   m_Name: Workshop Button
-  m_TagString: Untagged
+  m_TagString: TechUnlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3779,6 +3804,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431092398}
   m_CullTransparentMesh: 0
+--- !u!114 &431092404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431092398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5837b30815a2547812cf5c59a557bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tech: Science
+  required: 3
 --- !u!224 &446442470 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1146757639544534756, guid: 1b9918b051f8e924bba217a03c458123,
@@ -4454,6 +4493,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scanner
       objectReference: {fileID: 0}
+    - target: {fileID: 1146757639141411733, guid: 1b9918b051f8e924bba217a03c458123,
+        type: 3}
+      propertyPath: m_TagString
+      value: TechUnlock
+      objectReference: {fileID: 0}
     - target: {fileID: 1146757639544534756, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5088,6 +5132,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1199053224}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &652755639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652755634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5837b30815a2547812cf5c59a557bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tech: Logistics
+  required: 1
 --- !u!1 &655734622
 GameObject:
   m_ObjectHideFlags: 0
@@ -6883,6 +6941,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spliter
       objectReference: {fileID: 0}
+    - target: {fileID: 1146757639141411733, guid: 1b9918b051f8e924bba217a03c458123,
+        type: 3}
+      propertyPath: m_TagString
+      value: TechUnlock
+      objectReference: {fileID: 0}
     - target: {fileID: 1146757639544534756, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7421,6 +7484,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 335737480}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &991409565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991409560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5837b30815a2547812cf5c59a557bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tech: Industry
+  required: 2
 --- !u!1001 &1005474878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7691,9 +7768,10 @@ GameObject:
   - component: {fileID: 1083525748}
   - component: {fileID: 1083525747}
   - component: {fileID: 1083525749}
+  - component: {fileID: 1083525750}
   m_Layer: 5
   m_Name: Logistics
-  m_TagString: Untagged
+  m_TagString: TechUnlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7810,6 +7888,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1083525750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083525745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5837b30815a2547812cf5c59a557bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tech: Science
+  required: 1
 --- !u!1 &1085185048
 GameObject:
   m_ObjectHideFlags: 0
@@ -8531,6 +8623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac769aed1d8fb91418bd64b9e6db92f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unlockable: []
   progressPerClick: 0.1
   rotation: 0
   activeMachine: {fileID: 0}
@@ -8625,6 +8718,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 946433720}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1191235509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191235504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5837b30815a2547812cf5c59a557bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tech: Logistics
+  required: 2
 --- !u!1 &1191406018
 GameObject:
   m_ObjectHideFlags: 0
@@ -8743,6 +8850,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Counterclockwise Corner
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146757639141411733, guid: 1b9918b051f8e924bba217a03c458123,
+        type: 3}
+      propertyPath: m_TagString
+      value: TechUnlock
       objectReference: {fileID: 0}
     - target: {fileID: 1146757639544534756, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
@@ -8973,6 +9085,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 279225657}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1218961226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218961221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5837b30815a2547812cf5c59a557bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tech: Logistics
+  required: 2
 --- !u!1 &1221614249
 GameObject:
   m_ObjectHideFlags: 0
@@ -9209,9 +9335,10 @@ GameObject:
   - component: {fileID: 1253994458}
   - component: {fileID: 1253994457}
   - component: {fileID: 1253994456}
+  - component: {fileID: 1253994459}
   m_Layer: 5
   m_Name: Turnoff
-  m_TagString: Untagged
+  m_TagString: TechUnlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9330,6 +9457,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253994454}
   m_CullTransparentMesh: 0
+--- !u!114 &1253994459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253994454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5837b30815a2547812cf5c59a557bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tech: Logistics
+  required: 3
 --- !u!1 &1260589383
 GameObject:
   m_ObjectHideFlags: 0
@@ -10351,6 +10492,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2041018854}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1424738293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424738288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5837b30815a2547812cf5c59a557bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tech: Industry
+  required: 1
 --- !u!1 &1437293395
 GameObject:
   m_ObjectHideFlags: 0
@@ -10687,6 +10842,20 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1906192483}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1509821328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509821323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5837b30815a2547812cf5c59a557bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tech: Logistics
+  required: 1
 --- !u!1 &1516592901
 GameObject:
   m_ObjectHideFlags: 0
@@ -13674,6 +13843,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clockwise Corner
       objectReference: {fileID: 0}
+    - target: {fileID: 1146757639141411733, guid: 1b9918b051f8e924bba217a03c458123,
+        type: 3}
+      propertyPath: m_TagString
+      value: TechUnlock
+      objectReference: {fileID: 0}
     - target: {fileID: 1146757639544534756, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14461,6 +14635,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Excavator
       objectReference: {fileID: 0}
+    - target: {fileID: 1146757639141411733, guid: 1b9918b051f8e924bba217a03c458123,
+        type: 3}
+      propertyPath: m_TagString
+      value: TechUnlock
+      objectReference: {fileID: 0}
     - target: {fileID: 1146757639544534756, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14731,9 +14910,10 @@ GameObject:
   - component: {fileID: 2065031955}
   - component: {fileID: 2065031954}
   - component: {fileID: 2065031956}
+  - component: {fileID: 2065031957}
   m_Layer: 5
   m_Name: Industry
-  m_TagString: Untagged
+  m_TagString: TechUnlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14850,6 +15030,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2065031957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065031952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5837b30815a2547812cf5c59a557bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tech: Science
+  required: 1
 --- !u!1 &2067968707
 GameObject:
   m_ObjectHideFlags: 0
@@ -15164,7 +15358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tech: Science
-  required: 3
+  required: 2
 --- !u!222 &1146757638178009137
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15626,6 +15820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Conveyor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146757639141411733, guid: 1b9918b051f8e924bba217a03c458123,
+        type: 3}
+      propertyPath: m_TagString
+      value: TechUnlock
       objectReference: {fileID: 0}
     - target: {fileID: 1146757639544534756, guid: 1b9918b051f8e924bba217a03c458123,
         type: 3}
