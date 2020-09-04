@@ -186,7 +186,7 @@ public class Machine : MonoBehaviour
 
     public void OnMouseUp()
     {
-        if (!EventSystem.current.IsPointerOverGameObject(0))
+        if (Globals.IsPointerInGame())
         {
             if (Globals.GetInterface().IsDemolishing())
             {

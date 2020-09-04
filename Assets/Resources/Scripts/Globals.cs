@@ -19,13 +19,6 @@ public static class Globals
         }
         else
         {
-            //foreach (Touch touch in Input.touches)
-            //{
-            //    if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
-            //    {
-            //        return false;
-            //    }
-            //}
             PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
             eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             List<RaycastResult> results = new List<RaycastResult>();
@@ -75,5 +68,10 @@ public static class Globals
         }
 
         return parsed;
+    }
+
+    public static float GetTapPower()
+    {
+        return 0.1f;
     }
 }

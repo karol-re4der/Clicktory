@@ -7,6 +7,8 @@ using TMPro;
 
 public class OutputMachine : Machine
 {
+    public float activationTime;
+
     private Gate gate_out;
     private Gate GetGate()
     {
@@ -54,17 +56,33 @@ public class OutputMachine : Machine
 
     public override void Activate()
     {
-        if (!turnedOff) {
-            if (GetGate().GetLink())
+        if (!IsInvoking("Invoke_Activate"))
+        {
+            if (!turnedOff)
             {
-                string resType = FindDeposit();
-                if (resType.Length == 0)
+                foreach (GameObject part in parts)
                 {
-                    resType = "Dirt";
+                    part.GetComponent<MachinePart>().LaunchSmoke();
                 }
-                GetGate().res = Globals.GetSave().GetResources().CreateFlowing(resType, 1, GetGate().GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((GetGate().DirectionRotated() + 2) % 4, GetGate().DirectionRotated()), GetGate().GetComponent<MachinePart>().transform.position);
-                GetGate().res.Teleport(GetGate(), GetGate().res.secondsPerTile);
+                Invoke("Invoke_Activate", activationTime);
             }
+        }
+    }
+    private void Invoke_Activate()
+    {
+        foreach (GameObject part in parts)
+        {
+            part.GetComponent<MachinePart>().StopSmoke();
+        }
+        if (GetGate().GetLink())
+        {
+            string resType = FindDeposit();
+            if (resType.Length == 0)
+            {
+                resType = "Dirt";
+            }
+            GetGate().res = Globals.GetSave().GetResources().CreateFlowing(resType, 1, GetGate().GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((GetGate().DirectionRotated() + 2) % 4, GetGate().DirectionRotated()), GetGate().GetComponent<MachinePart>().transform.position);
+            GetGate().res.Teleport(GetGate(), GetGate().res.secondsPerTile);
         }
     }
 }

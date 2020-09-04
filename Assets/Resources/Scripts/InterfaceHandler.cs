@@ -11,7 +11,6 @@ public class InterfaceHandler : MonoBehaviour
 {
     public List<GameObject> unlockable = new List<GameObject>();
 
-    public float progressPerClick = 0.1f;
     public int rotation = 0;
 
     public Machine activeMachine;
@@ -117,7 +116,7 @@ public class InterfaceHandler : MonoBehaviour
         }
         else
         {
-            bar.GetComponent<RectTransform>().anchorMax = new Vector2(bar.GetComponent<RectTransform>().anchorMax.x + progressPerClick, 1f);
+            bar.GetComponent<RectTransform>().anchorMax = new Vector2(bar.GetComponent<RectTransform>().anchorMax.x + Globals.GetTapPower(), 1f);
             bar.GetComponent<Image>().color = Color.Lerp(Color.red, Color.green, bar.GetComponent<RectTransform>().anchorMax.x);
         }
     }

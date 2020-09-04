@@ -204,6 +204,7 @@ MonoBehaviour:
   owners: []
   store: {fileID: 0}
   rotation: 0
+  description: 
   type: Excavator
   removable: 1
   obstructing: 1
@@ -215,6 +216,7 @@ MonoBehaviour:
   - {fileID: 5313558998562880457}
   - {fileID: 164481589090289635}
   turnedOff: 0
+  activationTime: 10
   deposit: []
 --- !u!1 &5313558998562880457
 GameObject:

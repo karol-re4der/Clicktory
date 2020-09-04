@@ -103,7 +103,7 @@ public class Tile : MonoBehaviour
             if (Random.Range(0, 1f) > 0.33f)
             {
                 trinket = Instantiate(Resources.Load("Prefabs/Trinket") as GameObject, transform);
-                Sprite[] sprites;
+                Sprite[] sprites = null;
                 if (type.Equals("Stone"))
                 {
                     if (deposit.Equals("Coal"))
@@ -115,14 +115,17 @@ public class Tile : MonoBehaviour
                         sprites = Resources.LoadAll<Sprite>("Textures/Tiles/Trinkets_Stone_Spritesheet");
                     }
                 }
-                else
+                else if(type.Equals("Grass"))
                 {
                     sprites = Resources.LoadAll<Sprite>("Textures/Tiles/Trinkets_" + type + "_Spritesheet");
                 }
-                trinket.GetComponent<SpriteRenderer>().sprite = sprites[(int)(Random.Range(0, 1f) * sprites.Length)];
 
-                trinket.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
-                trinket.transform.Translate(new Vector3(0, GetComponent<SpriteRenderer>().size.y / 2, 0));
+                if (sprites!=null)
+                {
+                    trinket.GetComponent<SpriteRenderer>().sprite = sprites[(int)(Random.Range(0, 1f) * sprites.Length)];
+                    trinket.GetComponent<SpriteRenderer>().sortingOrder = GetComponent<SpriteRenderer>().sortingOrder + 1;
+                    trinket.transform.Translate(new Vector3(0, GetComponent<SpriteRenderer>().size.y / 2, 0));
+                }
             }
         }
     }
@@ -191,6 +194,8 @@ public class Tile : MonoBehaviour
                         Globals.GetSave().GetResources().RemoveRes(template.GetComponent<Machine>().GetBuildingCost());
                     }
 
+
+
                     machine = GameObject.Instantiate(template, GameObject.Find("Map/Machines").transform);
                     machine.transform.position = transform.position;
 
@@ -209,6 +214,8 @@ public class Tile : MonoBehaviour
                                 newTile = newTile.links[(rotation + 1) % 4];
                             }
                             newOwners.Add(newTile);
+                            newTile.type = "Concrete";
+                            newTile.RefreshSprite();
                         }
                     }
 
