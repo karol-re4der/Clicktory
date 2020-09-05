@@ -271,7 +271,7 @@ public class Tile : MonoBehaviour
                     GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(this);
                 }
             }
-            else
+            else if(Globals.IsBuilding())
             {
                 if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
                 {
@@ -286,6 +286,13 @@ public class Tile : MonoBehaviour
                     {
                         GameObject.Find("Map").GetComponent<Builder>().BuildFromSelection(this);
                     }
+                }
+            }
+            else
+            {
+                if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero || Application.isEditor)
+                {
+                    CrackUp(0.1f);
                 }
             }
         }
@@ -312,7 +319,10 @@ public class Tile : MonoBehaviour
             {
                 if (GameObject.Find("Canvas/Bottom Bar/Tapbar").activeSelf)
                 {
-                    CrackUp(0.1f);
+                    //if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero || Application.isEditor)
+                    //{
+                    //    CrackUp(0.1f);
+                    //}
                 }
                 else
                 {

@@ -13,6 +13,8 @@ public class Logic : MonoBehaviour
     public TechTree scientificTech;
     public TechTree logisticTech;
 
+    public Vector2 windDir;
+
     [System.Serializable]
     public class TechTree
     {
