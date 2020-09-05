@@ -21,6 +21,8 @@ public class Smoke : MonoBehaviour
         transform.Translate(Vector2.up * speed * Time.deltaTime);
         transform.localScale = new Vector2(progress * growth, progress * growth);
 
+        transform.Translate(Globals.GetLogic().windDir * Globals.GetLogic().windPower * Time.deltaTime*progress);
+
         Color newColor = GetComponent<SpriteRenderer>().color;
         newColor.a = 0.8f-progress*0.8f;
         GetComponent<SpriteRenderer>().color = newColor;

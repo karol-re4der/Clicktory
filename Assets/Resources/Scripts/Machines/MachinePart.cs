@@ -6,6 +6,7 @@ public class MachinePart : MonoBehaviour
 {
     public Sprite[] rotations;
     public Tile tile;
+    public bool smoking = false;
 
     public void RefreshSprite(int rotation)
     {
@@ -19,7 +20,10 @@ public class MachinePart : MonoBehaviour
 
     public void LaunchSmoke()
     {
-        InvokeRepeating("Invoke_Smoking", 0, 0.1f);
+        if (smoking)
+        {
+            InvokeRepeating("Invoke_Smoking", 0, 0.1f);
+        }
     }
     public void StopSmoke()
     {

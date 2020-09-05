@@ -14,6 +14,7 @@ public class Logic : MonoBehaviour
     public TechTree logisticTech;
 
     public Vector2 windDir;
+    public float windPower;
 
     [System.Serializable]
     public class TechTree
