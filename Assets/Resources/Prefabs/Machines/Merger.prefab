@@ -146,12 +146,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8267bc6c949ceea4c966accc1a65350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotations:
-  - {fileID: 1794904252525051142, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
-  - {fileID: 1114204502424581996, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
-  - {fileID: 409320173174130013, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
+  rotations_one:
   - {fileID: -7660970029182798789, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
+  - {fileID: -3961876813640280519, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
+  - {fileID: 4992020840958419000, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
+  - {fileID: 1794904252525051142, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
+  rotations_two:
+  - {fileID: -4000038719311846232, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
+  - {fileID: -5885886263031942000, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
+  - {fileID: -6850049093682170886, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
+  - {fileID: 1114204502424581996, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
+  rotations_three:
+  - {fileID: 4085425310804199765, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
+  - {fileID: -6581058985311112744, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
+  - {fileID: -4879070160383339363, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
+  - {fileID: 409320173174130013, guid: 6738627781cee8840a7caefbbe8d1c07, type: 3}
   tile: {fileID: 0}
+  smoking: 0
+  rotation: 0
+  animationStage: 0
+  animating: 0
+  animationSynchronized: 1
+  animationBoomerang: 0
+  forceAnimation: 0
+  animationSpeed: 1
 --- !u!1 &3660428391799110097
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +222,7 @@ MonoBehaviour:
   owners: []
   store: {fileID: 0}
   rotation: 0
+  description: 
   type: Merger
   removable: 1
   obstructing: 1
@@ -212,4 +231,7 @@ MonoBehaviour:
   parts:
   - {fileID: 1991734157880862852}
   turnedOff: 0
+  selfActivating: 0
+  activationTime: 0
+  activationTimer: 0
   evenTick: 0

@@ -19,10 +19,20 @@ public class SpliterMachine : Machine
         }
     }
 
+    public override bool CanActivate()
+    {
+        if (gate_in == null)
+        {
+            FindGates();
+        }
+
+        return base.CanActivate() && gate_in.res && gates_out.Length>0;
+    }
+
     public override void Activate()
     {
-        FindGates();
-        if (gate_in.res)
+        EnableAnimations();
+        if (CanActivate())
         {
             Gate gate_out;
             if (evenTick)
@@ -36,10 +46,15 @@ public class SpliterMachine : Machine
 
             store = gate_in.res;
             gate_in.res = null;
-            store.Teleport(gate_out, store.secondsPerTile);
+            store.Move(gate_out, false);
             gate_out.res = store;
             store = null;
             evenTick = !evenTick;
         }
+    }
+
+    public override void EndActivation()
+    {
+        activationTimer--;
     }
 }

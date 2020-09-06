@@ -19,10 +19,21 @@ public class MergerMachine : Machine
         }
     }
 
+    public override bool CanActivate()
+    {
+        if (gate_out == null)
+        {
+            FindGates();
+        }
+
+        return base.CanActivate() && gate_out.GetLink() && gates_in.Length > 0;
+    }
+
+
     public override void Activate()
     {
-        FindGates();
-        if (gate_out.GetLink())
+        EnableAnimations();
+        if (CanActivate())
         {
             Gate gate_in;
 
@@ -40,10 +51,15 @@ public class MergerMachine : Machine
             }
             store = gate_in.res;
             gate_in.res = null;
-            store.Teleport(gate_out, store.secondsPerTile);
+            store.Move(gate_out, false);
             gate_out.res = store;
             store = null;
             evenTick = !evenTick;
         }
+    }
+
+    public override void EndActivation()
+    {
+        activationTimer--;
     }
 }

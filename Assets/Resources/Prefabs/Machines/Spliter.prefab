@@ -52,6 +52,7 @@ MonoBehaviour:
   owners: []
   store: {fileID: 0}
   rotation: 0
+  description: 
   type: Spliter
   removable: 1
   obstructing: 1
@@ -60,6 +61,9 @@ MonoBehaviour:
   parts:
   - {fileID: 4631505256612012051}
   turnedOff: 0
+  selfActivating: 0
+  activationTime: 0
+  activationTimer: 0
 --- !u!1 &4631505256612012051
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,9 +210,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8267bc6c949ceea4c966accc1a65350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotations:
+  rotations_one:
   - {fileID: -5005678662921602272, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
-  - {fileID: -7288516296307757083, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
-  - {fileID: -7015224142607126861, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
   - {fileID: 8188554999830331391, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
+  - {fileID: 4603105117111677905, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
+  - {fileID: -1586984963647811709, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
+  rotations_two:
+  - {fileID: -7288516296307757083, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
+  - {fileID: -5732665486875491190, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
+  - {fileID: 7689886409836800848, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
+  - {fileID: -5107247573934906550, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
+  rotations_three:
+  - {fileID: -7015224142607126861, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
+  - {fileID: -278717153369164255, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
+  - {fileID: 331567427389659155, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
+  - {fileID: 1875179198721519592, guid: 9f88cc2186a72e4479f28b72216b5fb5, type: 3}
   tile: {fileID: 0}
+  smoking: 0
+  rotation: 0
+  animationStage: 0
+  animating: 0
+  animationSynchronized: 1
+  animationBoomerang: 0
+  forceAnimation: 0
+  animationSpeed: 1

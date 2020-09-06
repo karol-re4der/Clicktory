@@ -14,6 +14,42 @@ TextureImporter:
   - first:
       213: 8188554999830331391
     second: Spliter_Spritesheet_3
+  - first:
+      213: 5099254283933193037
+    second: Spliter_Spritesheet_0
+  - first:
+      213: 1459729540458356061
+    second: Spliter_Spritesheet_1
+  - first:
+      213: -1270773482891168601
+    second: Spliter_Spritesheet_2
+  - first:
+      213: -1279856367753049224
+    second: Spliter_Spritesheet_3
+  - first:
+      213: -5732665486875491190
+    second: Spliter_Spritesheet_4
+  - first:
+      213: -278717153369164255
+    second: Spliter_Spritesheet_5
+  - first:
+      213: 4603105117111677905
+    second: Spliter_Spritesheet_6
+  - first:
+      213: 7689886409836800848
+    second: Spliter_Spritesheet_7
+  - first:
+      213: 331567427389659155
+    second: Spliter_Spritesheet_8
+  - first:
+      213: -1586984963647811709
+    second: Spliter_Spritesheet_9
+  - first:
+      213: -5107247573934906550
+    second: Spliter_Spritesheet_10
+  - first:
+      213: 1875179198721519592
+    second: Spliter_Spritesheet_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -126,6 +162,132 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d431a3511c034c640800000000000000
+      internalID: 5099254283933193037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spliter_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d1a277840024410800000000000000
+      internalID: 1459729540458356061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spliter_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a4394a004e4d5ee0800000000000000
+      internalID: -1270773482891168601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spliter_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87bce8c1a690d3ee0800000000000000
+      internalID: -1279856367753049224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spliter_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8405a6dc1b7170b0800000000000000
+      internalID: -5732665486875491190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spliter_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1267f98c93cc12cf0800000000000000
+      internalID: -278717153369164255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spliter_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 79
         width: 79
         height: 79
@@ -136,14 +298,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02b3eccf6c1488ab0800000000000000
-      internalID: -5005678662921602272
+      spriteID: 1d3793937b381ef30800000000000000
+      internalID: 4603105117111677905
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spliter_Spritesheet_1
+      name: Spliter_Spritesheet_7
       rect:
         serializedVersion: 2
         x: 79
@@ -157,14 +319,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ef2ee27b0df9da90800000000000000
-      internalID: -7288516296307757083
+      spriteID: 05b2d6d62f6f7ba60800000000000000
+      internalID: 7689886409836800848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spliter_Spritesheet_2
+      name: Spliter_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 79
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31896a881d6f99400800000000000000
+      internalID: 331567427389659155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spliter_Spritesheet_9
       rect:
         serializedVersion: 2
         x: 0
@@ -178,14 +361,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3be68208fcae4ae90800000000000000
-      internalID: -7015224142607126861
+      spriteID: 38fc2e17595e9f9e0800000000000000
+      internalID: -1586984963647811709
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spliter_Spritesheet_3
+      name: Spliter_Spritesheet_10
       rect:
         serializedVersion: 2
         x: 79
@@ -199,8 +382,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fffb2a4336793a170800000000000000
-      internalID: 8188554999830331391
+      spriteID: a4362af04696f19b0800000000000000
+      internalID: -5107247573934906550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spliter_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 0
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ef6ffdcb89f50a10800000000000000
+      internalID: 1875179198721519592
       vertices: []
       indices: 
       edges: []
