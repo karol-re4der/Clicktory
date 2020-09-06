@@ -20,6 +20,42 @@ TextureImporter:
   - first:
       213: -4071677882415992379
     second: Excavator_Spritesheet_5
+  - first:
+      213: 4796282543019480441
+    second: Excavator_Spritesheet_0
+  - first:
+      213: -8736180932037365239
+    second: Excavator_Spritesheet_1
+  - first:
+      213: 4440534707952725633
+    second: Excavator_Spritesheet_2
+  - first:
+      213: 755387327429199350
+    second: Excavator_Spritesheet_3
+  - first:
+      213: -7450118609922878611
+    second: Excavator_Spritesheet_4
+  - first:
+      213: -9027040288299187156
+    second: Excavator_Spritesheet_5
+  - first:
+      213: -1961094735098672458
+    second: Excavator_Spritesheet_6
+  - first:
+      213: -3117919692650238183
+    second: Excavator_Spritesheet_7
+  - first:
+      213: -7505144316182794570
+    second: Excavator_Spritesheet_8
+  - first:
+      213: 8502006774788296249
+    second: Excavator_Spritesheet_9
+  - first:
+      213: -7192530194499544510
+    second: Excavator_Spritesheet_10
+  - first:
+      213: 2482782893529561937
+    second: Excavator_Spritesheet_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -132,6 +168,132 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9755513af81df8240800000000000000
+      internalID: 4796282543019480441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Excavator_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9023f548ab9d2c680800000000000000
+      internalID: -8736180932037365239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Excavator_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18ea0583ac2ff9d30800000000000000
+      internalID: 4440534707952725633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Excavator_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f5cf37a5ccab7a00800000000000000
+      internalID: 755387327429199350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Excavator_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d631501c89cdb9890800000000000000
+      internalID: -7450118609922878611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Excavator_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2489c26fa289b280800000000000000
+      internalID: -9027040288299187156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Excavator_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 79
         width: 79
         height: 79
@@ -142,14 +304,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cdc9b21c251953b00800000000000000
-      internalID: 807711492797078748
+      spriteID: 6ba0e8f8abac8c4e0800000000000000
+      internalID: -1961094735098672458
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Excavator_Spritesheet_1
+      name: Excavator_Spritesheet_7
       rect:
         serializedVersion: 2
         x: 79
@@ -163,14 +325,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0946e57e79705e30800000000000000
-      internalID: 4490222412539250959
+      spriteID: 91f23691f8ceab4d0800000000000000
+      internalID: -3117919692650238183
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Excavator_Spritesheet_2
+      name: Excavator_Spritesheet_8
       rect:
         serializedVersion: 2
         x: 158
@@ -184,14 +346,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99571037c2ab44930800000000000000
-      internalID: 4126627858649019801
+      spriteID: 6bee1e5220f58d790800000000000000
+      internalID: -7505144316182794570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Excavator_Spritesheet_3
+      name: Excavator_Spritesheet_9
       rect:
         serializedVersion: 2
         x: 0
@@ -205,14 +367,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a4654e941656d0c0800000000000000
-      internalID: -4551355726856624983
+      spriteID: 93e8839bd123df570800000000000000
+      internalID: 8502006774788296249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Excavator_Spritesheet_4
+      name: Excavator_Spritesheet_10
       rect:
         serializedVersion: 2
         x: 79
@@ -226,14 +388,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c206629e023620f0800000000000000
-      internalID: -1142170417324752188
+      spriteID: 24a559055effe2c90800000000000000
+      internalID: -7192530194499544510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Excavator_Spritesheet_5
+      name: Excavator_Spritesheet_11
       rect:
         serializedVersion: 2
         x: 158
@@ -247,8 +409,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c1b7c2e98e7e77c0800000000000000
-      internalID: -4071677882415992379
+      spriteID: 15bfe3723ed947220800000000000000
+      internalID: 2482782893529561937
       vertices: []
       indices: 
       edges: []

@@ -51,6 +51,7 @@ MonoBehaviour:
   owners: []
   store: {fileID: 0}
   rotation: 0
+  description: 
   type: Clockwise Corner
   removable: 1
   obstructing: 0
@@ -59,6 +60,7 @@ MonoBehaviour:
   parts:
   - {fileID: 4090870068354370382}
   turnedOff: 0
+  activationTime: 1
 --- !u!1 &4090870068354370382
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +135,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8387547046019594916, guid: d1e4c35d0a7eec44aa6522c3ef0f5785,
+  m_Sprite: {fileID: 3921844635191332762, guid: d1e4c35d0a7eec44aa6522c3ef0f5785,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -202,14 +204,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.17636023, y: 0.03671874}
-      - {x: -0.39287686, y: -0.07472427}
-      - {x: -0.3907537, y: -0.19952206}
-      - {x: 0.003896989, y: -0.38863048}
-      - {x: 0.21149816, y: -0.2845956}
-      - {x: 0.38650736, y: -0.1955515}
-      - {x: 0.3907536, y: -0.072601125}
-      - {x: 0.0022610119, y: 0.12589158}
+    - - {x: 0.000061471015, y: 0.040969864}
+      - {x: -0.005300276, y: 0.033765636}
+      - {x: -0.12505588, y: 0.086818576}
+      - {x: -0.3716236, y: -0.02735141}
+      - {x: -0.36382544, y: -0.19945537}
+      - {x: 0.0011650175, y: -0.36164436}
+      - {x: 0.18599151, y: -0.27821892}
+      - {x: 0.3631262, y: -0.18492368}
+      - {x: 0.3652468, y: -0.025838725}
+      - {x: 0.12554373, y: 0.09188257}
 --- !u!114 &8148258697717278028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,9 +226,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8267bc6c949ceea4c966accc1a65350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotations:
-  - {fileID: -8387547046019594916, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
-  - {fileID: 7966086586354078288, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  rotations_one:
+  - {fileID: 3921844635191332762, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 5819844751547121027, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: -8550472727990628118, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 8013690361177850203, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  rotations_two:
+  - {fileID: -221089087549006505, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 2957518405492583672, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 6587917115411789730, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: -3047872604833308890, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  rotations_three:
   - {fileID: -5372319178482004233, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
-  - {fileID: 1867385016401711144, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: -2162765534875507303, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 1317193137234239910, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 945296488289994795, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   tile: {fileID: 0}
+  smoking: 0
+  rotation: 0
+  animationStage: 0
+  animating: 0

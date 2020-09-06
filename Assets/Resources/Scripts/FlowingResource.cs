@@ -14,7 +14,7 @@ public class FlowingResource : MonoBehaviour
     private float progress;
     private int targetLayer;
     public int ticksPerTile = 10;
-    public float secondsPerTile = 0.2f;
+    public float secondsPerTile = 1f;
     private bool isFinal = false;
 
     public FlowingResource(int amount, string type)

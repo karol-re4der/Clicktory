@@ -21,34 +21,43 @@ public class UpgraderMachine : Machine
     }
     public override void Activate()
     {
-        FindGates();
-        if ((gates_in[0].GetLink() || gates_in[1].GetLink()) && gate_out.GetLink())
-        {
-            if(oreStore && coalStore)
+        if (!turnedOff) 
+        { 
+            FindGates();
+            if ((gates_in[0].GetLink() || gates_in[1].GetLink()) && gate_out.GetLink())
             {
-                gate_out.res = Globals.GetSave().GetResources().CreateFlowing("Iron", oreStore.amount, gate_out.GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((gate_out.DirectionRotated() + 2) % 4, gate_out.DirectionRotated()), gate_out.GetComponent<MachinePart>().transform.position);
-                gate_out.res.Teleport(gate_out, gate_out.res.secondsPerTile);
-                oreStore.Dispose();
-                coalStore.Dispose();
-            }
-            foreach (Gate gate in gates_in)
-            {
-                if (gate.res)
+                if(oreStore && coalStore && !IsInvoking("Invoke_Activate"))
                 {
-                    if (!oreStore && gate.res.type.Equals("Ore"))
+                    LaunchSmoke();
+                    Invoke("Invoke_Activate", activationTime);
+                    oreStore.Dispose();
+                    coalStore.Dispose();
+                }
+                foreach (Gate gate in gates_in)
+                {
+                    if (gate.res)
                     {
-                        oreStore = gate.res;
-                        oreStore.gameObject.SetActive(false);
-                        gate.res = null;
-                    }
-                    else if (!coalStore && gate.res.type.Equals("Coal"))
-                    {
-                        coalStore = gate.res;
-                        coalStore.gameObject.SetActive(false);
-                        gate.res = null;
+                        if (!oreStore && gate.res.type.Equals("Ore"))
+                        {
+                            oreStore = gate.res;
+                            oreStore.gameObject.SetActive(false);
+                            gate.res = null;
+                        }
+                        else if (!coalStore && gate.res.type.Equals("Coal"))
+                        {
+                            coalStore = gate.res;
+                            coalStore.gameObject.SetActive(false);
+                            gate.res = null;
+                        }
                     }
                 }
             }
         }
+    }
+    private void Invoke_Activate()
+    {
+        gate_out.res = Globals.GetSave().GetResources().CreateFlowing("Iron", oreStore.amount, gate_out.GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((gate_out.DirectionRotated() + 2) % 4, gate_out.DirectionRotated()), gate_out.GetComponent<MachinePart>().transform.position);
+        gate_out.res.Teleport(gate_out, gate_out.res.secondsPerTile);
+        StopSmoke();
     }
 }

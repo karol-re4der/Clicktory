@@ -17,6 +17,16 @@ public class Conveyor : Machine
 
     public override void Activate()
     {
+        //if (!IsInvoking("Invoke_Activate"))
+        //{
+            foreach (GameObject part in parts)
+            {
+                part.GetComponent<MachinePart>().animationStage = 0;
+                part.GetComponent<MachinePart>().animating = true;
+            }
+            Invoke("Invoke_Activate", activationTime);
+        //}
+
         if (gate_in == null)
         {
             FindGates();
@@ -34,6 +44,13 @@ public class Conveyor : Machine
             }
             gate_out.res = gate_in.res;
             gate_in.res = null;
+        }
+    }
+    public void Invoke_Activate()
+    {
+        foreach (GameObject part in parts)
+        {
+            part.GetComponent<MachinePart>().animating = false;
         }
     }
 }

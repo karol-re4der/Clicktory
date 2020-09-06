@@ -24,6 +24,7 @@ public class Machine : MonoBehaviour
     public int sizeY;
     public List<GameObject> parts;
     public bool turnedOff = false;
+    public float activationTime;
 
     private List<Gate> gates;
 
@@ -153,6 +154,28 @@ public class Machine : MonoBehaviour
         foreach(GameObject part in parts)
         {
             part.GetComponent<MachinePart>().RefreshSprite(rotation);
+        }
+    }
+
+    public void LaunchSmoke()
+    {
+        foreach(GameObject part in parts)
+        {
+            part.GetComponent<MachinePart>().LaunchSmoke();
+        }
+    }
+    public void StopSmoke()
+    {
+        foreach (GameObject part in parts)
+        {
+            part.GetComponent<MachinePart>().StopSmoke();
+        }
+    }
+    public void Animate()
+    {
+        foreach (GameObject part in parts)
+        {
+            part.GetComponent<MachinePart>().Animate();
         }
     }
 

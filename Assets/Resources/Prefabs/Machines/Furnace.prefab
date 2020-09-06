@@ -102,6 +102,7 @@ MonoBehaviour:
   - {fileID: -6866610119538316206, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
   - {fileID: 5709918681806428511, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
   tile: {fileID: 0}
+  smoking: 1
 --- !u!114 &355919936938750662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +171,7 @@ MonoBehaviour:
   owners: []
   store: {fileID: 0}
   rotation: 0
+  description: 
   type: Furnace
   removable: 1
   obstructing: 1
@@ -179,6 +181,7 @@ MonoBehaviour:
   - {fileID: 2901918442964023663}
   - {fileID: 6688718275549238540}
   turnedOff: 0
+  activationTime: 10
   oreStore: {fileID: 0}
   coalStore: {fileID: 0}
 --- !u!1 &6688718275549238540
@@ -284,6 +287,7 @@ MonoBehaviour:
   - {fileID: -6866610119538316206, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
   - {fileID: 5709918681806428511, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
   tile: {fileID: 0}
+  smoking: 1
 --- !u!114 &2794806651070442844
 MonoBehaviour:
   m_ObjectHideFlags: 0

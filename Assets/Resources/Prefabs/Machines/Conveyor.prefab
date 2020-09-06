@@ -143,14 +143,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.17636023, y: 0.03671874}
-      - {x: -0.39287686, y: -0.07472427}
-      - {x: -0.3907537, y: -0.19952206}
-      - {x: 0.003896989, y: -0.38863048}
-      - {x: 0.21149816, y: -0.2845956}
-      - {x: 0.38650736, y: -0.1955515}
-      - {x: 0.3907536, y: -0.072601125}
-      - {x: 0.0022610119, y: 0.12589158}
+    - - {x: -0.11895259, y: -0.025754303}
+      - {x: -0.36754993, y: -0.15239343}
+      - {x: -0.36880368, y: -0.32109123}
+      - {x: -0.12442597, y: -0.4359074}
+      - {x: 0.16928677, y: -0.29472637}
+      - {x: 0.37131122, y: -0.1955515}
+      - {x: 0.37386897, y: -0.025324233}
+      - {x: 0.13058403, y: 0.09381081}
 --- !u!114 &6123000621889401928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,12 +163,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8267bc6c949ceea4c966accc1a65350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotations:
+  rotations_one:
   - {fileID: -8053779807662484814, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
-  - {fileID: 3123794987368414003, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
-  - {fileID: 3921844635191332762, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   - {fileID: 623509150317387578, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: -8647834635856706469, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: -871268590654735416, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  rotations_two:
+  - {fileID: -2684176777383041345, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: -712969044867968048, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 4418695357306791701, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 2397821981284413605, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  rotations_three:
+  - {fileID: -8387547046019594916, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 1867385016401711144, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: -7336798059434801914, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: -5551564952989289102, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   tile: {fileID: 0}
+  smoking: 0
+  rotation: 0
+  animationStage: 0
+  animating: 0
 --- !u!1 &3660428391799110097
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +234,7 @@ MonoBehaviour:
   owners: []
   store: {fileID: 0}
   rotation: 0
+  description: 
   type: Conveyor
   removable: 1
   obstructing: 0
@@ -228,3 +243,4 @@ MonoBehaviour:
   parts:
   - {fileID: 2977133231430448019}
   turnedOff: 0
+  activationTime: 1

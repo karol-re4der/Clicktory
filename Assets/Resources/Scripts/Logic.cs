@@ -16,6 +16,9 @@ public class Logic : MonoBehaviour
     public Vector2 windDir;
     public float windPower;
 
+    private float lastAnimationFrame = 0;
+    public float animationFrameLength = 1/3f;
+
     [System.Serializable]
     public class TechTree
     {
@@ -78,6 +81,15 @@ public class Logic : MonoBehaviour
     void Update()
     {
         Globals.GetInterface().CheckUnlocks();
+
+        if (Time.time - lastAnimationFrame > animationFrameLength)
+        {
+            foreach(GameObject mach in GameObject.FindGameObjectsWithTag("Machine"))
+            {
+                mach.GetComponent<Machine>().Animate();
+            }
+            lastAnimationFrame = Time.time;
+        }
     }
 
     public void Tick()

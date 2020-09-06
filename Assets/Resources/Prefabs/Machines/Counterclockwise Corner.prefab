@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2684176777383041345, guid: d1e4c35d0a7eec44aa6522c3ef0f5785,
+  m_Sprite: {fileID: 3123794987368414003, guid: d1e4c35d0a7eec44aa6522c3ef0f5785,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -143,14 +143,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.17636023, y: 0.03671874}
-      - {x: -0.39287686, y: -0.07472427}
-      - {x: -0.3907537, y: -0.19952206}
-      - {x: 0.003896989, y: -0.38863048}
-      - {x: 0.21149816, y: -0.2845956}
-      - {x: 0.38650736, y: -0.1955515}
-      - {x: 0.3907536, y: -0.072601125}
-      - {x: 0.0022610119, y: 0.12589158}
+    - - {x: -0.2405217, y: -0.09160425}
+      - {x: -0.23753847, y: -0.24863571}
+      - {x: -0.07163462, y: -0.33797586}
+      - {x: 0.12715465, y: -0.43253043}
+      - {x: 0.37021345, y: -0.3183648}
+      - {x: 0.37131122, y: -0.19723997}
+      - {x: 0.36880362, y: -0.02363579}
+      - {x: 0.13396089, y: 0.09381084}
 --- !u!114 &2741197443829880509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,12 +163,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8267bc6c949ceea4c966accc1a65350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotations:
-  - {fileID: -2684176777383041345, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  rotations_one:
+  - {fileID: 3123794987368414003, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: -8158544669155753848, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 2914117379657334890, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: -3258371086712722593, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  rotations_two:
   - {fileID: 1044928351516509249, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
-  - {fileID: -221089087549006505, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
-  - {fileID: -712969044867968048, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 7947742841339968148, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 7860852523591145593, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 1953519377921660445, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  rotations_three:
+  - {fileID: 7966086586354078288, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: -589583157979572556, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: -1035265453110874289, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
+  - {fileID: 6768315750847819074, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   tile: {fileID: 0}
+  smoking: 0
+  rotation: 0
+  animationStage: 0
+  animating: 0
 --- !u!1 &3660428391799110097
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +234,7 @@ MonoBehaviour:
   owners: []
   store: {fileID: 0}
   rotation: 0
+  description: 
   type: Counterclockwise Corner
   removable: 1
   obstructing: 0
@@ -228,3 +243,4 @@ MonoBehaviour:
   parts:
   - {fileID: 246656718745589288}
   turnedOff: 0
+  activationTime: 1

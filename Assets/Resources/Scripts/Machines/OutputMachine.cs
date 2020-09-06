@@ -7,8 +7,6 @@ using TMPro;
 
 public class OutputMachine : Machine
 {
-    public float activationTime;
-
     private Gate gate_out;
     private Gate GetGate()
     {
@@ -60,9 +58,10 @@ public class OutputMachine : Machine
         {
             if (!turnedOff)
             {
-                foreach (GameObject part in parts)
+                LaunchSmoke();
+                foreach(GameObject part in parts)
                 {
-                    part.GetComponent<MachinePart>().LaunchSmoke();
+                    part.GetComponent<MachinePart>().animating = true;
                 }
                 Invoke("Invoke_Activate", activationTime);
             }
@@ -70,9 +69,10 @@ public class OutputMachine : Machine
     }
     private void Invoke_Activate()
     {
+        StopSmoke();
         foreach (GameObject part in parts)
         {
-            part.GetComponent<MachinePart>().StopSmoke();
+            part.GetComponent<MachinePart>().animating = false;
         }
         if (GetGate().GetLink())
         {
