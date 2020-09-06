@@ -12,6 +12,10 @@ public class MachinePart : MonoBehaviour
     public int rotation = 0;
     public int animationStage = 0;
     public bool animating = false;
+    public bool animationSynchronized = false;
+    public bool animationBoomerang = false;
+    public bool forceAnimation = false;
+    public int animationSpeed = 1;
 
     public void RefreshSprite(int rotation)
     {
@@ -36,25 +40,40 @@ public class MachinePart : MonoBehaviour
         CancelInvoke();
     }
 
-    public void Animate()
+    public void Animate(int timer)
     {
-        if (animating)
+        if (animating || forceAnimation)
         {
-            animationStage++;
-            animationStage %= 3;
-
-
-            switch (animationStage)
+            if (animationSynchronized)
             {
-                case 0:
-                    GetComponent<SpriteRenderer>().sprite = rotations_one[rotation];
-                    break;
-                case 1:
-                    GetComponent<SpriteRenderer>().sprite = rotations_two[rotation];
-                    break;
-                case 2:
-                    GetComponent<SpriteRenderer>().sprite = rotations_three[rotation];
-                    break;
+                animationStage = timer;
+            }
+            else if(animationSpeed==1)
+            {
+                animationStage++;
+                animationStage %= animationBoomerang?4:3;
+            }
+            else
+            {
+                animationStage++;
+                animationStage %= animationBoomerang?4 * animationSpeed:3*animationSpeed;
+            }
+
+            if (animationStage < animationSpeed)
+            {
+                GetComponent<SpriteRenderer>().sprite = rotations_one[rotation];
+            }
+            else if (animationStage < animationSpeed * 2)
+            {
+                GetComponent<SpriteRenderer>().sprite = rotations_two[rotation];
+            }
+            else if (animationStage < animationSpeed * 3)
+            {
+                GetComponent<SpriteRenderer>().sprite = rotations_three[rotation];
+            }
+            else if(animationStage < animationSpeed * 4)
+            {
+                GetComponent<SpriteRenderer>().sprite = rotations_two[rotation];
             }
         }
     }

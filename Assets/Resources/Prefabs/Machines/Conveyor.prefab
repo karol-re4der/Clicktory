@@ -183,6 +183,9 @@ MonoBehaviour:
   rotation: 0
   animationStage: 0
   animating: 0
+  animationSynchronized: 1
+  animationBoomerang: 0
+  forceAnimation: 0
 --- !u!1 &3660428391799110097
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,4 +246,5 @@ MonoBehaviour:
   parts:
   - {fileID: 2977133231430448019}
   turnedOff: 0
+  selfActivating: 1
   activationTime: 1

@@ -15,24 +15,20 @@ public class Conveyor : Machine
         gate_out = Array.Find(parts[0].GetComponents<Gate>(), (x) => x.outputing);
     }
 
-    public override void Activate()
+    public override bool CanActivate()
     {
-        //if (!IsInvoking("Invoke_Activate"))
-        //{
-            foreach (GameObject part in parts)
-            {
-                part.GetComponent<MachinePart>().animationStage = 0;
-                part.GetComponent<MachinePart>().animating = true;
-            }
-            Invoke("Invoke_Activate", activationTime);
-        //}
-
         if (gate_in == null)
         {
             FindGates();
         }
 
-        if (!gate_out.res && gate_in.res && !gate_out.IsOccupied())
+        return base.CanActivate() && (!gate_out.res && gate_in.res && !gate_out.IsOccupied());
+    }
+
+    public override void Activate()
+    {
+        EnableAnimations();
+        if (CanActivate())
         {
             if (gate_out.GetLink())
             {
@@ -46,11 +42,9 @@ public class Conveyor : Machine
             gate_in.res = null;
         }
     }
-    public void Invoke_Activate()
+
+    public override void EndActivation()
     {
-        foreach (GameObject part in parts)
-        {
-            part.GetComponent<MachinePart>().animating = false;
-        }
+        activationTimer--;
     }
 }

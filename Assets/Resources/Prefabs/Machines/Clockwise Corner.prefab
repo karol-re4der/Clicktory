@@ -60,6 +60,7 @@ MonoBehaviour:
   parts:
   - {fileID: 4090870068354370382}
   turnedOff: 0
+  selfActivating: 1
   activationTime: 1
 --- !u!1 &4090870068354370382
 GameObject:
@@ -246,3 +247,6 @@ MonoBehaviour:
   rotation: 0
   animationStage: 0
   animating: 0
+  animationSynchronized: 1
+  animationBoomerang: 0
+  forceAnimation: 0

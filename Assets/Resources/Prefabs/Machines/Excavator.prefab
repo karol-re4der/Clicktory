@@ -117,6 +117,10 @@ MonoBehaviour:
   rotation: 0
   animationStage: 0
   animating: 0
+  animationSynchronized: 1
+  animationBoomerang: 0
+  forceAnimation: 1
+  animationSpeed: 1
 --- !u!114 &3038711792027395159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,7 +235,9 @@ MonoBehaviour:
   - {fileID: 5313558998562880457}
   - {fileID: 164481589090289635}
   turnedOff: 0
-  activationTime: 10
+  selfActivating: 0
+  activationTime: 3
+  activationTimer: 0
   deposit: []
 --- !u!1 &5313558998562880457
 GameObject:
@@ -349,6 +355,10 @@ MonoBehaviour:
   rotation: 0
   animationStage: 0
   animating: 0
+  animationSynchronized: 0
+  animationBoomerang: 0
+  forceAnimation: 0
+  animationSpeed: 1
 --- !u!60 &9091792372888387560
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -497,6 +507,10 @@ MonoBehaviour:
   rotation: 0
   animationStage: 0
   animating: 0
+  animationSynchronized: 0
+  animationBoomerang: 1
+  forceAnimation: 0
+  animationSpeed: 3
 --- !u!60 &906428557207947739
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -595,6 +609,10 @@ MonoBehaviour:
   rotation: 0
   animationStage: 0
   animating: 0
+  animationSynchronized: 0
+  animationBoomerang: 0
+  forceAnimation: 0
+  animationSpeed: 1
 --- !u!212 &4081013325924197745
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -52,37 +52,22 @@ public class OutputMachine : Machine
         }
     }
 
-    public override void Activate()
+    public override void EndActivation()
     {
-        if (!IsInvoking("Invoke_Activate"))
+        if (CanEndActivation())
         {
-            if (!turnedOff)
+            base.EndActivation();
+            if (GetGate().GetLink())
             {
-                LaunchSmoke();
-                foreach(GameObject part in parts)
+                string resType = FindDeposit();
+                if (resType.Length == 0)
                 {
-                    part.GetComponent<MachinePart>().animating = true;
+                    resType = "Dirt";
                 }
-                Invoke("Invoke_Activate", activationTime);
+                GetGate().res = Globals.GetSave().GetResources().CreateFlowing(resType, 1, GetGate().GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((GetGate().DirectionRotated() + 2) % 4, GetGate().DirectionRotated()), GetGate().GetComponent<MachinePart>().transform.position);
+                GetGate().res.Teleport(GetGate(), GetGate().res.secondsPerTile);
             }
         }
-    }
-    private void Invoke_Activate()
-    {
-        StopSmoke();
-        foreach (GameObject part in parts)
-        {
-            part.GetComponent<MachinePart>().animating = false;
-        }
-        if (GetGate().GetLink())
-        {
-            string resType = FindDeposit();
-            if (resType.Length == 0)
-            {
-                resType = "Dirt";
-            }
-            GetGate().res = Globals.GetSave().GetResources().CreateFlowing(resType, 1, GetGate().GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((GetGate().DirectionRotated() + 2) % 4, GetGate().DirectionRotated()), GetGate().GetComponent<MachinePart>().transform.position);
-            GetGate().res.Teleport(GetGate(), GetGate().res.secondsPerTile);
-        }
+        activationTimer--;
     }
 }

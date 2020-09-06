@@ -8788,6 +8788,7 @@ MonoBehaviour:
     techTree: []
   windDir: {x: -1, y: 0}
   windPower: 1
+  animationFrameLength: 0.33
 --- !u!114 &1191406021
 MonoBehaviour:
   m_ObjectHideFlags: 0

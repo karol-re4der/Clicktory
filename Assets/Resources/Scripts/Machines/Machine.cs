@@ -24,7 +24,9 @@ public class Machine : MonoBehaviour
     public int sizeY;
     public List<GameObject> parts;
     public bool turnedOff = false;
-    public float activationTime;
+    public bool selfActivating = false;
+    public int activationTime;
+    public int activationTimer = 0;
 
     private List<Gate> gates;
 
@@ -140,7 +142,25 @@ public class Machine : MonoBehaviour
     }
     public virtual void Activate()
     {
-
+        if (CanActivate())
+        {
+            LaunchSmoke();
+            EnableAnimations();
+            activationTimer = activationTime;
+        }
+    }
+    public virtual void EndActivation()
+    {
+        StopSmoke();
+        StopAnimations();
+    }
+    public virtual bool CanActivate()
+    {
+        return !turnedOff && !IsInvoking("EndActivation") && activationTimer<0;
+    }
+    public virtual bool CanEndActivation()
+    {
+        return activationTimer == 0;
     }
     public virtual void InOut()
     {
@@ -171,13 +191,28 @@ public class Machine : MonoBehaviour
             part.GetComponent<MachinePart>().StopSmoke();
         }
     }
-    public void Animate()
+    public void Animate(int timer)
     {
         foreach (GameObject part in parts)
         {
-            part.GetComponent<MachinePart>().Animate();
+            part.GetComponent<MachinePart>().Animate(timer);
         }
     }
+    public void EnableAnimations()
+    {
+        foreach (GameObject part in parts)
+        {
+            part.GetComponent<MachinePart>().animating = true;
+        }
+    }
+    public void StopAnimations()
+    {
+        foreach (GameObject part in parts)
+        {
+            part.GetComponent<MachinePart>().animating = false;
+        }
+    }
+
 
     public int SpriteOrderDirection(int in_dir, int out_dir) //not applying to corners yet
     {

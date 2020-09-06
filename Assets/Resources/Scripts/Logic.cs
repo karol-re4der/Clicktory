@@ -17,7 +17,10 @@ public class Logic : MonoBehaviour
     public float windPower;
 
     private float lastAnimationFrame = 0;
-    public float animationFrameLength = 1/3f;
+    private float lastTick = 0;
+    private int animationTimer = 0;
+    public int animationLength = 3;
+    public float autoTick = 1f/3;
 
     [System.Serializable]
     public class TechTree
@@ -82,28 +85,42 @@ public class Logic : MonoBehaviour
     {
         Globals.GetInterface().CheckUnlocks();
 
-        if (Time.time - lastAnimationFrame > animationFrameLength)
+        if(Time.time - lastTick > autoTick)
         {
-            foreach(GameObject mach in GameObject.FindGameObjectsWithTag("Machine"))
-            {
-                mach.GetComponent<Machine>().Animate();
-            }
-            lastAnimationFrame = Time.time;
-        }
-    }
+            lastTick = Time.time;
 
+            foreach (GameObject mach in GameObject.FindGameObjectsWithTag("Machine"))
+            {
+                mach.GetComponent<Machine>().Animate(animationTimer);
+            }
+            animationTimer++;
+            animationTimer %= animationLength;
+
+            if (animationTimer == 0)
+            {
+                Tick();
+            }
+        }
+
+    }
     public void Tick()
     {
         if (GameObject.FindWithTag("Machine"))
         {
+            
             foreach (GameObject machine in GameObject.FindGameObjectsWithTag("Machine"))
             {
                 machine.GetComponent<Machine>().InOut();
             }
             foreach (GameObject machine in GameObject.FindGameObjectsWithTag("Machine"))
             {
+                machine.GetComponent<Machine>().EndActivation();
+            }
+            foreach (GameObject machine in GameObject.FindGameObjectsWithTag("Machine"))
+            {
                 machine.GetComponent<Machine>().Activate();
             }
+            
         }
 
         if (PlayerPrefs.GetInt("Autosave") == 1)
