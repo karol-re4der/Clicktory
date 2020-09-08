@@ -136,6 +136,8 @@ public class Machine : MonoBehaviour
             }
             owners.ElementAt(i).machine = this.gameObject;
 
+            part.GetComponent<MachinePart>().tile.type = "Concrete";
+            part.GetComponent<MachinePart>().tile.RefreshSprite();
             part.GetComponent<MachinePart>().tile.ClearTrinket();
             i++;
         }

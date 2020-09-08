@@ -51,7 +51,7 @@ public class MergerMachine : Machine
             }
             store = gate_in.res;
             gate_in.res = null;
-            store.Move(gate_out, false);
+            store.ThreePointMove(gate_out, parts[0].transform.position);
             gate_out.res = store;
             store = null;
             evenTick = !evenTick;

@@ -214,8 +214,6 @@ public class Tile : MonoBehaviour
                                 newTile = newTile.links[(rotation + 1) % 4];
                             }
                             newOwners.Add(newTile);
-                            newTile.type = "Concrete";
-                            newTile.RefreshSprite();
                         }
                     }
 

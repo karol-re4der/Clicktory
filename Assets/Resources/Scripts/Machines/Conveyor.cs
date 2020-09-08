@@ -30,14 +30,9 @@ public class Conveyor : Machine
         EnableAnimations();
         if (CanActivate())
         {
-            if (gate_out.GetLink())
-            {
-                gate_in.res.Move(gate_out.GetLink(), false);
-            }
-            else
-            {
-                gate_in.res.Move(gate_out, true);
-            }
+
+            gate_in.res.ThreePointMove(gate_out.GetLink(), parts[0].transform.position);
+
             gate_out.res = gate_in.res;
             gate_in.res = null;
         }

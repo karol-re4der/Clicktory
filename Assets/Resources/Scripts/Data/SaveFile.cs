@@ -88,17 +88,13 @@ public class SaveFile
     {
         if (saveData.Count()>0)
         {
-            foreach (TileData td in saveData)
+            foreach (TileData td in saveData.Where((x)=>x.deposit.Length>0))
             {
-                if (td.deposit.Length>0)
-                {
-                    grid[td.posX, td.posY].GetComponent<Tile>().NewDeposit(td.deposit);
-
-                }
-                if (td.content.Length > 0)
-                {
-                    grid[td.posX, td.posY].GetComponent<Tile>().NewMachine(td.content, td.rotation, restoring: true);
-                }
+                grid[td.posX, td.posY].GetComponent<Tile>().NewDeposit(td.deposit);
+            }
+            foreach(TileData td in saveData.Where((x)=>x.content.Length>0))
+            {
+                grid[td.posX, td.posY].GetComponent<Tile>().NewMachine(td.content, td.rotation, restoring: true);
             }
         }
         saveData = null;

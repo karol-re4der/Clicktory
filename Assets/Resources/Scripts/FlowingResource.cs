@@ -11,6 +11,7 @@ public class FlowingResource : MonoBehaviour
     //transition variables
     private Vector3 targetPos;
     private Vector3 startingPos;
+    private Vector3 midPoint;
     private float progress;
     private int targetLayer;
     public int ticksPerTile = 10;
@@ -28,6 +29,17 @@ public class FlowingResource : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = Globals.GetSave().GetResources().FindResSprite(type);
     }
  
+    public void ThreePointMove(Gate targetGate, Vector3 midPoint)
+    {
+        CancelInvoke();
+        isFinal = false;
+        progress = 0;
+        this.midPoint = midPoint;
+        targetPos = targetGate.GetPosition();
+        targetLayer = targetGate.GetOrder();
+        startingPos = transform.position;
+        InvokeRepeating("Transition", 0f, secondsPerTile / (float)ticksPerTile / 2);
+    }
     public void Move(Gate targetGate, bool final)
     {
         CancelInvoke();
@@ -63,16 +75,27 @@ public class FlowingResource : MonoBehaviour
 
     private void Transition()
     {
-        transform.position = Vector3.Lerp(startingPos, targetPos, progress);
+        transform.position = Vector3.Lerp(startingPos, midPoint==Vector3.zero?targetPos:midPoint, progress);
+
         progress += 1f / (float)ticksPerTile;
         if (progress > 0.5f)
         {
             GetComponent<SpriteRenderer>().sortingOrder = targetLayer;
+
         }
         if (progress >= 1f)
         {
             gameObject.SetActive(true);
             CancelInvoke();
+
+            if (midPoint!=Vector3.zero)
+            {
+                startingPos = midPoint;
+                midPoint = Vector3.zero;
+                progress = 0f;
+                InvokeRepeating("Transition", 0f, secondsPerTile / (float)ticksPerTile / 2);
+            }
+
             if (isFinal)
             {
                 Dispose();

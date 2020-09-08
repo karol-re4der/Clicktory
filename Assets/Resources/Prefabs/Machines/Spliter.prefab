@@ -55,7 +55,7 @@ MonoBehaviour:
   description: 
   type: Spliter
   removable: 1
-  obstructing: 1
+  obstructing: 0
   sizeX: 1
   sizeY: 1
   parts:
