@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 9019738336761029725, guid: 5d5288da180873b4e873f159d510a6fe,
+  m_Sprite: {fileID: -5709088164090259888, guid: 5d5288da180873b4e873f159d510a6fe,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -96,12 +96,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8267bc6c949ceea4c966accc1a65350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotations:
-  - {fileID: 9019738336761029725, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
-  - {fileID: -72523700980769521, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
-  - {fileID: -3822002024589805567, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
-  - {fileID: -1523872364846472427, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  rotations_one:
+  - {fileID: -5709088164090259888, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -2271341099109583074, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -2833128565149981059, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -3002532151884055452, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  rotations_two:
+  - {fileID: 3462350097185380487, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: 561679198402784553, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -1643424084127178215, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -3454351053480918492, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  rotations_three:
+  - {fileID: 336807177333185489, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: 8697239850715387947, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -4053712030166110076, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -9151152480204862507, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
   tile: {fileID: 0}
+  smoking: 0
+  rotation: 0
+  animationStage: 0
+  animating: 0
+  animationSynchronized: 1
+  animationBoomerang: 0
+  forceAnimation: 1
+  animationSpeed: 1
 --- !u!114 &355919936938750662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +201,9 @@ MonoBehaviour:
   - {fileID: 2901918442964023663}
   - {fileID: 6688718275549238540}
   turnedOff: 0
+  selfActivating: 0
+  activationTime: 0
+  activationTimer: 0
 --- !u!1 &6688718275549238540
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +276,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 9019738336761029725, guid: 5d5288da180873b4e873f159d510a6fe,
+  m_Sprite: {fileID: -5709088164090259888, guid: 5d5288da180873b4e873f159d510a6fe,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -279,12 +300,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8267bc6c949ceea4c966accc1a65350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotations:
-  - {fileID: 9019738336761029725, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
-  - {fileID: -72523700980769521, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
-  - {fileID: -3822002024589805567, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
-  - {fileID: -1523872364846472427, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  rotations_one:
+  - {fileID: -5709088164090259888, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -2271341099109583074, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -2833128565149981059, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -3002532151884055452, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  rotations_two:
+  - {fileID: 3462350097185380487, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: 561679198402784553, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -1643424084127178215, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -3454351053480918492, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  rotations_three:
+  - {fileID: 336807177333185489, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: 8697239850715387947, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -4053712030166110076, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
+  - {fileID: -9151152480204862507, guid: 5d5288da180873b4e873f159d510a6fe, type: 3}
   tile: {fileID: 0}
+  smoking: 0
+  rotation: 0
+  animationStage: 0
+  animating: 0
+  animationSynchronized: 1
+  animationBoomerang: 0
+  forceAnimation: 1
+  animationSpeed: 1
 --- !u!114 &3745033391551407807
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,14 +12,29 @@ public class InputMachine : Machine
             gate_in = parts.Find((x) => x.GetComponent<Gate>()).GetComponent<Gate>();
         }
     }
+    public override bool CanActivate()
+    {
+        if (gate_in == null)
+        {
+            FindGates();
+        }
+
+        return base.CanActivate() && gate_in.res;
+    }
+
     public override void Activate()
     {
-        FindGates();
-        if (gate_in.res)
+        EnableAnimations();
+        if (CanActivate())
         {
             store = gate_in.res;
             gate_in.res = null;
             store.Store();
         }
+    }
+
+    public override void EndActivation()
+    {
+        activationTimer--;
     }
 }

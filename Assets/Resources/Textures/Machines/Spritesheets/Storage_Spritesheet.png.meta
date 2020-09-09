@@ -20,6 +20,36 @@ TextureImporter:
   - first:
       213: -1786438450026267231
     second: Storage_Spritesheet_5
+  - first:
+      213: 6439596563683639233
+    second: Storage_Spritesheet_0
+  - first:
+      213: 4802843286559479190
+    second: Storage_Spritesheet_1
+  - first:
+      213: -420731969549443000
+    second: Storage_Spritesheet_2
+  - first:
+      213: 3584476008453544428
+    second: Storage_Spritesheet_3
+  - first:
+      213: -3993206691501745875
+    second: Storage_Spritesheet_4
+  - first:
+      213: 215455854540469464
+    second: Storage_Spritesheet_5
+  - first:
+      213: 3229314069915353297
+    second: Storage_Spritesheet_6
+  - first:
+      213: 1569459045140528591
+    second: Storage_Spritesheet_7
+  - first:
+      213: -7726202271980764826
+    second: Storage_Spritesheet_8
+  - first:
+      213: 7681374867977199344
+    second: Storage_Spritesheet_9
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -132,6 +162,132 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cf703bc4fa0e5950800000000000000
+      internalID: 6439596563683639233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Storage_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6955f37c58027a240800000000000000
+      internalID: 4802843286559479190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Storage_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 840ea59b082492af0800000000000000
+      internalID: -420731969549443000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Storage_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce998c530fd9eb130800000000000000
+      internalID: 3584476008453544428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Storage_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d295356cba74598c0800000000000000
+      internalID: -3993206691501745875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Storage_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d4b9aa45f37df200800000000000000
+      internalID: 215455854540469464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Storage_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 79
         width: 79
         height: 79
@@ -142,14 +298,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1065c658194916c30800000000000000
-      internalID: 4350922067746248193
+      spriteID: 1d0c9757904d0dc20800000000000000
+      internalID: 3229314069915353297
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Storage_Spritesheet_1
+      name: Storage_Spritesheet_7
       rect:
         serializedVersion: 2
         x: 79
@@ -163,35 +319,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fef86dcf602cece0800000000000000
-      internalID: -1374688121695174926
+      spriteID: fcdff1bafa6d7c510800000000000000
+      internalID: 1569459045140528591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Storage_Spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 79
-        width: 79
-        height: 79
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 30dd54c5dec75e090800000000000000
-      internalID: -8005855403684012797
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Storage_Spritesheet_3
+      name: Storage_Spritesheet_8
       rect:
         serializedVersion: 2
         x: 0
@@ -205,14 +340,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7217657d6592f9fb0800000000000000
-      internalID: -4638943638211628761
+      spriteID: 66145c308f307c490800000000000000
+      internalID: -7726202271980764826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Storage_Spritesheet_4
+      name: Storage_Spritesheet_9
       rect:
         serializedVersion: 2
         x: 79
@@ -226,29 +361,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8662e54ee17e574f0800000000000000
-      internalID: -831504436313577880
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Storage_Spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 158
-        y: 0
-        width: 79
-        height: 79
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1adb515d1bb4537e0800000000000000
-      internalID: -1786438450026267231
+      spriteID: 0fed468aeb9b99a60800000000000000
+      internalID: 7681374867977199344
       vertices: []
       indices: 
       edges: []

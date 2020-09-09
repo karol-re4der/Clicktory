@@ -14,6 +14,42 @@ TextureImporter:
   - first:
       213: -1523872364846472427
     second: Scaner_Spritesheet_3
+  - first:
+      213: -5709088164090259888
+    second: Scanner_Spritesheet_0
+  - first:
+      213: 3462350097185380487
+    second: Scanner_Spritesheet_1
+  - first:
+      213: 336807177333185489
+    second: Scanner_Spritesheet_2
+  - first:
+      213: -2271341099109583074
+    second: Scanner_Spritesheet_3
+  - first:
+      213: 561679198402784553
+    second: Scanner_Spritesheet_4
+  - first:
+      213: 8697239850715387947
+    second: Scanner_Spritesheet_5
+  - first:
+      213: -2833128565149981059
+    second: Scanner_Spritesheet_6
+  - first:
+      213: -1643424084127178215
+    second: Scanner_Spritesheet_7
+  - first:
+      213: -4053712030166110076
+    second: Scanner_Spritesheet_8
+  - first:
+      213: -3002532151884055452
+    second: Scanner_Spritesheet_9
+  - first:
+      213: -3454351053480918492
+    second: Scanner_Spritesheet_10
+  - first:
+      213: -9151152480204862507
+    second: Scanner_Spritesheet_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -122,7 +158,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scaner_Spritesheet_0
+      name: Scanner_Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0565304109e35c0b0800000000000000
+      internalID: -5709088164090259888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scanner_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78816cea11dbc0030800000000000000
+      internalID: 3462350097185380487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scanner_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1db1fb2e7549ca400800000000000000
+      internalID: 336807177333185489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scanner_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e17f3dfed439a70e0800000000000000
+      internalID: -2271341099109583074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scanner_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92d268a414c7bc700800000000000000
+      internalID: 561679198402784553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scanner_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b281344709dc2b870800000000000000
+      internalID: 8697239850715387947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scanner_Spritesheet_6
       rect:
         serializedVersion: 2
         x: 0
@@ -136,14 +298,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d542d998a3c8c2d70800000000000000
-      internalID: 9019738336761029725
+      spriteID: d76293f9494bea8d0800000000000000
+      internalID: -2833128565149981059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scaner_Spritesheet_1
+      name: Scanner_Spritesheet_7
       rect:
         serializedVersion: 2
         x: 79
@@ -157,14 +319,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0d9e3504185efef0800000000000000
-      internalID: -72523700980769521
+      spriteID: 9122742b0826139e0800000000000000
+      internalID: -1643424084127178215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scaner_Spritesheet_2
+      name: Scanner_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 79
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 480b834d2625eb7c0800000000000000
+      internalID: -4053712030166110076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scanner_Spritesheet_9
       rect:
         serializedVersion: 2
         x: 0
@@ -178,14 +361,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1083081986585fac0800000000000000
-      internalID: -3822002024589805567
+      spriteID: 46cf24c7aecd456d0800000000000000
+      internalID: -3002532151884055452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scaner_Spritesheet_3
+      name: Scanner_Spritesheet_10
       rect:
         serializedVersion: 2
         x: 79
@@ -199,8 +382,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 513aa42782e1adae0800000000000000
-      internalID: -1523872364846472427
+      spriteID: 42206cfc40eaf00d0800000000000000
+      internalID: -3454351053480918492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scanner_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 0
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db44fbdd43900180800000000000000
+      internalID: -9151152480204862507
       vertices: []
       indices: 
       edges: []
