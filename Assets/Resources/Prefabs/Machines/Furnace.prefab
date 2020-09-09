@@ -96,13 +96,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8267bc6c949ceea4c966accc1a65350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotations:
+  rotations_one:
   - {fileID: 4181809279962354238, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
-  - {fileID: -1431313849802997621, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
-  - {fileID: -6866610119538316206, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
   - {fileID: 5709918681806428511, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: 3291167375095324272, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: -7896977477277625463, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  rotations_two:
+  - {fileID: -1431313849802997621, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: 3913149273062749351, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: -219124512182781666, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: -7896977477277625463, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  rotations_three:
+  - {fileID: -6866610119538316206, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: 906115885694264888, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: 8596924731321762643, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: -7896977477277625463, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
   tile: {fileID: 0}
   smoking: 1
+  rotation: 0
+  animationStage: 0
+  animating: 1
+  animationSynchronized: 0
+  animationBoomerang: 1
+  forceAnimation: 0
+  animationSpeed: 1
 --- !u!114 &355919936938750662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +198,9 @@ MonoBehaviour:
   - {fileID: 2901918442964023663}
   - {fileID: 6688718275549238540}
   turnedOff: 0
-  activationTime: 10
+  selfActivating: 0
+  activationTime: 2
+  activationTimer: -1
   oreStore: {fileID: 0}
   coalStore: {fileID: 0}
 --- !u!1 &6688718275549238540
@@ -281,13 +300,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8267bc6c949ceea4c966accc1a65350c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotations:
+  rotations_one:
   - {fileID: 4181809279962354238, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
-  - {fileID: -1431313849802997621, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
-  - {fileID: -6866610119538316206, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
   - {fileID: 5709918681806428511, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: 3291167375095324272, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: -7896977477277625463, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  rotations_two:
+  - {fileID: -1431313849802997621, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: 3913149273062749351, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: -219124512182781666, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: -7896977477277625463, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  rotations_three:
+  - {fileID: -6866610119538316206, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: 906115885694264888, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: 8596924731321762643, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
+  - {fileID: -7896977477277625463, guid: d4871305bfe4e694fb7fbf76cb4521d5, type: 3}
   tile: {fileID: 0}
   smoking: 1
+  rotation: 0
+  animationStage: 0
+  animating: 1
+  animationSynchronized: 0
+  animationBoomerang: 1
+  forceAnimation: 0
+  animationSpeed: 1
 --- !u!114 &2794806651070442844
 MonoBehaviour:
   m_ObjectHideFlags: 0

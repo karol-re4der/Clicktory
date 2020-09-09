@@ -14,6 +14,36 @@ TextureImporter:
   - first:
       213: 5709918681806428511
     second: Furnace_Spritesheet_3
+  - first:
+      213: 8971754226158785373
+    second: Furnace_Spritesheet_0
+  - first:
+      213: 3561107839412754106
+    second: Furnace_Spritesheet_1
+  - first:
+      213: -6666150858022418262
+    second: Furnace_Spritesheet_2
+  - first:
+      213: -3509028590845881556
+    second: Furnace_Spritesheet_3
+  - first:
+      213: 3913149273062749351
+    second: Furnace_Spritesheet_4
+  - first:
+      213: 906115885694264888
+    second: Furnace_Spritesheet_5
+  - first:
+      213: 3291167375095324272
+    second: Furnace_Spritesheet_6
+  - first:
+      213: -219124512182781666
+    second: Furnace_Spritesheet_7
+  - first:
+      213: 8596924731321762643
+    second: Furnace_Spritesheet_8
+  - first:
+      213: -7896977477277625463
+    second: Furnace_Spritesheet_9
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -126,6 +156,132 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d53dd4e2fe2128c70800000000000000
+      internalID: 8971754226158785373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furnace_Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab65e0f56b89b6130800000000000000
+      internalID: 3561107839412754106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furnace_Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 237
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa888680d131d73a0800000000000000
+      internalID: -6666150858022418262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furnace_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2311f7961d6d4fc0800000000000000
+      internalID: -3509028590845881556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furnace_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a4bbf5f78c4e4630800000000000000
+      internalID: 3913149273062749351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furnace_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 158
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8362524e89b239c00800000000000000
+      internalID: 906115885694264888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furnace_Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 79
         width: 79
         height: 79
@@ -136,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e32969a4265c80a30800000000000000
-      internalID: 4181809279962354238
+      spriteID: 07e59e05a439cad20800000000000000
+      internalID: 3291167375095324272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Furnace_Spritesheet_1
+      name: Furnace_Spritesheet_7
       rect:
         serializedVersion: 2
         x: 79
@@ -157,14 +313,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b80456413a3f22ce0800000000000000
-      internalID: -1431313849802997621
+      spriteID: e19b3c9ca6385fcf0800000000000000
+      internalID: -219124512182781666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Furnace_Spritesheet_2
+      name: Furnace_Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 79
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3534433ae796e4770800000000000000
+      internalID: 8596924731321762643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Furnace_Spritesheet_9
       rect:
         serializedVersion: 2
         x: 0
@@ -178,29 +355,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25ce0d52a76e4b0a0800000000000000
-      internalID: -6866610119538316206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Furnace_Spritesheet_3
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 0
-        width: 79
-        height: 79
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f595075e9c4bd3f40800000000000000
-      internalID: 5709918681806428511
+      spriteID: 9835b9b03dc486290800000000000000
+      internalID: -7896977477277625463
       vertices: []
       indices: 
       edges: []
