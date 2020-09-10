@@ -30,6 +30,7 @@ public class InputMachine : Machine
             store = gate_in.res;
             gate_in.res = null;
             store.Store();
+            store.Fade(true);
         }
     }
 

@@ -202,8 +202,8 @@ MonoBehaviour:
   - {fileID: 6688718275549238540}
   turnedOff: 0
   selfActivating: 0
-  activationTime: 0
-  activationTimer: 0
+  activationTime: 5
+  activationTimer: -1
 --- !u!1 &6688718275549238540
 GameObject:
   m_ObjectHideFlags: 0

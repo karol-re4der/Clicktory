@@ -237,7 +237,7 @@ MonoBehaviour:
   turnedOff: 0
   selfActivating: 0
   activationTime: 3
-  activationTimer: 0
+  activationTimer: -1
   deposit: []
 --- !u!1 &5313558998562880457
 GameObject:

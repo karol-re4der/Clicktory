@@ -15,21 +15,34 @@ public class ScannerMachine : Machine
         }
     }
 
-    public override void Activate()
+    public override bool CanActivate()
     {
         FindGates();
-        if(gate_in.GetLink() && gate_out.GetLink()){
-            if (store)
-            {
-                gate_out.res = Globals.GetSave().GetResources().CreateFlowing("Science", store.amount, gate_out.GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((gate_out.DirectionRotated() + 2) % 4, gate_out.DirectionRotated()), gate_out.GetComponent<MachinePart>().transform.position);
-                gate_out.res.Teleport(gate_out, gate_out.res.secondsPerTile);
-                store.Dispose();
-            }
-            if (gate_in.res)
-            {
-                store = gate_in.res;
-                gate_in.res = null;
-            }
+        return base.CanActivate() && gate_in.res && !store;
+    }
+
+    public override void Activate()
+    {
+        if(CanActivate()){
+            base.Activate();
+
+            store = gate_in.res;
+            store.Fade(false);
+            gate_in.res = null;
         }
+    }
+
+    public override void EndActivation()
+    {
+        if (CanEndActivation())
+        {
+            base.EndActivation();
+
+            gate_out.res = Globals.GetSave().GetResources().CreateFlowing("Science", store.amount, gate_out.GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((gate_out.DirectionRotated() + 2) % 4, gate_out.DirectionRotated()), gate_out.GetComponent<MachinePart>().transform.position);
+            gate_out.res.Teleport(gate_out, 0);
+            gate_out.res.Appear();
+            store.Dispose();
+        }
+        activationTimer--;
     }
 }

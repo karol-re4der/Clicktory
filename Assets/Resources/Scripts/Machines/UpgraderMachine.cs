@@ -47,13 +47,13 @@ public class UpgraderMachine : Machine
                 if (!oreStore && gate.res.type.Equals("Ore"))
                 {
                     oreStore = gate.res;
-                    oreStore.gameObject.SetActive(false);
+                    oreStore.Fade(false);
                     gate.res = null;
                 }
                 else if (!coalStore && gate.res.type.Equals("Coal"))
                 {
                     coalStore = gate.res;
-                    coalStore.gameObject.SetActive(false);
+                    coalStore.Fade(false);
                     gate.res = null;
                 }
             }
@@ -66,7 +66,8 @@ public class UpgraderMachine : Machine
         {
             base.EndActivation();
             gate_out.res = Globals.GetSave().GetResources().CreateFlowing("Iron", oreStore.amount, gate_out.GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((gate_out.DirectionRotated() + 2) % 4, gate_out.DirectionRotated()), gate_out.GetComponent<MachinePart>().transform.position);
-            gate_out.res.Teleport(gate_out, gate_out.res.secondsPerTile);
+            gate_out.res.Teleport(gate_out, 0);
+            gate_out.res.Appear();
         }
         activationTimer--;
     }

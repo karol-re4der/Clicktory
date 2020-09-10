@@ -199,7 +199,7 @@ MonoBehaviour:
   - {fileID: 6688718275549238540}
   turnedOff: 0
   selfActivating: 0
-  activationTime: 2
+  activationTime: 5
   activationTimer: -1
   oreStore: {fileID: 0}
   coalStore: {fileID: 0}

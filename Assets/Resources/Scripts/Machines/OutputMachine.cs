@@ -65,7 +65,8 @@ public class OutputMachine : Machine
                     resType = "Dirt";
                 }
                 GetGate().res = Globals.GetSave().GetResources().CreateFlowing(resType, 1, GetGate().GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((GetGate().DirectionRotated() + 2) % 4, GetGate().DirectionRotated()), GetGate().GetComponent<MachinePart>().transform.position);
-                GetGate().res.Teleport(GetGate(), GetGate().res.secondsPerTile);
+                GetGate().res.Teleport(GetGate(), 0);
+                GetGate().res.Appear();
             }
         }
         activationTimer--;
