@@ -234,4 +234,5 @@ MonoBehaviour:
   selfActivating: 0
   activationTime: 0
   activationTimer: 0
+  tier: 1
   evenTick: 0

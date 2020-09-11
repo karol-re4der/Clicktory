@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1871738884951326616}
   - component: {fileID: 1012169961542790801}
   - component: {fileID: 2519287254227782185}
-  - component: {fileID: 2461583574806728522}
   - component: {fileID: 2741197443829880509}
   m_Layer: 0
   m_Name: Part_0
@@ -118,39 +117,6 @@ MonoBehaviour:
   outputing: 0
   owner: {fileID: -3233702318502643193}
   res: {fileID: 0}
---- !u!60 &2461583574806728522
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 246656718745589288}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 0.79, y: 0.79}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.2405217, y: -0.09160425}
-      - {x: -0.23753847, y: -0.24863571}
-      - {x: -0.07163462, y: -0.33797586}
-      - {x: 0.12715465, y: -0.43253043}
-      - {x: 0.37021345, y: -0.3183648}
-      - {x: 0.37131122, y: -0.19723997}
-      - {x: 0.36880362, y: -0.02363579}
-      - {x: 0.13396089, y: 0.09381084}
 --- !u!114 &2741197443829880509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,6 +152,7 @@ MonoBehaviour:
   animationSynchronized: 1
   animationBoomerang: 0
   forceAnimation: 0
+  animationSpeed: 1
 --- !u!1 &3660428391799110097
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,4 +214,6 @@ MonoBehaviour:
   - {fileID: 246656718745589288}
   turnedOff: 0
   selfActivating: 1
-  activationTime: 1
+  activationTime: 0
+  activationTimer: 0
+  tier: 1

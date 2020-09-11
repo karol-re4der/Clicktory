@@ -42,19 +42,21 @@ public class Tap_Feel : MonoBehaviour
         {
             if (Globals.IsPointerInGame())
             {
-                if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero || Application.isEditor)
-                {
-                    if (!positionSet)
+                if (!GetComponent<Tile>().machine) {
+                    if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero || Application.isEditor)
                     {
-                        orginalPosition = transform.position;
-                        positionSet = true;
-                    }
-                    if (feelEnabled)
-                    {
-                        CancelInvoke();
-                        progress = 0;
-                        transform.position = new Vector3(transform.position.x, orginalPosition.y + strengh, transform.position.z);
-                        InvokeRepeating("Invoke_Return", 0, 0.1f);
+                        if (!positionSet)
+                        {
+                            orginalPosition = transform.position;
+                            positionSet = true;
+                        }
+                        if (feelEnabled)
+                        {
+                            CancelInvoke();
+                            progress = 0;
+                            transform.position = new Vector3(transform.position.x, orginalPosition.y + strengh, transform.position.z);
+                            InvokeRepeating("Invoke_Return", 0, 0.1f);
+                        }
                     }
                 }
             }

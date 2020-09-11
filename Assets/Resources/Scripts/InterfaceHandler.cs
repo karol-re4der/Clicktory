@@ -12,6 +12,7 @@ public class InterfaceHandler : MonoBehaviour
     public List<GameObject> unlockable = new List<GameObject>();
 
     public int rotation = 0;
+    public int currFilter = 0;
 
     public Machine activeMachine;
     // Start is called before the first frame update
@@ -166,6 +167,53 @@ public class InterfaceHandler : MonoBehaviour
         }
     }
 
+    public void Button_Filter(GameObject frame)
+    {
+        string tierText = frame.transform.Find("Filter/Text").GetComponent<TextMeshProUGUI>().text;
+        int tier = 0;
+        if(tierText.Equals("Tier 1"))
+        {
+            tier = 2;
+            tierText = "Tier 2";
+        }
+        else if(tierText.Equals("Tier 2"))
+        {
+            tier = 0;
+            tierText = "All Tiers";
+        }
+        else
+        {
+            tier = 1;
+            tierText = "Tier 1";
+        }
+
+        currFilter = tier;
+        frame.transform.Find("Filter/Text").GetComponent<TextMeshProUGUI>().text = tierText;
+
+        foreach (Transform button in frame.transform)
+        {
+            if(!button.gameObject.name.Equals("Rotate") && !button.gameObject.name.Equals("Demolish") && !button.gameObject.name.Equals("Filter"))
+            {
+                GameObject template = Resources.Load("Prefabs/Machines/" + button.gameObject.name) as GameObject;
+                if (tier == 0 || tier == template.GetComponent<Machine>().tier)
+                {
+                    button.gameObject.SetActive(true);
+                    if (button.gameObject.GetComponent<TechUnlockable>())
+                    {
+                        button.gameObject.GetComponent<TechUnlockable>().blocked = false;
+                    }
+                }
+                else
+                {
+                    button.gameObject.SetActive(false);
+                    if (button.gameObject.GetComponent<TechUnlockable>())
+                    {
+                        button.gameObject.GetComponent<TechUnlockable>().blocked = true;
+                    }
+                }
+            }
+        }
+    }
     public void Button_Menu()
     {
         if (Globals.IsBuilding())

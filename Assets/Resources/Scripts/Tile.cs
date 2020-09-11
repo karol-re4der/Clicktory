@@ -230,14 +230,14 @@ public class Tile : MonoBehaviour
             {
                 if (gate.res)
                 {
-                    gate.res.Store();
+                    gate.res.Fade(true);
                     gate.res = null;
                 }
-                else if (gate.GetLink() && gate.GetLink().res)
-                {
-                    gate.GetLink().res.Store();
-                    gate.GetLink().res = null;
-                }
+                //else if (gate.GetLink() && gate.GetLink().res)
+                //{
+                //    gate.GetLink().res.Store();
+                //    gate.GetLink().res = null;
+                //}
             }
             if (machine.GetComponent<Machine>().store)
             {
@@ -257,40 +257,47 @@ public class Tile : MonoBehaviour
     {
         if (Globals.IsPointerInGame())
         {
-            Globals.GetInterface().activeMachine = null;
-            if (Globals.GetInterface().IsDemolishing())
+            if (machine)
             {
-                if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
-                {
-                    GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(this);
-                }
-                else if (Application.isEditor)
-                {
-                    GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(this);
-                }
-            }
-            else if(Globals.IsBuilding())
-            {
-                if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
-                {
-                    if (touchPosition == Input.touches[0].position)
-                    {
-                        GameObject.Find("Map").GetComponent<Builder>().BuildFromSelection(this);
-                    }
-                }
-                else if (Application.isEditor)
-                {
-                    if (touchPosition == (Vector2)Input.mousePosition)
-                    {
-                        GameObject.Find("Map").GetComponent<Builder>().BuildFromSelection(this);
-                    }
-                }
+                machine.GetComponent<Machine>().OnMouseUp();
             }
             else
             {
-                if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero || Application.isEditor)
+                Globals.GetInterface().activeMachine = null;
+                if (Globals.GetInterface().IsDemolishing())
                 {
-                    CrackUp(0.1f);
+                    if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
+                    {
+                        GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(this);
+                    }
+                    else if (Application.isEditor)
+                    {
+                        GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(this);
+                    }
+                }
+                else if (Globals.IsBuilding())
+                {
+                    if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
+                    {
+                        if (touchPosition == Input.touches[0].position)
+                        {
+                            GameObject.Find("Map").GetComponent<Builder>().BuildFromSelection(this);
+                        }
+                    }
+                    else if (Application.isEditor)
+                    {
+                        if (touchPosition == (Vector2)Input.mousePosition)
+                        {
+                            GameObject.Find("Map").GetComponent<Builder>().BuildFromSelection(this);
+                        }
+                    }
+                }
+                else
+                {
+                    if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero || Application.isEditor)
+                    {
+                        CrackUp(0.1f);
+                    }
                 }
             }
         }

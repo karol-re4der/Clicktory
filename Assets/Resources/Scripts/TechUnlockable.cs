@@ -7,6 +7,8 @@ public class TechUnlockable : MonoBehaviour
     public string tech;
     public int required;
 
+    public bool blocked = false;
+
     void Start()
     {
         Globals.GetInterface().unlockable.Add(gameObject);
@@ -14,13 +16,16 @@ public class TechUnlockable : MonoBehaviour
 
     public void Check()
     {
-        if (GetLevel() < required)
+        if (!blocked)
         {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(true);
+            if (GetLevel() < required)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(true);
+            }
         }
     }
 

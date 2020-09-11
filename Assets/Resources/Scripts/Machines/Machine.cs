@@ -27,6 +27,7 @@ public class Machine : MonoBehaviour
     public bool selfActivating = false;
     public int activationTime;
     public int activationTimer = 0;
+    public int tier;
 
     private List<Gate> gates;
 
@@ -246,26 +247,23 @@ public class Machine : MonoBehaviour
 
     public void OnMouseUp()
     {
-        if (Globals.IsPointerInGame())
+        if (Globals.GetInterface().IsDemolishing())
         {
-            if (Globals.GetInterface().IsDemolishing())
+            if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
             {
-                if (Input.touches.Length > 0 && Input.touches[0].deltaPosition == Vector2.zero)
-                {
-                    GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(owners.First());
-                }
-                else if (Application.isEditor)
-                {
-                    GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(owners.First());
-                }
+                GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(owners.First());
             }
-            else if(Time.time - lastTap <= doubleTapSpeed)
+            else if (Application.isEditor)
             {
-                Camera.main.GetComponent<CameraHandler>().CenterCamera(GetCenterPoint(), instant: false);
-                Globals.GetInterface().activeMachine = this;
+                GameObject.Find("Map").GetComponent<Builder>().DemolishOnTile(owners.First());
             }
-            lastTap = Time.time;
         }
+        else if(Time.time - lastTap <= doubleTapSpeed)
+        {
+            Camera.main.GetComponent<CameraHandler>().CenterCamera(GetCenterPoint(), instant: false);
+            Globals.GetInterface().activeMachine = this;
+        }
+        lastTap = Time.time;
     }
 
 }

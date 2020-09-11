@@ -201,6 +201,7 @@ MonoBehaviour:
   selfActivating: 0
   activationTime: 5
   activationTimer: -1
+  tier: 1
   oreStore: {fileID: 0}
   coalStore: {fileID: 0}
 --- !u!1 &6688718275549238540

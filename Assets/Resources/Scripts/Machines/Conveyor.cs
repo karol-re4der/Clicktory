@@ -17,12 +17,9 @@ public class Conveyor : Machine
 
     public override bool CanActivate()
     {
-        if (gate_in == null)
-        {
-            FindGates();
-        }
+        FindGates();
 
-        return base.CanActivate() && (!gate_out.res && gate_in.res && !gate_out.IsOccupied());
+        return base.CanActivate() && gate_in.res && !gate_out.IsOccupied();
     }
 
     public override void Activate()
@@ -31,7 +28,7 @@ public class Conveyor : Machine
         if (CanActivate())
         {
 
-            gate_in.res.ThreePointMove(gate_out.GetLink(), parts[0].transform.position);
+            gate_in.res.ThreePointMove(gate_out, parts[0].transform.position);
 
             gate_out.res = gate_in.res;
             gate_in.res = null;

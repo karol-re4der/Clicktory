@@ -64,6 +64,7 @@ MonoBehaviour:
   selfActivating: 0
   activationTime: 0
   activationTimer: 0
+  tier: 1
 --- !u!1 &4631505256612012051
 GameObject:
   m_ObjectHideFlags: 0

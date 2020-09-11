@@ -89,6 +89,10 @@ public class Gate : MonoBehaviour
 
                 }
             }
+            else
+            {
+                return GetComponent<SpriteRenderer>().sortingOrder+1;
+            }
         }
         else if(GetLink())
         {
@@ -100,6 +104,10 @@ public class Gate : MonoBehaviour
     public bool IsOccupied()
     {
         if (res != null)
+        {
+            return true;
+        }
+        else if(outputing && GetLink() && GetLink().res)
         {
             return true;
         }
