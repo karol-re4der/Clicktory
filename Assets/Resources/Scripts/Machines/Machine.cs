@@ -216,7 +216,7 @@ public class Machine : MonoBehaviour
         }
     }
 
-    public bool BreaksFlow()
+    public virtual bool BreaksFlow()
     {
         if (GetGates().Count() > 2)
         {
@@ -228,7 +228,7 @@ public class Machine : MonoBehaviour
         //}
         return false;
     }
-    public bool EndsFlow()
+    public virtual bool EndsFlow()
     {
         if (!GetGates().Find((x) => x.outputing && x.GetLink()))
         {

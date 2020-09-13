@@ -13,12 +13,13 @@ public class Flow : MonoBehaviour
             while(machineOrder.Last().GetGates().Where((x)=>!x.outputing).Count()==1 && machineOrder.Last().GetGates().Find((x) => !x.outputing).GetLink())
             {
                 Machine nextInLine = machineOrder.Last().GetGates().Find((x) => !x.outputing).GetLink().owner;
-                if (machineOrder.Last().BreaksFlow())
+                if (nextInLine.GetGates().Where((x) => !x.outputing).Count() > 1)
                 {
-                    if (nextInLine.GetGates().Where((x) => x.outputing).Count() > 1)
-                    {
-                        machineOrder.Add(nextInLine);
-                    }
+                    machineOrder.Add(nextInLine);
+                    break;
+                }
+                else if (nextInLine.GetGates().Where((x) => x.outputing).Count() > 1)
+                {
                     break;
                 }
                 else
@@ -34,11 +35,11 @@ public class Flow : MonoBehaviour
     public void HighlightFlow()
     {
         int i = 0;
-        Color col = Color.white;
+        Color col = Color.green;
         foreach(FlowGroup group in groupOrder)
         {
+            col = Color.Lerp(col, Color.red, (float)i / groupOrder.Count());
             i++;
-            col = Color.Lerp(col, Color.black, (float)i / groupOrder.Count());
 
             foreach (Machine machine in group.machineOrder)
             {

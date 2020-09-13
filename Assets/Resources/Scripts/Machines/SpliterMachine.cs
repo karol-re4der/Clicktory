@@ -26,7 +26,7 @@ public class SpliterMachine : Machine
             FindGates();
         }
 
-        return base.CanActivate() && gate_in.res && gates_out.Length>0;
+        return base.CanActivate() && gate_in.res && (!gates_out.First().IsOccupied() || !gates_out.Last().IsOccupied());
     }
 
     public override void Activate()
@@ -51,6 +51,11 @@ public class SpliterMachine : Machine
             store = null;
             evenTick = !evenTick;
         }
+    }
+
+    public override bool EndsFlow()
+    {
+        return true;
     }
 
     public override void EndActivation()
