@@ -26,7 +26,7 @@ public class MergerMachine : Machine
             FindGates();
         }
 
-        return base.CanActivate() && gate_out.GetLink() && gates_in.Length > 0;
+        return base.CanActivate() && !gate_out.IsOccupied();
     }
 
 

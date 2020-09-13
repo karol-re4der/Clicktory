@@ -105,6 +105,11 @@ public class Logic : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            flow.HighlightFlow();
+        }
+
     }
     public void Tick()
     {

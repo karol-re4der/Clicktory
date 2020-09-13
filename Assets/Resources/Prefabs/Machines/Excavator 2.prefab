@@ -202,7 +202,7 @@ MonoBehaviour:
   - {fileID: 164481589090289635}
   turnedOff: 0
   selfActivating: 0
-  activationTime: 3
+  activationTime: 1
   activationTimer: -1
   tier: 2
   deposit: []
