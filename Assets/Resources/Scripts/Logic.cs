@@ -8,6 +8,7 @@ using UnityEngine;
 public class Logic : MonoBehaviour
 {
     public SaveFile save;
+    public Flow flow;
 
     public TechTree industrialTech;
     public TechTree scientificTech;
@@ -78,6 +79,8 @@ public class Logic : MonoBehaviour
             Camera.main.GetComponent<CameraHandler>().CenterCamera(save.GetGrid()[save.GetGrid().GetLength(0) / 2, save.GetGrid().GetLength(1) / 2].transform.position);
         }
 
+        flow = new Flow();
+
     }
 
     // Update is called once per frame
@@ -107,20 +110,30 @@ public class Logic : MonoBehaviour
     {
         if (GameObject.FindWithTag("Machine"))
         {
-            
-            foreach (GameObject machine in GameObject.FindGameObjectsWithTag("Machine"))
+
+            flow.RefreshFlow();
+            foreach (Flow.FlowGroup group in flow.groupOrder)
             {
-                machine.GetComponent<Machine>().InOut();
+                foreach (Machine machine in group.machineOrder)
+                {
+                    machine.GetComponent<Machine>().InOut();
+                }
             }
-            foreach (GameObject machine in GameObject.FindGameObjectsWithTag("Machine"))
+            foreach (Flow.FlowGroup group in flow.groupOrder)
             {
-                machine.GetComponent<Machine>().EndActivation();
+                foreach (Machine machine in group.machineOrder)
+                {
+                    machine.GetComponent<Machine>().EndActivation();
+                }
             }
-            foreach (GameObject machine in GameObject.FindGameObjectsWithTag("Machine"))
+            foreach (Flow.FlowGroup group in flow.groupOrder)
             {
-                machine.GetComponent<Machine>().Activate();
+                foreach (Machine machine in group.machineOrder)
+                {
+                    machine.GetComponent<Machine>().Activate();
+                }
             }
-            
+
         }
 
         if (PlayerPrefs.GetInt("Autosave") == 1)

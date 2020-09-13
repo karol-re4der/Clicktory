@@ -216,6 +216,31 @@ public class Machine : MonoBehaviour
         }
     }
 
+    public bool BreaksFlow()
+    {
+        if (GetGates().Count() > 2)
+        {
+            return true;
+        }
+        //else if(GetGates().Count()==2 && gates.First().outputing != gates.Last().outputing)
+        //{
+        //    return true;
+        //}
+        return false;
+    }
+    public bool EndsFlow()
+    {
+        if (!GetGates().Find((x) => x.outputing && x.GetLink()))
+        {
+            return true;
+        }
+        else if (GetGates().Find((x) => x.outputing && x.GetLink() && x.GetLink().owner.BreaksFlow()))
+        {
+            return true;
+        }
+
+        return false;
+    }
 
     public int SpriteOrderDirection(int in_dir, int out_dir) //not applying to corners yet
     {

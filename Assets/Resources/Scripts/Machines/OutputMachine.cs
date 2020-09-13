@@ -52,22 +52,24 @@ public class OutputMachine : Machine
         }
     }
 
+    public override bool CanActivate()
+    {
+        return base.CanActivate() && !GetGate().res;
+    }
+
     public override void EndActivation()
     {
         if (CanEndActivation())
         {
             base.EndActivation();
-            if (GetGate().GetLink())
+            string resType = FindDeposit();
+            if (resType.Length == 0)
             {
-                string resType = FindDeposit();
-                if (resType.Length == 0)
-                {
-                    resType = "Dirt";
-                }
-                GetGate().res = Globals.GetSave().GetResources().CreateFlowing(resType, 1, GetGate().GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((GetGate().DirectionRotated() + 2) % 4, GetGate().DirectionRotated()), GetGate().GetComponent<MachinePart>().transform.position);
-                GetGate().res.Teleport(GetGate(), 0);
-                GetGate().res.Appear();
+                resType = "Dirt";
             }
+            GetGate().res = Globals.GetSave().GetResources().CreateFlowing(resType, 1, GetGate().GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((GetGate().DirectionRotated() + 2) % 4, GetGate().DirectionRotated()), GetGate().GetComponent<MachinePart>().transform.position);
+            GetGate().res.Teleport(GetGate(), 0);
+            GetGate().res.Appear();
         }
         activationTimer--;
     }

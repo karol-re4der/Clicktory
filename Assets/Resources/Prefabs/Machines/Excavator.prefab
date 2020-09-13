@@ -435,7 +435,7 @@ MonoBehaviour:
   - {fileID: 4126627858649019801, guid: 07f7195b0bc17c8429a65dab8b9e4bcc, type: 3}
   - {fileID: 4126627858649019801, guid: 07f7195b0bc17c8429a65dab8b9e4bcc, type: 3}
   tile: {fileID: 0}
-  smoking: 1
+  smoking: 0
   rotation: 0
   animationStage: 0
   animating: 0
