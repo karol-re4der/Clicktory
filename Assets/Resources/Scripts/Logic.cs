@@ -53,6 +53,9 @@ public class Logic : MonoBehaviour
     }
     void Start()
     {
+        flow = new Flow();
+
+
         //Load techtree
         industrialTech = JsonUtility.FromJson<TechTree>(Resources.Load<TextAsset>("Techs/industrialTech").ToString());
         logisticTech = JsonUtility.FromJson<TechTree>(Resources.Load<TextAsset>("Techs/logisticTech").ToString());
@@ -79,7 +82,6 @@ public class Logic : MonoBehaviour
             Camera.main.GetComponent<CameraHandler>().CenterCamera(save.GetGrid()[save.GetGrid().GetLength(0) / 2, save.GetGrid().GetLength(1) / 2].transform.position);
         }
 
-        flow = new Flow();
 
     }
 

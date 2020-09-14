@@ -194,7 +194,7 @@ public class Tile : MonoBehaviour
                         Globals.GetSave().GetResources().RemoveRes(template.GetComponent<Machine>().GetBuildingCost());
                     }
 
-
+                    Globals.GetLogic().flow.flowModified = true;
 
                     machine = GameObject.Instantiate(template, GameObject.Find("Map/Machines").transform);
                     machine.transform.position = transform.position;
@@ -233,11 +233,6 @@ public class Tile : MonoBehaviour
                     gate.res.Fade(true);
                     gate.res = null;
                 }
-                //else if (gate.GetLink() && gate.GetLink().res)
-                //{
-                //    gate.GetLink().res.Store();
-                //    gate.GetLink().res = null;
-                //}
             }
             if (machine.GetComponent<Machine>().store)
             {
@@ -250,6 +245,7 @@ public class Tile : MonoBehaviour
             }
             Destroy(machine.gameObject);
             machine = null;
+            Globals.GetLogic().flow.flowModified = true;
         }
     }
 

@@ -12,6 +12,7 @@ public class InputMachine : Machine
             gate_in = parts.Find((x) => x.GetComponent<Gate>()).GetComponent<Gate>();
         }
     }
+
     public override bool CanActivate()
     {
         if (gate_in == null)

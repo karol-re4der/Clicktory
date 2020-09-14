@@ -35,7 +35,7 @@ public class SpliterMachine : Machine
         if (CanActivate())
         {
             Gate gate_out;
-            if (evenTick)
+            if (evenTick && !gates_out[0].IsOccupied())
             {
                 gate_out = gates_out[0];
             }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Flow : MonoBehaviour
 {
+    public bool flowModified = true;
+
     public class FlowGroup{
         public List<Machine> machineOrder = new List<Machine>();
 
@@ -53,22 +55,27 @@ public class Flow : MonoBehaviour
 
     public void RefreshFlow()
     {
-        groupOrder = new List<FlowGroup>();
-
-        foreach(GameObject machine in GameObject.FindGameObjectsWithTag("Machine"))
+        if (flowModified)
         {
-            if (!machine.GetComponent<Machine>().EndsFlow())
+            Debug.Log("Reflowed");
+            groupOrder = new List<FlowGroup>();
+
+            foreach (GameObject machine in GameObject.FindGameObjectsWithTag("Machine"))
             {
-                continue;
+                if (!machine.GetComponent<Machine>().EndsFlow())
+                {
+                    continue;
+                }
+
+                groupOrder.Add(new FlowGroup());
+                groupOrder.Last().machineOrder.Add(machine.GetComponent<Machine>());
             }
 
-            groupOrder.Add(new FlowGroup());
-            groupOrder.Last().machineOrder.Add(machine.GetComponent<Machine>());
-        }
-
-        foreach(FlowGroup group in groupOrder)
-        {
-            group.RefreshGroup();
+            foreach (FlowGroup group in groupOrder)
+            {
+                group.RefreshGroup();
+            }
+            flowModified = false;
         }
     }
 }

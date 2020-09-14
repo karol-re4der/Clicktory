@@ -1866,7 +1866,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 57.5
+  m_fontSize: 89.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2103,7 +2103,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 44.1
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2149,7 +2149,7 @@ MonoBehaviour:
     spaceCount: 2
     wordCount: 3
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -4477,7 +4477,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 73.3
+  m_fontSize: 133.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5383,7 +5383,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 44.1
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5429,7 +5429,7 @@ MonoBehaviour:
     spaceCount: 2
     wordCount: 3
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -6649,7 +6649,7 @@ MonoBehaviour:
     spaceCount: 280
     wordCount: 277
     linkCount: 0
-    lineCount: 85
+    lineCount: 42
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -7807,7 +7807,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 44.1
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7853,7 +7853,7 @@ MonoBehaviour:
     spaceCount: 2
     wordCount: 3
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -9873,6 +9873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9772f051206e9934faf10df620049227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flow: {fileID: 0}
   industrialTech:
     techTree: []
   scientificTech:
@@ -13669,7 +13670,7 @@ MonoBehaviour:
     spaceCount: 280
     wordCount: 277
     linkCount: 0
-    lineCount: 85
+    lineCount: 42
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -13878,7 +13879,7 @@ MonoBehaviour:
     spaceCount: 451
     wordCount: 444
     linkCount: 0
-    lineCount: 187
+    lineCount: 85
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -14596,7 +14597,7 @@ MonoBehaviour:
     spaceCount: 280
     wordCount: 277
     linkCount: 0
-    lineCount: 88
+    lineCount: 42
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

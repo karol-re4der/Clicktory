@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4301519246976968444}
   - component: {fileID: 963900615107563517}
   - component: {fileID: 3038711792027395159}
-  - component: {fileID: 5986470755051256787}
   m_Layer: 0
   m_Name: Part_4
   m_TagString: Untagged
@@ -122,22 +121,6 @@ MonoBehaviour:
   forceAnimation: 1
   animationSpeed: 1
 --- !u!114 &3038711792027395159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164481589090289635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acdea14f7875a9f4c86e845d6acb2c0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: 1
-  outputing: 0
-  owner: {fileID: 101208259850710235}
-  res: {fileID: 0}
---- !u!114 &5986470755051256787
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
