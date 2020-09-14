@@ -149,7 +149,7 @@ public class InterfaceHandler : MonoBehaviour
         }
         foreach (Transform trans in frame.transform)
         {
-            if (!trans.name.Equals("Rotate") && !trans.name.Equals("Demolish"))
+            if (!trans.name.Equals("Rotate") && !trans.name.Equals("Demolish") && !trans.name.Equals("Filter"))
             {
                 string path = "Textures/Interface/Building Icons/" + trans.name + "_Icon_Spritesheet";
                 Sprite[] sheet = Resources.LoadAll<Sprite>(path);
@@ -189,6 +189,8 @@ public class InterfaceHandler : MonoBehaviour
 
         currFilter = tier;
         frame.transform.Find("Filter/Text").GetComponent<TextMeshProUGUI>().text = tierText;
+        frame.transform.Find("Filter/Image").GetComponent<Image>().sprite = Resources.Load<Sprite>("Textures/Interface/Icons/Filter_" + tier);
+
 
         foreach (Transform button in frame.transform)
         {

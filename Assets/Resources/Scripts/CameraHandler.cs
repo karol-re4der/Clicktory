@@ -151,15 +151,20 @@ public class CameraHandler : MonoBehaviour
     }
     private void Transition()
     {
-        float z = transform.position.z;
-        transform.position = Vector2.Lerp(transform.position, targetPos, transitionRate*10);
-        transform.position = new Vector3(transform.position.x, transform.position.y, z);
-        Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetZoom, transitionRate);
+        if (Vector2.Distance(transform.position, targetPos) >= transitionRate)
+        {
+            float z = transform.position.z;
+            transform.position = Vector2.Lerp(transform.position, targetPos, transitionRate * 10);
+            transform.position = new Vector3(transform.position.x, transform.position.y, z);
+        }
+        if(Mathf.Abs(GetComponent<Camera>().orthographicSize - targetZoom) >= transitionRate)
+        {
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, targetZoom, transitionRate*10);
+        }
 
-        if (Vector2.Distance(transform.position, targetPos) <= transitionRate)
+        if (Vector2.Distance(transform.position, targetPos) < transitionRate && Mathf.Abs(GetComponent<Camera>().orthographicSize-targetZoom)< transitionRate)
         {
             CancelInvoke();
         }
-
     }
 }
