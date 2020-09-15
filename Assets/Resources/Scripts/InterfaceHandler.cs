@@ -32,6 +32,9 @@ public class InterfaceHandler : MonoBehaviour
                 transform.Find("Machine Bar").gameObject.SetActive(true);
 
                 transform.Find("Machine Bar/Scroll View/Viewport/Content/Turnoff").GetComponent<ToggleWithIndicator>().isOn = !activeMachine.turnedOff;
+
+                transform.Find("Machine Bar/Scroll View/Viewport/Content/Name/").gameObject.GetComponent<TextMeshProUGUI>().text = activeMachine.type+(activeMachine.tier>1?(" "+activeMachine.tier):"");
+
             }
 
         }

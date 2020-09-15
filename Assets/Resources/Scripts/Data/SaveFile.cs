@@ -123,7 +123,8 @@ public class SaveFile
                 var foo = grid[td.posX, td.posY].GetComponent<Tile>().machine.GetComponent<Machine>().parts.Find((x) => x.GetComponent<MachinePart>().tile == grid[td.posX, td.posY].GetComponent<Tile>()).GetComponents<Gate>().ToList();
 
                 Gate targetGate = grid[td.posX, td.posY].GetComponent<Tile>().machine.GetComponent<Machine>().parts.Find((x) => x.GetComponent<MachinePart>().tile == grid[td.posX, td.posY].GetComponent<Tile>()).GetComponents<Gate>().ToList().Find((x) => x.direction == td.rotation);
-                targetGate.res = Globals.GetSave().GetResources().CreateFlowing(td.res, 1, targetGate.GetComponent<SpriteRenderer>().sortingOrder+1, targetGate.GetPosition());
+                int targetOrder = targetGate.GetComponent<SpriteRenderer>().sortingOrder + targetGate.owner.SpriteOrderDirection((targetGate.DirectionRotated() + 2) % 4, targetGate.DirectionRotated());
+                targetGate.res = Globals.GetSave().GetResources().CreateFlowing(td.res, 1, targetOrder, targetGate.GetPosition());
             }
         }
         saveData = null;
