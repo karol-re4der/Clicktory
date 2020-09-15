@@ -57,7 +57,7 @@ public class Flow : MonoBehaviour
     {
         if (flowModified)
         {
-            Debug.Log("Reflowed");
+            float startedAt = Time.realtimeSinceStartup;
             groupOrder = new List<FlowGroup>();
 
             foreach (GameObject machine in GameObject.FindGameObjectsWithTag("Machine"))
@@ -76,6 +76,7 @@ public class Flow : MonoBehaviour
                 group.RefreshGroup();
             }
             flowModified = false;
+            Debug.Log("Reflowed in " + (Time.realtimeSinceStartup - startedAt) + "s");
         }
     }
 }

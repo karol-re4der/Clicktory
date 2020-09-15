@@ -53,7 +53,7 @@ MonoBehaviour:
   store: {fileID: 0}
   rotation: 0
   description: 
-  type: Spliter 2
+  type: Spliter
   removable: 1
   obstructing: 0
   sizeX: 1

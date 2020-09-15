@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3123794987368414003, guid: d1e4c35d0a7eec44aa6522c3ef0f5785,
+  m_Sprite: {fileID: -3258371086712722593, guid: d1e4c35d0a7eec44aa6522c3ef0f5785,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdea14f7875a9f4c86e845d6acb2c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
+  direction: 3
   outputing: 1
   owner: {fileID: -3233702318502643193}
   res: {fileID: 0}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdea14f7875a9f4c86e845d6acb2c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 1
+  direction: 0
   outputing: 0
   owner: {fileID: -3233702318502643193}
   res: {fileID: 0}
@@ -130,20 +130,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotations_one:
+  - {fileID: -3258371086712722593, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   - {fileID: 3123794987368414003, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   - {fileID: -8158544669155753848, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   - {fileID: 2914117379657334890, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
-  - {fileID: -3258371086712722593, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   rotations_two:
+  - {fileID: 1953519377921660445, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   - {fileID: 1044928351516509249, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   - {fileID: 7947742841339968148, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   - {fileID: 7860852523591145593, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
-  - {fileID: 1953519377921660445, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   rotations_three:
+  - {fileID: 6768315750847819074, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   - {fileID: 7966086586354078288, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   - {fileID: -589583157979572556, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   - {fileID: -1035265453110874289, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
-  - {fileID: 6768315750847819074, guid: d1e4c35d0a7eec44aa6522c3ef0f5785, type: 3}
   tile: {fileID: 0}
   smoking: 0
   rotation: 0

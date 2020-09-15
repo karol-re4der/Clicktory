@@ -34,14 +34,10 @@ public class SpliterMachine : Machine
         EnableAnimations();
         if (CanActivate())
         {
-            Gate gate_out;
-            if (evenTick && !gates_out[0].IsOccupied())
+            Gate gate_out = gates_out[1];
+            if (evenTick && !gates_out[0].IsOccupied() || gate_out.IsOccupied())
             {
                 gate_out = gates_out[0];
-            }
-            else
-            {
-                gate_out = gates_out[1];
             }
 
             store = gate_in.res;

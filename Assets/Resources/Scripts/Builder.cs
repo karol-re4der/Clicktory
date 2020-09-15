@@ -30,7 +30,10 @@ public class Builder : MonoBehaviour
     {
         if (selection.GetComponent<ToggleGroup>().ActiveToggles().Count() > 0)
         {
-            tile.Highlight(selection.GetComponent<ToggleGroup>().ActiveToggles().ElementAt(0).gameObject.name, Globals.GetInterface().rotation);
+            if (tile)
+            {
+                tile.Highlight(selection.GetComponent<ToggleGroup>().ActiveToggles().ElementAt(0).gameObject.name, Globals.GetInterface().rotation);
+            }
         }
     }
 
@@ -54,6 +57,11 @@ public class Builder : MonoBehaviour
 
     public void Reset()
     {
+
+        foreach (Transform smoke in GameObject.Find("Map/Smoke").transform)
+        {
+            Destroy(smoke.gameObject);
+        }
         foreach (GameObject o in GameObject.FindGameObjectsWithTag("Resource"))
         {
             o.GetComponent<FlowingResource>().Dispose();

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -145,6 +146,14 @@ public class Tile : MonoBehaviour
 
     public bool IsSpaceAvailable()
     {
+        foreach (Tile tile in links)
+        {
+            if (tile == null)
+            {
+                return false;
+            }
+        }
+
         return machine == null;
     }
     public bool IsSpaceAvailable(GameObject template, int rotation)
@@ -232,6 +241,11 @@ public class Tile : MonoBehaviour
                 {
                     gate.res.Fade(true);
                     gate.res = null;
+                }
+                if(gate.GetLink() && gate.GetLink().res)
+                {
+                    gate.GetLink().res.Fade(true);
+                    gate.GetLink().res = null;
                 }
             }
             if (machine.GetComponent<Machine>().store)

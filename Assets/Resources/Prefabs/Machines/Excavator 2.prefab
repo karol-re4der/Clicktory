@@ -190,7 +190,7 @@ MonoBehaviour:
   store: {fileID: 0}
   rotation: 0
   description: 
-  type: Excavator 2
+  type: Excavator
   removable: 1
   obstructing: 1
   sizeX: 2

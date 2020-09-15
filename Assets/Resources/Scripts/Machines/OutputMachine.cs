@@ -54,7 +54,7 @@ public class OutputMachine : Machine
 
     public override bool CanActivate()
     {
-        return base.CanActivate() && !GetGate().res;
+        return base.CanActivate() && !GetGate().IsOccupied();
     }
 
     public override void EndActivation()

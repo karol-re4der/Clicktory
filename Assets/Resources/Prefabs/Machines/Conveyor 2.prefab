@@ -205,7 +205,7 @@ MonoBehaviour:
   store: {fileID: 0}
   rotation: 0
   description: 
-  type: Conveyor 2
+  type: Conveyor
   removable: 1
   obstructing: 0
   sizeX: 1

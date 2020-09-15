@@ -20,7 +20,7 @@ public class Gate : MonoBehaviour
     public Gate GetLink()
     {
         Gate gate = null;
-        if (GetComponent<MachinePart>().tile.links[(direction+owner.rotation)%4] != null)
+        if (GetComponent<MachinePart>().tile.links[(direction+owner.rotation)%4] is Tile)
         {
             if (GetComponent<MachinePart>().tile.links[(direction + owner.rotation) % 4].machine != null)
             {
@@ -131,8 +131,8 @@ public class Gate : MonoBehaviour
                 }
                 else
                 {
-                    res.Fade(true);
-                    res = null;
+                    //res.Fade(true);
+                    //res = null;
                 }
             }
         }

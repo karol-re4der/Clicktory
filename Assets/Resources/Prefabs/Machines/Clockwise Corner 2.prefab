@@ -52,7 +52,7 @@ MonoBehaviour:
   store: {fileID: 0}
   rotation: 0
   description: 
-  type: Clockwise Corner 2
+  type: Clockwise Corner
   removable: 1
   obstructing: 0
   sizeX: 1

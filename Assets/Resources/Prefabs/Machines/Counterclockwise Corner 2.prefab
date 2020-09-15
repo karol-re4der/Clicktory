@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8533459067426411168, guid: 69559e8254c72ea48ab008c88fa206d4,
+  m_Sprite: {fileID: 5567207346017705405, guid: 69559e8254c72ea48ab008c88fa206d4,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdea14f7875a9f4c86e845d6acb2c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 0
+  direction: 3
   outputing: 1
   owner: {fileID: -3233702318502643193}
   res: {fileID: 0}
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdea14f7875a9f4c86e845d6acb2c0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: 1
+  direction: 0
   outputing: 0
   owner: {fileID: -3233702318502643193}
   res: {fileID: 0}
@@ -130,20 +130,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotations_one:
+  - {fileID: 5567207346017705405, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
   - {fileID: -8533459067426411168, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
   - {fileID: -7350189487495252117, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
   - {fileID: 378142157151106608, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
-  - {fileID: 5567207346017705405, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
   rotations_two:
+  - {fileID: -4869549500654530515, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
   - {fileID: 4884390474649205299, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
   - {fileID: -8599390439342882933, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
   - {fileID: 2164569495219823347, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
-  - {fileID: -4869549500654530515, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
   rotations_three:
+  - {fileID: -83504562876147161, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
   - {fileID: -3409573747172269743, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
   - {fileID: 8170118064924537889, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
   - {fileID: -4150793750992863595, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
-  - {fileID: -83504562876147161, guid: 69559e8254c72ea48ab008c88fa206d4, type: 3}
   tile: {fileID: 0}
   smoking: 0
   rotation: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
   store: {fileID: 0}
   rotation: 0
   description: 
-  type: Counterclockwise Corner 2
+  type: Counterclockwise Corner
   removable: 1
   obstructing: 0
   sizeX: 1

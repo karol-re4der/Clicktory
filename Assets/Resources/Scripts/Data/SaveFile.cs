@@ -18,6 +18,8 @@ public class SaveFile
         public int rotation;
         public string content = "";
         public string deposit = "";
+        public string res = "";
+        public bool turnedOff = false;
     }
 
     private GameObject[,] grid;
@@ -62,7 +64,27 @@ public class SaveFile
             newTile.posY = obj.GetComponent<Machine>().parts[0].GetComponent<MachinePart>().tile.y;
             newTile.rotation = obj.GetComponent<Machine>().rotation;
             newTile.content = obj.GetComponent<Machine>().type;
+
+            if (obj.GetComponent<Machine>().turnedOff)
+            {
+                newTile.turnedOff = true;
+            }
+
+            if (obj.GetComponent<Machine>().tier > 1)
+            {
+                newTile.content += " " + obj.GetComponent<Machine>().tier;
+            }
             saveData.Add(newTile);
+
+            foreach(Gate gate in obj.GetComponent<Machine>().GetGates().Where((x)=>x.res))
+            {
+                TileData newRes = new TileData();
+                newRes.posX = gate.GetComponent<MachinePart>().tile.x;
+                newRes.posY = gate.GetComponent<MachinePart>().tile.y;
+                newRes.rotation = gate.direction;
+                newRes.res = gate.res.type;
+                saveData.Add(newRes);
+            }
         }
 
         foreach (GameObject obj in GameObject.FindGameObjectsWithTag("Deposit"))
@@ -81,7 +103,6 @@ public class SaveFile
                 saveData.Add(newTile);
             }
         }
-
     }
 
     public void Restore()
@@ -95,6 +116,14 @@ public class SaveFile
             foreach(TileData td in saveData.Where((x)=>x.content.Length>0))
             {
                 grid[td.posX, td.posY].GetComponent<Tile>().NewMachine(td.content, td.rotation, restoring: true);
+                grid[td.posX, td.posY].GetComponent<Tile>().machine.GetComponent<Machine>().turnedOff = td.turnedOff;
+            }
+            foreach (TileData td in saveData.Where((x) => x.res.Length > 0))
+            {
+                var foo = grid[td.posX, td.posY].GetComponent<Tile>().machine.GetComponent<Machine>().parts.Find((x) => x.GetComponent<MachinePart>().tile == grid[td.posX, td.posY].GetComponent<Tile>()).GetComponents<Gate>().ToList();
+
+                Gate targetGate = grid[td.posX, td.posY].GetComponent<Tile>().machine.GetComponent<Machine>().parts.Find((x) => x.GetComponent<MachinePart>().tile == grid[td.posX, td.posY].GetComponent<Tile>()).GetComponents<Gate>().ToList().Find((x) => x.direction == td.rotation);
+                targetGate.res = Globals.GetSave().GetResources().CreateFlowing(td.res, 1, targetGate.GetComponent<SpriteRenderer>().sortingOrder+1, targetGate.GetPosition());
             }
         }
         saveData = null;
@@ -102,6 +131,7 @@ public class SaveFile
 
     public void Save()
     {
+        float startedAt = Time.realtimeSinceStartup;
         PrepareForSaving();
         try
         {
@@ -126,6 +156,8 @@ public class SaveFile
             Debug.Log(e.Message);
             return;
         }
+
+        Debug.Log("Saved in " + (Time.realtimeSinceStartup - startedAt)+"s");
     }
 
     public bool Load()

@@ -223,7 +223,7 @@ MonoBehaviour:
   store: {fileID: 0}
   rotation: 0
   description: 
-  type: Merger 2
+  type: Merger
   removable: 1
   obstructing: 0
   sizeX: 1

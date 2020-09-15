@@ -190,7 +190,7 @@ MonoBehaviour:
   store: {fileID: 0}
   rotation: 0
   description: 
-  type: Storage 2
+  type: Storage
   removable: 1
   obstructing: 1
   sizeX: 2
