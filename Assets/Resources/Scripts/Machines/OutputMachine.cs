@@ -70,6 +70,9 @@ public class OutputMachine : Machine
             GetGate().res = Globals.GetSave().GetResources().CreateFlowing(resType, 1, GetGate().GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((GetGate().DirectionRotated() + 2) % 4, GetGate().DirectionRotated()), GetGate().GetComponent<MachinePart>().transform.position);
             GetGate().res.Teleport(GetGate(), 0);
             GetGate().res.Appear();
+
+            Globals.LogStat("Resources extracted", 1);
+
         }
         activationTimer--;
     }

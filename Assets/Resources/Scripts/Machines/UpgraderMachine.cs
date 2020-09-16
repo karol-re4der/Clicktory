@@ -68,6 +68,8 @@ public class UpgraderMachine : Machine
             gate_out.res = Globals.GetSave().GetResources().CreateFlowing("Iron", oreStore.amount, gate_out.GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((gate_out.DirectionRotated() + 2) % 4, gate_out.DirectionRotated()), gate_out.GetComponent<MachinePart>().transform.position);
             gate_out.res.Teleport(gate_out, 0);
             gate_out.res.Appear();
+            Globals.LogStat("Resources processed", 1);
+
         }
         activationTimer--;
     }

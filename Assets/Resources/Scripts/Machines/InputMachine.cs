@@ -28,6 +28,7 @@ public class InputMachine : Machine
         EnableAnimations();
         if (CanActivate())
         {
+            Globals.LogStat("Resources stored", 1);
             store = gate_in.res;
             gate_in.res = null;
             store.Store();

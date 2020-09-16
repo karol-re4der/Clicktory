@@ -9,6 +9,7 @@ public class Logic : MonoBehaviour
 {
     public SaveFile save;
     public Flow flow;
+    public Stats sessionStats;
 
     public TechTree industrialTech;
     public TechTree scientificTech;
@@ -54,7 +55,7 @@ public class Logic : MonoBehaviour
     void Start()
     {
         flow = new Flow();
-
+        sessionStats = new Stats();
 
         //Load techtree
         industrialTech = JsonUtility.FromJson<TechTree>(Resources.Load<TextAsset>("Techs/industrialTech").ToString());
@@ -147,6 +148,8 @@ public class Logic : MonoBehaviour
         {
             save.Save();
         }
+
+        Globals.LogStat("Ticks passed:", 1);
     }
 
     public void TechUp(string techName)
@@ -168,6 +171,8 @@ public class Logic : MonoBehaviour
 
         if (Globals.GetSave().GetResources().CanAfford(tech.GetCost()))
         {
+            Globals.LogStat("Techs unlocked", 1);
+
             Globals.GetSave().GetResources().RemoveRes(tech.GetCost());
             switch (techName)
             {

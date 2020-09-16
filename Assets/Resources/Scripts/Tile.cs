@@ -32,6 +32,7 @@ public class Tile : MonoBehaviour
 
         if (crackingProgress >= 1)
         {
+            Globals.LogStat("Tiles mined by hand", 1f);
             GameObject.Instantiate(Resources.Load("UI/Floater") as GameObject, GameObject.Find("Canvas/Floaters").transform).GetComponent<Floater>().Launch(transform.position, deposit.Length>0?deposit:"Dirt", 1);
             crackingProgress = 0;
         }
@@ -201,6 +202,7 @@ public class Tile : MonoBehaviour
                     if (!restoring)
                     {
                         Globals.GetSave().GetResources().RemoveRes(template.GetComponent<Machine>().GetBuildingCost());
+                        Globals.LogStat("Machines built", 1);
                     }
 
                     Globals.GetLogic().flow.flowModified = true;

@@ -69,6 +69,18 @@ public static class Globals
 
         return parsed;
     }
+    public static void LogStat(string name, float value) {
+        GetLogic().sessionStats.LogStat(name, value);
+        GetSave().gameStats.LogStat(name, value);
+    }
+    public static Stats GetSessionStats()
+    {
+        return GetLogic().sessionStats;
+    }
+    public static Stats GetGameStats()
+    {
+        return GetSave().gameStats;
+    }
 
     public static float GetTapPower()
     {
