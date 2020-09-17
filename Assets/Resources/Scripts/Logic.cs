@@ -14,6 +14,7 @@ public class Logic : MonoBehaviour
     public TechTree industrialTech;
     public TechTree scientificTech;
     public TechTree logisticTech;
+    public UpgradeTree workshop;
 
     public Vector2 windDir;
     public float windPower;
@@ -23,6 +24,38 @@ public class Logic : MonoBehaviour
     private int animationTimer = 0;
     public int animationLength = 3;
     public float autoTick = 1f/3;
+
+    [System.Serializable]
+    public class UpgradeTree
+    {
+        [System.Serializable]
+        public class Upgrade
+        {
+            [System.Serializable]
+            public class Pair
+            {
+                public string res;
+                public int amount;
+            }
+            public string name;
+            public string desc;
+            public int increase;
+            public string techTypeRequired;
+            public int techLevelRequired;
+            public List<Pair> cost;
+
+            public List<KeyValuePair<string, int>> GetCost()
+            {
+                List<KeyValuePair<string, int>> list = new List<KeyValuePair<string, int>>();
+                foreach (Pair pair in cost)
+                {
+                    list.Add(new KeyValuePair<string, int>(pair.res, pair.amount));
+                }
+                return list;
+            }
+        }
+        public List<Upgrade> upgradeTree;
+    }
 
     [System.Serializable]
     public class TechTree
@@ -61,6 +94,8 @@ public class Logic : MonoBehaviour
         industrialTech = JsonUtility.FromJson<TechTree>(Resources.Load<TextAsset>("Techs/industrialTech").ToString());
         logisticTech = JsonUtility.FromJson<TechTree>(Resources.Load<TextAsset>("Techs/logisticTech").ToString());
         scientificTech = JsonUtility.FromJson<TechTree>(Resources.Load<TextAsset>("Techs/scientificTech").ToString());
+        workshop = JsonUtility.FromJson<UpgradeTree>(Resources.Load<TextAsset>("Techs/workshop").ToString());
+
 
         //Load starting world state
         save = new SaveFile();
@@ -73,6 +108,9 @@ public class Logic : MonoBehaviour
         {
             save.Restore();
         }
+
+        Globals.GetInterface().LoadWorkshop();
+
 
         if (GameObject.FindGameObjectsWithTag("Machine").ToList().Find((x) => x.GetComponent<Machine>().type.Equals("Storage")))
         {
@@ -106,6 +144,7 @@ public class Logic : MonoBehaviour
             {
                 Tick();
             }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -113,6 +152,7 @@ public class Logic : MonoBehaviour
             flow.HighlightFlow();
         }
 
+        Globals.LogStat("Time passed (seconds)", Time.time - lastTick);
     }
     public void Tick()
     {

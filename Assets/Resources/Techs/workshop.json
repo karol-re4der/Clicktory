@@ -1,0 +1,56 @@
+{
+  "upgradeTree": [
+    {
+      "name": "Extraction Speed 1",
+      "increase": 1,
+      "desc": "Increases extraction speed by %d ticks",
+      "techTypeRequired": "Industry",
+      "techLevelRequired": 2,
+      "cost": [
+        {
+          "res": "Dirt",
+          "amount": 10
+        }
+      ]
+    },
+    {
+      "name": "Extraction Speed 2",
+      "increase": 1,
+      "desc": "Increases extraction speed by %d ticks",
+      "techTypeRequired": "Industry",
+      "techLevelRequired": 3,
+      "cost": [
+        {
+          "res": "Dirt",
+          "amount": 100
+        }
+      ]
+    },
+    {
+      "name": "Extraction Speed 3",
+      "increase": 1,
+      "desc": "Increases extraction speed by %d ticks",
+      "techTypeRequired": "Industry",
+      "techLevelRequired": 4,
+      "cost": [
+        {
+          "res": "Dirt",
+          "amount": 1000
+        }
+      ]
+    },
+    {
+      "name": "Some something",
+      "increase": 1,
+      "desc": "Increases some speed by %d ticks",
+      "techTypeRequired": "Science",
+      "techLevelRequired": 5,
+      "cost": [
+        {
+          "res": "Dirt",
+          "amount": 1000
+        }
+      ]
+    }
+  ]
+}

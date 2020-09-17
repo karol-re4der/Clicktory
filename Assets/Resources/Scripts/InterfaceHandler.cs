@@ -24,6 +24,18 @@ public class InterfaceHandler : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        //Update stats window
+        if(transform.Find("Stats Window/Content").gameObject.activeSelf)
+        {
+            TextMeshProUGUI text = transform.Find("Stats Window/Content/Scroll View/Viewport/Content/Text/").gameObject.GetComponent<TextMeshProUGUI>();
+            bool isSession = transform.Find("Stats Window/Content/Name").GetComponent<TextMeshProUGUI>().text.Equals("Session Stats");
+            text.text = "";
+            foreach (Stats.Stat stat in isSession?Globals.GetSessionStats().stats:Globals.GetGameStats().stats)
+            {
+                text.text += stat.name + ":\n" + Globals.ParseNumber((int)stat.value) + "\n\n";
+            }
+        }
+
         //Update machine view
         if (activeMachine)
         {
@@ -67,6 +79,37 @@ public class InterfaceHandler : MonoBehaviour
         foreach (GameObject obj in unlockable)
         {
             obj.GetComponent<TechUnlockable>().Check();
+        }
+    }
+    public void LoadWorkshop()
+    {
+        GameObject frame = transform.Find("Workshop Window/Content/Scroll View/Viewport/Content/").gameObject;
+
+        //clearing
+        foreach(Transform trans in frame.transform)
+        {
+            Destroy(trans.gameObject);
+        }
+        frame.transform.DetachChildren();
+
+        //filling
+        foreach(Logic.UpgradeTree.Upgrade upgrade in Globals.GetLogic().workshop.upgradeTree)
+        {
+            GameObject newFrame = Instantiate(Resources.Load("UI/UnlockFrame") as GameObject, frame.transform);
+            newFrame.name = upgrade.name;
+            newFrame.GetComponent<TechUnlockable>().tech = upgrade.techTypeRequired;
+            newFrame.GetComponent<TechUnlockable>().required = upgrade.techLevelRequired;
+
+            newFrame.transform.Find("Top/Name").GetComponent<TextMeshProUGUI>().text = upgrade.name;
+            newFrame.transform.Find("Scroll View/Viewport/Content/Desc/").GetComponent<TextMeshProUGUI>().text = upgrade.desc.Replace("%d", ""+upgrade.increase);
+
+            foreach (Logic.UpgradeTree.Upgrade.Pair cost in upgrade.cost)
+            {
+                GameObject newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, newFrame.transform.Find("Cost/Scroll View/Viewport/Content/"));
+                newRes.name = cost.res;
+                newRes.transform.Find("Icon").GetComponent<Image>().sprite = Globals.GetSave().GetResources().FindResSprite(cost.res);
+                newRes.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = Globals.ParseNumber(cost.amount);
+            }
         }
     }
 
@@ -349,6 +392,37 @@ public class InterfaceHandler : MonoBehaviour
         {
             Button_Expand(GameObject.Find("Canvas").transform.Find("Bottom Bar").gameObject);
         }
+
+        transform.Find("Workshop Window").GetComponent<Submenu>().Enter();
+
+
+        Transform frame = transform.Find("Workshop Window/Content/Scroll View/Viewport/Content/");
+
+        foreach (Transform trans in frame)
+        {
+            foreach (Transform nextRes in trans.Find("Cost/Scroll View/Viewport/Content/"))
+            {
+                Destroy(nextRes.gameObject);
+            }
+            trans.transform.Find("Cost/Scroll View/Viewport/Content/").DetachChildren();
+
+            foreach (Logic.UpgradeTree.Upgrade.Pair cost in Globals.GetLogic().workshop.upgradeTree.Find((x)=>x.name.Equals(trans.gameObject.name)).cost)
+            {
+                GameObject newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, trans.Find("Cost/Scroll View/Viewport/Content/"));
+                newRes.name = cost.res;
+                newRes.transform.Find("Icon").GetComponent<Image>().sprite = Globals.GetSave().GetResources().FindResSprite(cost.res);
+                newRes.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = Globals.ParseNumber(cost.amount);
+            }
+        }
+    }
+    public void Button_Stats()
+    {
+        if (Globals.IsBuilding())
+        {
+            Button_Expand(GameObject.Find("Canvas").transform.Find("Bottom Bar").gameObject);
+        }
+
+        transform.Find("Stats Window").GetComponent<Submenu>().Enter();
     }
     public void Button_Reset(GameObject frame)
     {
@@ -388,6 +462,21 @@ public class InterfaceHandler : MonoBehaviour
         Globals.GetLogic().TechUp(button.name);
         CheckUnlocks();
     }
+    public void Button_Switch_Stats(GameObject frame)
+    {
+        if(frame.transform.Find("Name").GetComponent<TextMeshProUGUI>().text.Equals("Session Stats"))
+        {
+            frame.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "Overall stats";
+            frame.transform.Find("Button/Text").GetComponent<TextMeshProUGUI>().text = "Show Session";
+        }
+        else
+        {
+            frame.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = "Session Stats";
+            frame.transform.Find("Button/Text").GetComponent<TextMeshProUGUI>().text = "Show Overall";
+
+        }
+    }
+
 
     public void Button_Machine_Turnoff(ToggleWithIndicator toggle)
     {
