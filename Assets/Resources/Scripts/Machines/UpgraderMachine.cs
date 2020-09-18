@@ -22,7 +22,7 @@ public class UpgraderMachine : Machine
 
     public override bool CanActivate()
     {
-        return base.CanActivate() && gate_out && oreStore && coalStore;
+        return base.CanActivate() && !gate_out.IsOccupied() && oreStore && coalStore;
     }
 
     public override void Activate()
