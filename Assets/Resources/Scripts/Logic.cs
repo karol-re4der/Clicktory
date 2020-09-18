@@ -229,4 +229,21 @@ public class Logic : MonoBehaviour
             Globals.GetInterface().Button_Research();
         }
     }
+
+    public void Unlock(string unlockName)
+    {
+        if (!save.IsUnlocked(unlockName))
+        {
+            UpgradeTree.Upgrade up = workshop.upgradeTree.Find((x) => x.name.Equals(unlockName));
+            if (up!=null)
+            {
+                if (save.GetResources().CanAfford(up.GetCost()))
+                {
+                    save.GetResources().RemoveRes(up.GetCost());
+                    save.Unlock(unlockName);
+                    Globals.LogStat("Workshop upgrades unlocked", 1);
+                }
+            }
+        }
+    }
 }

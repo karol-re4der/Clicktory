@@ -81,7 +81,9 @@ public class Builder : MonoBehaviour
         Globals.GetSave().industrialTech = 0;
         Globals.GetSave().scientificTech = 0;
         Globals.GetSave().logisticTech = 0;
-
+        Globals.GetSave().unlocks = new List<string>();
+        Globals.GetSave().gameStats = new Stats();
+        Globals.GetLogic().sessionStats = new Stats();
 
         SetStartingState();
 

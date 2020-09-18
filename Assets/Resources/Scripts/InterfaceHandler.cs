@@ -103,6 +103,8 @@ public class InterfaceHandler : MonoBehaviour
             newFrame.transform.Find("Top/Name").GetComponent<TextMeshProUGUI>().text = upgrade.name;
             newFrame.transform.Find("Scroll View/Viewport/Content/Desc/").GetComponent<TextMeshProUGUI>().text = upgrade.desc.Replace("%d", ""+upgrade.increase);
 
+            newFrame.GetComponent<Button>().onClick.AddListener(()=>Button_Unlock(newFrame));
+
             foreach (Logic.UpgradeTree.Upgrade.Pair cost in upgrade.cost)
             {
                 GameObject newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, newFrame.transform.Find("Cost/Scroll View/Viewport/Content/"));
@@ -413,7 +415,28 @@ public class InterfaceHandler : MonoBehaviour
                 newRes.transform.Find("Icon").GetComponent<Image>().sprite = Globals.GetSave().GetResources().FindResSprite(cost.res);
                 newRes.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = Globals.ParseNumber(cost.amount);
             }
+
+            if (Globals.GetSave().IsUnlocked(trans.gameObject.name))
+            {
+                trans.gameObject.GetComponent<Button>().interactable = false;
+                trans.Find("Scroll View").gameObject.SetActive(false);
+                trans.Find("Cost").gameObject.SetActive(false);
+
+                trans.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(trans.gameObject.GetComponent<RectTransform>().sizeDelta.x, 100);
+            }
+            else
+            {
+                trans.gameObject.GetComponent<Button>().interactable = true;
+                trans.Find("Scroll View").gameObject.SetActive(true);
+                trans.Find("Cost").gameObject.SetActive(true);
+
+                trans.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(trans.gameObject.GetComponent<RectTransform>().sizeDelta.x, (Resources.Load("UI/UnlockFrame") as GameObject).GetComponent<RectTransform>().sizeDelta.y);
+
+            }
         }
+
+        frame.GetComponent<HierarchySort>().SortByName();
+        frame.GetComponent<HierarchySort>().SortByButtonBeingInteractable();
     }
     public void Button_Stats()
     {
@@ -461,6 +484,15 @@ public class InterfaceHandler : MonoBehaviour
     {
         Globals.GetLogic().TechUp(button.name);
         CheckUnlocks();
+    }
+    public void Button_Unlock(GameObject button)
+    {
+        Globals.GetLogic().Unlock(button.name);
+        if (Globals.GetSave().IsUnlocked(button.name))
+        {
+            CheckUnlocks();
+            Button_Workshop();
+        }
     }
     public void Button_Switch_Stats(GameObject frame)
     {

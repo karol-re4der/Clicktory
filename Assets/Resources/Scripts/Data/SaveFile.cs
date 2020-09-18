@@ -36,10 +36,24 @@ public class SaveFile
     public int scientificTech = 0;
     [SerializeField]
     public Stats gameStats = new Stats();
+    [SerializeField]
+    public List<string> unlocks = new List<string>();
 
     private string locationPath;
     private string saveExtension = ".save";
     private string saveName = "save";
+
+    public bool IsUnlocked(string name)
+    {
+        return unlocks.Contains(name);
+    }
+    public void Unlock(string name)
+    {
+        if (!IsUnlocked(name))
+        {
+            unlocks.Add(name);
+        }
+    }
 
     public ref GameObject[,] GetGrid()
     {
@@ -178,6 +192,7 @@ public class SaveFile
                 logisticTech = save.logisticTech;
                 industrialTech = save.industrialTech;
                 scientificTech = save.scientificTech;
+                unlocks = save.unlocks;
             }
             catch (Exception e)
             {
