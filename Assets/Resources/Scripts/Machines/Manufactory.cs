@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +8,65 @@ public class Manufactory : Machine
     private Gate gate_out;
     private List<Gate> gates_in;
 
-    private FlowingResource store_first;
-    private FlowingResource store_second;
+    private List<FlowingResource> store;
 
-    public string material_first;
-    public string material_second;
-    public string material_result;
+    public Recipe currentRecipe;
+    public List<Recipe> availableRecipes;
+
+    public class Recipe
+    {
+        public class Pair
+        {
+            public string material;
+            public int amount;
+            public Pair(string material, int amount)
+            {
+                this.material = material;
+                this.amount = amount;
+            }
+        }
+        public List<Pair> mat_in = new List<Pair>();
+        public Pair mat_out;
+    }
+
+    void Start()
+    {
+        store = new List<FlowingResource>();
+        availableRecipes = new List<Recipe>();
+
+        SetRecipes();
+
+        currentRecipe = availableRecipes.First();
+    }
+
+    protected virtual void SetRecipes()
+    {
+        //Gear
+        Recipe newRecipe = new Recipe();
+        newRecipe.mat_out = new Recipe.Pair("Gear", 1);
+        newRecipe.mat_in.Add(new Recipe.Pair("Metal", 1));
+        availableRecipes.Add(newRecipe);
+
+        //Wire
+        newRecipe = new Recipe();
+        newRecipe.mat_out = new Recipe.Pair("Wire", 1);
+        newRecipe.mat_in.Add(new Recipe.Pair("Metal", 1));
+        availableRecipes.Add(newRecipe);
+
+        //Mechanism
+        newRecipe = new Recipe();
+        newRecipe.mat_out = new Recipe.Pair("Mechanism", 1);
+        newRecipe.mat_in.Add(new Recipe.Pair("Gear", 1));
+        newRecipe.mat_in.Add(new Recipe.Pair("Metal", 1));
+        availableRecipes.Add(newRecipe);
+
+        //PCB
+        newRecipe = new Recipe();
+        newRecipe.mat_out = new Recipe.Pair("PCB", 1);
+        newRecipe.mat_in.Add(new Recipe.Pair("Wire", 1));
+        newRecipe.mat_in.Add(new Recipe.Pair("Metal", 1));
+        availableRecipes.Add(newRecipe);
+    }
 
     private void FindGates()
     {
@@ -36,36 +90,25 @@ public class Manufactory : Machine
     public override bool CanActivate()
     {
         FindGates();
-        return base.CanActivate() && !gate_out.IsOccupied() && store_first && store_second;
+        return base.CanActivate() && !gate_out.IsOccupied() && currentRecipe!=null && store.Count()==currentRecipe.mat_in.Count();
     }
 
     public override void Activate()
     {
         if (CanActivate())
         {
-            if (store_second && store_first)
-            {
-                base.Activate();
-                store_first.Dispose();
-                store_second.Dispose();
-            }
-
+            base.Activate();
+            store.ForEach((x) => x.Dispose());
+            store.Clear();
         }
 
         foreach (Gate gate in gates_in)
         {
             if (gate.res)
             {
-                if (!store_first && gate.res.type.Equals(material_first))
-                {
-                    store_first = gate.res;
-                    store_first.Fade(false);
-                    gate.res = null;
-                }
-                else if (!store_second && gate.res.type.Equals(material_second))
-                {
-                    store_second = gate.res;
-                    store_second.Fade(false);
+                if(currentRecipe.mat_in.Find((x)=>x.material.Equals(gate.res.type))!=null && store.Where((x) => x.type.Equals(gate.res.type)).Count() == 0){
+                    store.Add(gate.res);
+                    gate.res.Fade(false);
                     gate.res = null;
                 }
             }
@@ -77,7 +120,7 @@ public class Manufactory : Machine
         if (CanEndActivation())
         {
             base.EndActivation();
-            gate_out.res = Globals.GetSave().GetResources().CreateFlowing(material_result, store_first.amount, gate_out.GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((gate_out.DirectionRotated() + 2) % 4, gate_out.DirectionRotated()), gate_out.GetComponent<MachinePart>().transform.position);
+            gate_out.res = Globals.GetSave().GetResources().CreateFlowing(currentRecipe.mat_out.material, currentRecipe.mat_out.amount, gate_out.GetComponent<SpriteRenderer>().sortingOrder + SpriteOrderDirection((gate_out.DirectionRotated() + 2) % 4, gate_out.DirectionRotated()), gate_out.GetComponent<MachinePart>().transform.position);
             gate_out.res.Teleport(gate_out, 0);
             gate_out.res.Appear();
             Globals.LogStat("Resources processed", 1);

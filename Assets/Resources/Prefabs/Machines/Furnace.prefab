@@ -134,7 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 1
   outputing: 0
-  owner: {fileID: 4682540236784319534}
+  owner: {fileID: 6852114728929513925}
   res: {fileID: 0}
 --- !u!1 &3660428391799110097
 GameObject:
@@ -145,7 +145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2372147179553683175}
-  - component: {fileID: 4682540236784319534}
+  - component: {fileID: 6852114728929513925}
   m_Layer: 0
   m_Name: Furnace
   m_TagString: Machine
@@ -169,7 +169,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4682540236784319534
+--- !u!114 &6852114728929513925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3660428391799110097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da04f444e6337848854e7d87dc10222, type: 3}
+  m_Script: {fileID: 11500000, guid: 393e7dd381bde3c4982354ab316ec885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editor_buildingCostKey: []
@@ -201,9 +201,6 @@ MonoBehaviour:
   activationTime: 3
   activationTimer: -1
   tier: 1
-  material_first: Coal
-  material_second: Ore
-  material_result: Iron
 --- !u!1 &6688718275549238540
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 0
   outputing: 1
-  owner: {fileID: 4682540236784319534}
+  owner: {fileID: 6852114728929513925}
   res: {fileID: 0}
 --- !u!114 &3745033391551407807
 MonoBehaviour:
@@ -355,5 +352,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 1
   outputing: 0
-  owner: {fileID: 4682540236784319534}
+  owner: {fileID: 6852114728929513925}
   res: {fileID: 0}

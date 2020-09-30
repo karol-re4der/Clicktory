@@ -98,13 +98,28 @@ public class ResourceStore
             case "Coal":
                 spriteNumber = 1;
                 break;
-            case "Iron":
+            case "Metal":
                 spriteNumber = 2;
                 break;
             case "Ore":
                 spriteNumber = 0;
                 break;
-            case "Science":
+            case "Gear":
+                spriteNumber = 5;
+                break;
+            case "Dirt":
+                spriteNumber = 3;
+                break;
+            case "Wires":
+                spriteNumber = 6;
+                break;
+            case "PCB":
+                spriteNumber = 7;
+                break;
+            case "Mechanism":
+                spriteNumber = 8;
+                break;
+            case "Tech 1":
                 spriteNumber = 4;
                 break;
         }
