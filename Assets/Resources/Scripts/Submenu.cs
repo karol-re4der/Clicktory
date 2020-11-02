@@ -12,7 +12,10 @@ public class Submenu : MonoBehaviour
 
     public bool startsActive = false;
 
-
+    public bool IsOn()
+    {
+        return content.activeSelf;
+    }
 
     void Start()
     {

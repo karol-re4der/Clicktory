@@ -47,6 +47,14 @@ public class InterfaceHandler : MonoBehaviour
 
                 transform.Find("Machine Bar/Scroll View/Viewport/Content/Name/").gameObject.GetComponent<TextMeshProUGUI>().text = activeMachine.type+(activeMachine.tier>1?(" "+activeMachine.tier):"");
 
+                if (activeMachine is Manufactory)
+                {
+                    transform.Find("Machine Bar/Scroll View/Viewport/Content/Blueprints").gameObject.SetActive(true);
+                }
+                else
+                {
+                    transform.Find("Machine Bar/Scroll View/Viewport/Content/Blueprints").gameObject.SetActive(false);
+                }
             }
 
         }
@@ -509,7 +517,58 @@ public class InterfaceHandler : MonoBehaviour
         }
     }
 
+    public void Button_Apply_Blueprint()
+    {
+        int index = GameObject.Find("Canvas").transform.Find("Blueprints Window/Content/Available/").gameObject.GetComponent<ToggleGroup>().ActiveToggles().First().transform.GetSiblingIndex();
+        ((Manufactory)activeMachine).currentRecipe = ((Manufactory)activeMachine).availableRecipes[index];
+        GameObject.Find("Canvas").transform.Find("Blueprints Window").gameObject.GetComponent<Submenu>().Exit();
+    }
+    public void Button_Machine_Blueprints()
+    {
+        Transform menu = GameObject.Find("Canvas").transform.Find("Blueprints Window");
+        if (menu.GetComponent<Submenu>().IsOn())
+        {
+            menu.GetComponent<Submenu>().Exit();
+        }
+        else
+        {
+            menu.GetComponent<Submenu>().Enter();
+            Transform available = menu.transform.Find("Content/Available/Scroll View/Viewport/Content/");
 
+            foreach(Transform frame in available)
+            {
+                Destroy(frame.gameObject);
+            }
+
+            foreach(Manufactory.Recipe recipe in ((Manufactory)activeMachine).availableRecipes)
+            {
+                Transform newFrame = Instantiate(Resources.Load("UI/BlueprintFrame") as GameObject, available).transform.Find("Scroll View/Viewport/Content/");
+
+                newFrame.parent.parent.parent.gameObject.GetComponent<ToggleWithIndicator>().group = menu.Find("Content/Available/").gameObject.GetComponent<ToggleGroup>();
+
+                Transform newRes = null;
+                foreach (Manufactory.Recipe.Pair pair in recipe.mat_in)
+                {
+                    if (newRes)
+                    {
+                        newRes.Find("Amount").gameObject.GetComponent<TextMeshProUGUI>().text += "+";
+                    }
+                    newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, newFrame).transform;
+                    newRes.Find("Amount").gameObject.GetComponent<TextMeshProUGUI>().text = "x"+Globals.ParseNumber(pair.amount);
+                    newRes.Find("Icon").gameObject.GetComponent<Image>().sprite = Globals.GetSave().GetResources().FindResSprite(pair.material);
+                }
+                newRes.Find("Amount").gameObject.GetComponent<TextMeshProUGUI>().text += "-->";
+                newRes = Instantiate(Resources.Load("UI/ResourceFrame") as GameObject, newFrame).transform;
+                newRes.Find("Amount").gameObject.GetComponent<TextMeshProUGUI>().text = "x" + Globals.ParseNumber(recipe.mat_out.amount);
+                newRes.Find("Icon").gameObject.GetComponent<Image>().sprite = Globals.GetSave().GetResources().FindResSprite(recipe.mat_out.material);
+
+                if (recipe == ((Manufactory)activeMachine).currentRecipe)
+                {
+                    var foo = newFrame.parent.parent.parent.gameObject.GetComponent<ToggleWithIndicator>();
+                }
+            }
+        }
+    }
     public void Button_Machine_Turnoff(ToggleWithIndicator toggle)
     {
         if (toggle.isOn == activeMachine.turnedOff)

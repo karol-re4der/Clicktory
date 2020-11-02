@@ -110,7 +110,7 @@ public class ResourceStore
             case "Dirt":
                 spriteNumber = 3;
                 break;
-            case "Wires":
+            case "Wire":
                 spriteNumber = 6;
                 break;
             case "PCB":
