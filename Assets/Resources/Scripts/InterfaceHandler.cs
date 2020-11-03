@@ -564,7 +564,7 @@ public class InterfaceHandler : MonoBehaviour
 
                 if (recipe == ((Manufactory)activeMachine).currentRecipe)
                 {
-                    var foo = newFrame.parent.parent.parent.gameObject.GetComponent<ToggleWithIndicator>();
+                    newFrame.parent.parent.parent.gameObject.GetComponent<ToggleWithIndicator>().SetToggled(true);
                 }
             }
         }

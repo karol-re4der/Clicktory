@@ -19,6 +19,7 @@ public class SaveFile
         public string content = "";
         public string deposit = "";
         public string res = "";
+        public int activeRecipe = 0;
         public bool turnedOff = false;
     }
 
@@ -81,6 +82,11 @@ public class SaveFile
             newTile.rotation = obj.GetComponent<Machine>().rotation;
             newTile.content = obj.GetComponent<Machine>().type;
 
+            if (obj.GetComponent<Manufactory>())
+            {
+                newTile.activeRecipe = obj.GetComponent<Manufactory>().availableRecipes.IndexOf(obj.GetComponent<Manufactory>().currentRecipe);
+            }
+
             if (obj.GetComponent<Machine>().turnedOff)
             {
                 newTile.turnedOff = true;
@@ -133,6 +139,11 @@ public class SaveFile
             {
                 grid[td.posX, td.posY].GetComponent<Tile>().NewMachine(td.content, td.rotation, restoring: true);
                 grid[td.posX, td.posY].GetComponent<Tile>().machine.GetComponent<Machine>().turnedOff = td.turnedOff;
+                if (td.activeRecipe > 0)
+                {
+                    grid[td.posX, td.posY].GetComponent<Tile>().machine.GetComponent<Manufactory>().SetRecipes();
+                    grid[td.posX, td.posY].GetComponent<Tile>().machine.GetComponent<Manufactory>().currentRecipe = grid[td.posX, td.posY].GetComponent<Tile>().machine.GetComponent<Manufactory>().availableRecipes[td.activeRecipe];
+                }
             }
             foreach (TileData td in saveData.Where((x) => x.res.Length > 0))
             {

@@ -122,6 +122,9 @@ public class ResourceStore
             case "Tech 1":
                 spriteNumber = 4;
                 break;
+            case "Tech 2":
+                spriteNumber = 9;
+                break;
         }
         return Resources.LoadAll<Sprite>("Textures/Resources/Resource_Spritesheet/")[spriteNumber];
     }

@@ -33,4 +33,12 @@ public class ToggleWithIndicator : Toggle
         }
         this.colors = cb;
     }
+    public void SetToggled(bool state)
+    {
+        if(isOn != state)
+        {
+            isOn = !isOn;
+            OnToggleValueChanged(isOn);
+        }
+    }
 }

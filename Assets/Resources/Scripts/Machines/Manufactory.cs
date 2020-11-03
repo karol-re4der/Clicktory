@@ -32,15 +32,20 @@ public class Manufactory : Machine
     void Start()
     {
         store = new List<FlowingResource>();
-        availableRecipes = new List<Recipe>();
+        
 
-        SetRecipes();
 
-        currentRecipe = availableRecipes.First();
+        if (currentRecipe==null)
+        {
+            SetRecipes();
+            currentRecipe = availableRecipes.First();
+        }
     }
 
-    protected virtual void SetRecipes()
+    public virtual void SetRecipes()
     {
+        availableRecipes = new List<Recipe>();
+
         //Gear
         Recipe newRecipe = new Recipe();
         newRecipe.mat_out = new Recipe.Pair("Gear", 1);

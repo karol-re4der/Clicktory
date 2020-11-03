@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Furnace : Manufactory
 {
-    protected override void SetRecipes()
+    public override void SetRecipes()
     {
         availableRecipes.Add(new Recipe());
         availableRecipes.First().mat_out = new Recipe.Pair("Metal", 1);
